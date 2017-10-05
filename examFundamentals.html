@@ -49,29 +49,29 @@
                         <tbody>
                           <tr>
                             <th>Result</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td id="r1_1"></td>
+                            <td id="r1_2"></td>
+                            <td id="r1_3"></td>
+                            <td id="r1_4"></td>
+                            <td id="r1_5"></td>
+                            <td id="r1_6"></td>
+                            <td id="r1_7"></td>
+                            <td id="r1_8"></td>
+                            <td id="r1_9"></td>
+                            <td id="r1_10"></td>
                           </tr>
                           <tr>
                             <th>Position</th>
-                            <td>4</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td id="p1_1">4</td>
+                            <td id="p1_2"></td>
+                            <td id="p1_3"></td>
+                            <td id="p1_4"></td>
+                            <td id="p1_5"></td>
+                            <td id="p1_6"></td>
+                            <td id="p1_7"></td>
+                            <td id="p1_8"></td>
+                            <td id="p1_9"></td>
+                            <td id="p1_10"></td>
                           </tr>
                         </tbody>
                       </table>
@@ -242,6 +242,10 @@
   <script>
     var imageNames = ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"]
     var image = "F1"
+    var currBox = ""
+
+    var f1_resultBox = [{"box":"r1_1", "result":""}, {"box":"r1_2", "result":""}, {"box":"r1_3", "result":""}, {"box":"r1_4", "result":""}, {"box":"r1_5", "result":""}, {"box":"r1_6", "result":""}, {"box":"r1_7", "result":""}, {"box":"r1_8", "result":""}, {"box":"r1_9", "result": ""}, {"box":"r1_10", "result":""}]
+    var f1_posBox = [{"box":"p1_1", "result":"4"}, {"box":"p1_2", "result":""}, {"box":"p1_3", "result":""}, {"box":"p1_4", "result":""}, {"box":"p1_5", "result":""}, {"box":"p1_6", "result":""}, {"box":"p1_7", "result":""}, {"box":"p1_8", "result":""}, {"box":"p1_9", "result": ""}, {"box":"p1_10", "result":""}]
 
     for(var i = 0; i < imageNames.length; i++){
       document.getElementById(imageNames[i]).addEventListener("mouseenter", function(){
@@ -249,7 +253,23 @@
         showSetup();
       });
     }
-    
+
+    for(var i = 0; i < f1_resultBox.length; i++){
+      document.getElementById(f1_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail();
+      });
+    }
+
+    function successFail(){
+      if(document.getElementById(currBox).innerText == "0"){
+        document.getElementById(currBox).innerText = "1"
+      }
+      else{
+        //document.getElementById(currBox).innerText = "0"
+      }
+    }
+
     function showSetup(){
       document.getElementById("examImg").src = "img/exam1/" + image + ".jpg";
     }
