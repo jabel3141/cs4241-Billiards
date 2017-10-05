@@ -1,17 +1,29 @@
-.body{
-	width: 97%;
+body {
+	width: 98%;
 	margin: auto;
+	background-color: #6198E7;
 }
 
-.examImages{
+h1 {
+	color: white;
+}
+
+#main {
+	margin-left: 15px;
+}
+
+.examImages {
 	
 }
 
-.drill{
+.drill {
 	width: 20%;
 }
 
-.affix{
-	
+#rightSide {
 	right: 0;
+}
+
+.affix {
+	top: 0;
 }
