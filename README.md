@@ -29,6 +29,14 @@
 - Search for username
 - Exam scores
 - Radar chart
+	* Ball Control - F2, F3, F4, F5, F7
+	* Accuracy - F1, F6
+	* Positioning - F8
+	* Complex Situation Ability - S1, S2, S3, S4
+	* Safe Ability - S5
+	* Special Shot Ability - S6, S7, S8, S9
+	* Break Ability - S10
+					
 - Basic info
 	* Username
 	* First name last initial
