@@ -9,31 +9,148 @@
     <script src="radar.js"></script>
     
     <style>
-      body {
-        overflow: hidden;
-        margin: 0;
-        font-size: 14px;
-        font-family: "Helvetica Neue", Helvetica;
-      }
-
-      #chart {
-        position: absolute;
-        top: 50px;
-        left: 100px;
+      table{
+        font-size: 13;
       } 
     </style>
   </head>
-  <body>
-    <div id="body">
-      <div id="chart">
-        
+  <body onload="init();">
+    <div class="row">
+      <div class="jumbotron text-center">
+        <h2 id="name"></h2>
+        <h4 id="user"></h4>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-6 well">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2>Exam 1 Scores</h2>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Cut</th>
+                  <th>Stop</th>
+                  <th>Follow</th>
+                  <th>Draw</th>
+                  <th>Stun</th>
+                  <th>Potting</th>
+                  <th>Wagon Wheel</th>
+                  <th>Target</th>
+                </tr>
+              </thead>
+              <tbody id="exam1Results">
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2>Exam 2 Scores</h2>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Line of Balls</th>
+                  <th>Rail Cut</th>
+                  <th>9-Ball</th>
+                  <th>8-Ball</th>
+                  <th>Saftey</th>
+                  <th>Kick</th>
+                  <th>Bank</th>
+                  <th>Elevated Cue</th>
+                  <th>Jump/Mass&eacute</th>
+                  <th>Break</th>
+                </tr>
+              </thead>
+              <tbody id="exam2Results">
+                
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        
+
+      </div>
+      <div class="col-sm-6 well">
+        <div id="body">
+          <div id="chart"> <!-- Radar chart -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </body>
 
   <script type="text/javascript" src="radarScript.js"></script>
   <script>
 
+    function init(){
+      var name = document.getElementById("name");
+      var username = document.getElementById("user");
+
+      name.innerText = 'Name'
+      username.innerText = 'Username: '
+
+      createExam1()
+      createExam2()
+    }
+
+
+    function createExam1(){  
+        var exam1Scores = document.getElementById("exam1Results");
+        var row = exam1Scores.insertRow(0);
+        var cell1 = row.insertCell(0)
+        var cell2 = row.insertCell(1)
+        var cell3 = row.insertCell(2)
+        var cell4 = row.insertCell(3)
+        var cell5 = row.insertCell(4)
+        var cell6 = row.insertCell(5)
+        var cell7 = row.insertCell(6)
+        var cell8 = row.insertCell(7)
+
+        cell1.innerHTML += "5"
+        cell2.innerHTML += "5"
+        cell3.innerHTML += "5"
+        cell4.innerHTML += "5"
+        cell5.innerHTML += "5"
+        cell6.innerHTML += "5"
+        cell7.innerHTML += "5"
+        cell8.innerHTML += "5"
+
+    }
+
+    function createExam2(){  
+        var exam2Scores = document.getElementById("exam2Results");
+        var row = exam2Scores.insertRow(0);
+        var cell1 = row.insertCell(0)
+        var cell2 = row.insertCell(1)
+        var cell3 = row.insertCell(2)
+        var cell4 = row.insertCell(3)
+        var cell5 = row.insertCell(4)
+        var cell6 = row.insertCell(5)
+        var cell7 = row.insertCell(6)
+        var cell8 = row.insertCell(7)
+        var cell9 = row.insertCell(8)
+        var cell10 = row.insertCell(9)
+
+        cell1.innerHTML += "5"
+        cell2.innerHTML += "5"
+        cell3.innerHTML += "5"
+        cell4.innerHTML += "5"
+        cell5.innerHTML += "5"
+        cell6.innerHTML += "5"
+        cell7.innerHTML += "5"
+        cell8.innerHTML += "5"
+        cell9.innerHTML += "5"
+        cell10.innerHTML += "5"
+    }
 
   </script>
 </html>
