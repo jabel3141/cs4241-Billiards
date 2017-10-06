@@ -243,6 +243,9 @@
     var imageNames = ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"]
     var image = "F1"
     var currBox = ""
+    var currPosition = [4, 4, 4, 4, 4]
+    var bonus = [0,0,0,0,0,0,0,0,0,0]
+    var total = 4
 
     var f1_resultBox = [{"box":"r1_1", "result":""}, {"box":"r1_2", "result":""}, {"box":"r1_3", "result":""}, {"box":"r1_4", "result":""}, {"box":"r1_5", "result":""}, {"box":"r1_6", "result":""}, {"box":"r1_7", "result":""}, {"box":"r1_8", "result":""}, {"box":"r1_9", "result": ""}, {"box":"r1_10", "result":""}]
     var f1_posBox = [{"box":"p1_1", "result":"4"}, {"box":"p1_2", "result":""}, {"box":"p1_3", "result":""}, {"box":"p1_4", "result":""}, {"box":"p1_5", "result":""}, {"box":"p1_6", "result":""}, {"box":"p1_7", "result":""}, {"box":"p1_8", "result":""}, {"box":"p1_9", "result": ""}, {"box":"p1_10", "result":""}]
@@ -257,21 +260,67 @@
     for(var i = 0; i < f1_resultBox.length; i++){
       document.getElementById(f1_resultBox[i].box).addEventListener("click", function(){
         currBox = this.id;
-        successFail();
+        successFail1();
       });
     }
 
-    function successFail(){
-      if(document.getElementById(currBox).innerText == "0"){
-        document.getElementById(currBox).innerText = "1"
+    function successFail1(){
+      var boxIndex = parseInt(currBox.replace("r1_", "")) - 1;
+      var posIndex = boxIndex + 1;
+      var nextPos = parseInt(f1_posBox[boxIndex].result);
+
+      if(f1_resultBox[boxIndex].result != 1){
+        document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-ok\"></span>"
+        f1_resultBox[boxIndex].result = 1;
       }
-      else{
-        //document.getElementById(currBox).innerText = "0"
+
+      else if(f1_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-remove\"></span>"
+        f1_resultBox[boxIndex].result = -1;
+      }
+
+      if(boxIndex < 9){
+        if(parseInt(f1_posBox[boxIndex].result) < 7 && parseInt(f1_posBox[boxIndex].result) > 1){
+          nextPos = nextPos + parseInt(f1_resultBox[boxIndex].result);
+        }
+        else if(parseInt(f1_posBox[boxIndex].result) == 7 && parseInt(f1_resultBox[boxIndex].result) < 0){
+          nextPos = nextPos + parseInt(f1_resultBox[boxIndex].result);
+        }
+
+        else if(parseInt(f1_posBox[boxIndex].result) == 1 && parseInt(f1_resultBox[boxIndex].result) > 0){
+          nextPos = nextPos + parseInt(f1_resultBox[boxIndex].result);
+        }
+
+        f1_posBox[posIndex].result = nextPos;
+        document.getElementById(f1_posBox[posIndex].box).innerText = nextPos
+      }
+      else if(boxIndex == 9){
+        calcTotal();
       }
     }
 
     function showSetup(){
       document.getElementById("examImg").src = "img/exam1/" + image + ".jpg";
+    }
+
+    function calcTotal(){
+      total = 4;
+      for(var i = 0; i < f1_resultBox.length; i++){
+        total = total + parseInt(f1_resultBox[i].result);
+        if(total < 1){
+          total = 1;
+        }
+      }
+
+      if(total < 1){
+        total = 1;
+      }
+
+      else if(total > 10){
+        total = 10;
+      }
+
+      alert("Points for this drill: " + total);
     }
 
   </script>

@@ -75,6 +75,12 @@ var server = http.createServer(function (req, res) {
     case '/index.html':
       sendFile(res, 'index.html')
       break
+    case '/examFundamentals.html':
+      sendFile(res, 'examFundamentals.html')
+      break
+    case '/examSkills.html':
+      sendFile(res, 'examSkills.html')
+      break
     case '/style.css':
       sendFile(res, 'style.css', 'text/css')
       break
