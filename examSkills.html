@@ -28,7 +28,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F1-Cut</td>
+                    <td>S1-Line</td>
                     <td>
                        <table class="table table-bordered">
                         <thead>
@@ -93,7 +93,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F2-Stop</td>
+                    <td>S2-Rail Cut</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -114,49 +114,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F3-Follow</td>
-                    <td>
-                      Table Goes Here
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div id="s4" class="row scoreTable well">
-            <div class="col-sm-12">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="drill">Drill</th>
-                    <th>Results</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>F4-Draw</td>
-                    <td>
-                      Table Goes Here
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div id="s5" class="row scoreTable well">
-            <div class="col-sm-12">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="drill">Drill</th>
-                    <th>Results</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>F5-Stun</td>
+                    <td>S3-9 Ball</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -177,49 +135,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F6-Pocketing</td>
-                    <td>
-                      Table Goes Here
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div id="s7" class="row scoreTable well">
-            <div class="col-sm-12">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="drill">Drill</th>
-                    <th>Results</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>F7-Wagon Wheel</td>
-                    <td>
-                      Table Goes Here
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div id="s8" class="row scoreTable well">
-            <div class="col-sm-12">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="drill">Drill</th>
-                    <th>Results</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>F8-Targets</td>
+                    <td>S4-8 Ball</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -240,7 +156,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F8-Targets</td>
+                    <td>S5-Saftey</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -261,7 +177,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F8-Targets</td>
+                    <td>S6-Kicks</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -282,7 +198,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F8-Targets</td>
+                    <td>S7-Banks</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -303,7 +219,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F8-Targets</td>
+                    <td>S8-Elevated Cue</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -324,7 +240,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F8-Targets</td>
+                    <td>S9-Jump/Mass&eacute</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -345,7 +261,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>F8-Targets</td>
+                    <td>S10-Breaks</td>
                     <td>
                       Table Goes Here
                     </td>
@@ -358,7 +274,7 @@
         </div>
         <div id="rightSide" class="col-sm-5 text-center" data-spy="affix" data-offset-top="100">
           <!-- Exam Setup Image -->
-          <img id="examImg" src="img/exam2/s1.jpg" class="img-rounded examImages" alt="Exam Setup Image" height="95%" >
+          <img id="examImg" src="img/exam2/s1.jpg" class="img-rounded examImages" alt="Exam Setup Image" height="95%" onclick="toggleImg()">
         </div>
       </div>
     </div>
@@ -368,16 +284,50 @@
   <script>
     var imageNames = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "s14"]
     var image = "s1"
+    var toggleS3 = 2;
+    var toggleS4 = 5;
+
+    document.getElementById("rightSide").addEventListener("click", toggleImg());
 
     for(var i = 0; i < imageNames.length; i++){
-      document.getElementById(imageNames[i]).addEventListener("mouseenter", function(){
-        image = this.id;
-        showSetup();
-      });
+      if((i > 2 && i < 5) || (i > 5 && i < 8)){
+
+      }
+
+      else {
+        document.getElementById(imageNames[i]).addEventListener("mouseenter", function(){
+          image = this.id;
+          if(image == "s3" || image == "s4" || image == "s5"){
+            image = imageNames[toggleS3];
+          }
+          else if(image == "s6" || image == "s7" || image == "s8"){
+            image = imageNames[toggleS4];
+          }
+          showSetup();
+        });
+      }
     }
     
     function showSetup(){
       document.getElementById("examImg").src = "img/exam2/" + image + ".jpg";
+    }
+
+    function toggleImg(){
+      if(image == "s3" || image == "s4" || image == "s5"){
+        toggleS3 = toggleS3 + 1;
+        if(toggleS3 > 4){
+          toggleS3 = 2;
+        }
+        image = imageNames[toggleS3]
+      }
+      else if(image == "s6" || image == "s7" || image == "s8"){
+        toggleS4 = toggleS4 + 1;
+        if(toggleS4 > 7){
+          toggleS4 = 5;
+        }
+        image = imageNames[toggleS4]
+      }
+      showSetup();
     }
 
   </script>
