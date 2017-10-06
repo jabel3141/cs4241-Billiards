@@ -95,7 +95,51 @@
                   <tr>
                     <td>F2-Stop</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Shot</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r2_1"></td>
+                            <td id="r2_2"></td>
+                            <td id="r2_3"></td>
+                            <td id="r2_4"></td>
+                            <td id="r2_5"></td>
+                            <td id="r2_6"></td>
+                            <td id="r2_7"></td>
+                            <td id="r2_8"></td>
+                            <td id="r2_9"></td>
+                            <td id="r2_10"></td>
+                          </tr>
+                          <tr>
+                            <th>Position</th>
+                            <td id="p2_1">4</td>
+                            <td id="p2_2"></td>
+                            <td id="p2_3"></td>
+                            <td id="p2_4"></td>
+                            <td id="p2_5"></td>
+                            <td id="p2_6"></td>
+                            <td id="p2_7"></td>
+                            <td id="p2_8"></td>
+                            <td id="p2_9"></td>
+                            <td id="p2_10"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -116,7 +160,51 @@
                   <tr>
                     <td>F3-Follow</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Shot</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r3_1"></td>
+                            <td id="r3_2"></td>
+                            <td id="r3_3"></td>
+                            <td id="r3_4"></td>
+                            <td id="r3_5"></td>
+                            <td id="r3_6"></td>
+                            <td id="r3_7"></td>
+                            <td id="r3_8"></td>
+                            <td id="r3_9"></td>
+                            <td id="r3_10"></td>
+                          </tr>
+                          <tr>
+                            <th>Position</th>
+                            <td id="p3_1">4</td>
+                            <td id="p3_2"></td>
+                            <td id="p3_3"></td>
+                            <td id="p3_4"></td>
+                            <td id="p3_5"></td>
+                            <td id="p3_6"></td>
+                            <td id="p3_7"></td>
+                            <td id="p3_8"></td>
+                            <td id="p3_9"></td>
+                            <td id="p3_10"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -137,7 +225,51 @@
                   <tr>
                     <td>F4-Draw</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Shot</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r4_1"></td>
+                            <td id="r4_2"></td>
+                            <td id="r4_3"></td>
+                            <td id="r4_4"></td>
+                            <td id="r4_5"></td>
+                            <td id="r4_6"></td>
+                            <td id="r4_7"></td>
+                            <td id="r4_8"></td>
+                            <td id="r4_9"></td>
+                            <td id="r4_10"></td>
+                          </tr>
+                          <tr>
+                            <th>Position</th>
+                            <td id="p4_1">4</td>
+                            <td id="p4_2"></td>
+                            <td id="p4_3"></td>
+                            <td id="p4_4"></td>
+                            <td id="p4_5"></td>
+                            <td id="p4_6"></td>
+                            <td id="p4_7"></td>
+                            <td id="p4_8"></td>
+                            <td id="p4_9"></td>
+                            <td id="p4_10"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -243,12 +375,20 @@
     var imageNames = ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"]
     var image = "F1"
     var currBox = ""
-    var currPosition = [4, 4, 4, 4, 4]
-    var bonus = [0,0,0,0,0,0,0,0,0,0]
     var total = 4
+    var drillScores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     var f1_resultBox = [{"box":"r1_1", "result":""}, {"box":"r1_2", "result":""}, {"box":"r1_3", "result":""}, {"box":"r1_4", "result":""}, {"box":"r1_5", "result":""}, {"box":"r1_6", "result":""}, {"box":"r1_7", "result":""}, {"box":"r1_8", "result":""}, {"box":"r1_9", "result": ""}, {"box":"r1_10", "result":""}]
     var f1_posBox = [{"box":"p1_1", "result":"4"}, {"box":"p1_2", "result":""}, {"box":"p1_3", "result":""}, {"box":"p1_4", "result":""}, {"box":"p1_5", "result":""}, {"box":"p1_6", "result":""}, {"box":"p1_7", "result":""}, {"box":"p1_8", "result":""}, {"box":"p1_9", "result": ""}, {"box":"p1_10", "result":""}]
+
+    var f2_resultBox = [{"box":"r2_1", "result":""}, {"box":"r2_2", "result":""}, {"box":"r2_3", "result":""}, {"box":"r2_4", "result":""}, {"box":"r2_5", "result":""}, {"box":"r2_6", "result":""}, {"box":"r2_7", "result":""}, {"box":"r2_8", "result":""}, {"box":"r2_9", "result": ""}, {"box":"r2_10", "result":""}]
+    var f2_posBox = [{"box":"p2_1", "result":"4"}, {"box":"p2_2", "result":""}, {"box":"p2_3", "result":""}, {"box":"p2_4", "result":""}, {"box":"p2_5", "result":""}, {"box":"p2_6", "result":""}, {"box":"p2_7", "result":""}, {"box":"p2_8", "result":""}, {"box":"p2_9", "result": ""}, {"box":"p2_10", "result":""}]
+
+    var f3_resultBox = [{"box":"r3_1", "result":""}, {"box":"r3_2", "result":""}, {"box":"r3_3", "result":""}, {"box":"r3_4", "result":""}, {"box":"r3_5", "result":""}, {"box":"r3_6", "result":""}, {"box":"r3_7", "result":""}, {"box":"r3_8", "result":""}, {"box":"r3_9", "result": ""}, {"box":"r3_10", "result":""}]
+    var f3_posBox = [{"box":"p3_1", "result":"4"}, {"box":"p3_2", "result":""}, {"box":"p3_3", "result":""}, {"box":"p3_4", "result":""}, {"box":"p3_5", "result":""}, {"box":"p3_6", "result":""}, {"box":"p3_7", "result":""}, {"box":"p3_8", "result":""}, {"box":"p3_9", "result": ""}, {"box":"p3_10", "result":""}]
+
+    var f4_resultBox = [{"box":"r4_1", "result":""}, {"box":"r4_2", "result":""}, {"box":"r4_3", "result":""}, {"box":"r4_4", "result":""}, {"box":"r4_5", "result":""}, {"box":"r4_6", "result":""}, {"box":"r4_7", "result":""}, {"box":"r4_8", "result":""}, {"box":"r4_9", "result": ""}, {"box":"r4_10", "result":""}]
+    var f4_posBox = [{"box":"p4_1", "result":"4"}, {"box":"p4_2", "result":""}, {"box":"p4_3", "result":""}, {"box":"p4_4", "result":""}, {"box":"p4_5", "result":""}, {"box":"p4_6", "result":""}, {"box":"p4_7", "result":""}, {"box":"p4_8", "result":""}, {"box":"p4_9", "result": ""}, {"box":"p4_10", "result":""}]
 
     for(var i = 0; i < imageNames.length; i++){
       document.getElementById(imageNames[i]).addEventListener("mouseenter", function(){
@@ -264,12 +404,37 @@
       });
     }
 
+    for(var i = 0; i < f2_resultBox.length; i++){
+      document.getElementById(f2_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail2();
+      });
+    }
+
+    for(var i = 0; i < f3_resultBox.length; i++){
+      document.getElementById(f3_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail3();
+      });
+    }
+
+    for(var i = 0; i < f4_resultBox.length; i++){
+      document.getElementById(f4_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail4();
+      });
+    }
+
+    function showSetup(){
+      document.getElementById("examImg").src = "img/exam1/" + image + ".jpg";
+    }
+
     function successFail1(){
       var boxIndex = parseInt(currBox.replace("r1_", "")) - 1;
       var posIndex = boxIndex + 1;
       var nextPos = parseInt(f1_posBox[boxIndex].result);
 
-      if(f1_resultBox[boxIndex].result != 1){
+      if(f1_resultBox[boxIndex].result == ""){
         document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-ok\"></span>"
         f1_resultBox[boxIndex].result = 1;
       }
@@ -277,6 +442,11 @@
       else if(f1_resultBox[boxIndex].result == 1){
         document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-remove\"></span>"
         f1_resultBox[boxIndex].result = -1;
+      }
+
+      else if(f1_resultBox[boxIndex].result == -1){
+        document.getElementById(currBox).innerHTML = ""
+        f1_resultBox[boxIndex].result = "";
       }
 
       if(boxIndex < 9){
@@ -291,19 +461,20 @@
           nextPos = nextPos + parseInt(f1_resultBox[boxIndex].result);
         }
 
-        f1_posBox[posIndex].result = nextPos;
-        document.getElementById(f1_posBox[posIndex].box).innerText = nextPos
+        if(isNaN(nextPos)){
+          document.getElementById(f1_posBox[posIndex].box).innerHTML = "";
+        }
+        else{
+          f1_posBox[posIndex].result = nextPos;
+          document.getElementById(f1_posBox[posIndex].box).innerText = nextPos;
+        }
       }
       else if(boxIndex == 9){
-        calcTotal();
+        calcTotal1();
       }
     }
 
-    function showSetup(){
-      document.getElementById("examImg").src = "img/exam1/" + image + ".jpg";
-    }
-
-    function calcTotal(){
+    function calcTotal1(){
       total = 4;
       for(var i = 0; i < f1_resultBox.length; i++){
         total = total + parseInt(f1_resultBox[i].result);
@@ -319,9 +490,203 @@
       else if(total > 10){
         total = 10;
       }
-
-      alert("Points for this drill: " + total);
+      drillScores[0] = total;
+      alert("Points for this drill: " + drillScores[0]);
     }
 
+    function successFail2(){
+      var boxIndex = parseInt(currBox.replace("r2_", "")) - 1;
+      var posIndex = boxIndex + 1;
+      var nextPos = parseInt(f2_posBox[boxIndex].result);
+
+      if(f2_resultBox[boxIndex].result == ""){
+        document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-ok\"></span>"
+        f2_resultBox[boxIndex].result = 1;
+      }
+
+      else if(f2_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-remove\"></span>"
+        f2_resultBox[boxIndex].result = -1;
+      }
+
+      else if(f2_resultBox[boxIndex].result == -1){
+        document.getElementById(currBox).innerHTML = ""
+        f2_resultBox[boxIndex].result = "";
+      }
+
+      if(boxIndex < 9){
+        if(parseInt(f2_posBox[boxIndex].result) < 7 && parseInt(f2_posBox[boxIndex].result) > 1){
+          nextPos = nextPos + parseInt(f2_resultBox[boxIndex].result);
+        }
+        else if(parseInt(f2_posBox[boxIndex].result) == 7 && parseInt(f2_resultBox[boxIndex].result) < 0){
+          nextPos = nextPos + parseInt(f2_resultBox[boxIndex].result);
+        }
+
+        else if(parseInt(f2_posBox[boxIndex].result) == 1 && parseInt(f2_resultBox[boxIndex].result) > 0){
+          nextPos = nextPos + parseInt(f2_resultBox[boxIndex].result);
+        }
+
+        if(isNaN(nextPos)){
+          document.getElementById(f2_posBox[posIndex].box).innerHTML = "";
+        }
+        else{
+          f2_posBox[posIndex].result = nextPos;
+          document.getElementById(f2_posBox[posIndex].box).innerText = nextPos;
+        }
+      }
+      else if(boxIndex == 9){
+        calcTotal2();
+      }
+    }
+
+    function calcTotal2(){
+      total = 4;
+      for(var i = 0; i < f2_resultBox.length; i++){
+        total = total + parseInt(f2_resultBox[i].result);
+        if(total < 1){
+          total = 1;
+        }
+      }
+
+      if(total < 1){
+        total = 1;
+      }
+
+      else if(total > 10){
+        total = 10;
+      }
+      drillScores[1] = total;
+      alert("Points for this drill: " + drillScores[1]);
+    }
+
+    function successFail3(){
+      var boxIndex = parseInt(currBox.replace("r3_", "")) - 1;
+      var posIndex = boxIndex + 1;
+      var nextPos = parseInt(f3_posBox[boxIndex].result);
+
+      if(f3_resultBox[boxIndex].result == ""){
+        document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-ok\"></span>"
+        f3_resultBox[boxIndex].result = 1;
+      }
+
+      else if(f3_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-remove\"></span>"
+        f3_resultBox[boxIndex].result = -1;
+      }
+
+      else if(f3_resultBox[boxIndex].result == -1){
+        document.getElementById(currBox).innerHTML = ""
+        f3_resultBox[boxIndex].result = "";
+      }
+
+      if(boxIndex < 9){
+        if(parseInt(f3_posBox[boxIndex].result) < 7 && parseInt(f3_posBox[boxIndex].result) > 1){
+          nextPos = nextPos + parseInt(f3_resultBox[boxIndex].result);
+        }
+        else if(parseInt(f3_posBox[boxIndex].result) == 7 && parseInt(f3_resultBox[boxIndex].result) < 0){
+          nextPos = nextPos + parseInt(f3_resultBox[boxIndex].result);
+        }
+
+        else if(parseInt(f3_posBox[boxIndex].result) == 1 && parseInt(f3_resultBox[boxIndex].result) > 0){
+          nextPos = nextPos + parseInt(f3_resultBox[boxIndex].result);
+        }
+
+        if(isNaN(nextPos)){
+          document.getElementById(f3_posBox[posIndex].box).innerHTML = "";
+        }
+        else{
+          f3_posBox[posIndex].result = nextPos;
+          document.getElementById(f3_posBox[posIndex].box).innerText = nextPos;
+        }
+      }
+      else if(boxIndex == 9){
+        calcTotal3();
+      }
+    }
+
+    function calcTotal3(){
+      total = 4;
+      for(var i = 0; i < f3_resultBox.length; i++){
+        total = total + parseInt(f3_resultBox[i].result);
+        if(total < 1){
+          total = 1;
+        }
+      }
+
+      if(total < 1){
+        total = 1;
+      }
+
+      else if(total > 10){
+        total = 10;
+      }
+      drillScores[2] = total;
+      alert("Points for this drill: " + drillScores[2]);
+    }
+
+    function successFail4(){
+      var boxIndex = parseInt(currBox.replace("r4_", "")) - 1;
+      var posIndex = boxIndex + 1;
+      var nextPos = parseInt(f4_posBox[boxIndex].result);
+
+      if(f4_resultBox[boxIndex].result == ""){
+        document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-ok\"></span>"
+        f4_resultBox[boxIndex].result = 1;
+      }
+
+      else if(f4_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = "<span class=\"glyphicon glyphicon-remove\"></span>"
+        f4_resultBox[boxIndex].result = -1;
+      }
+
+      else if(f4_resultBox[boxIndex].result == -1){
+        document.getElementById(currBox).innerHTML = ""
+        f4_resultBox[boxIndex].result = "";
+      }
+
+      if(boxIndex < 9){
+        if(parseInt(f4_posBox[boxIndex].result) < 7 && parseInt(f4_posBox[boxIndex].result) > 1){
+          nextPos = nextPos + parseInt(f4_resultBox[boxIndex].result);
+        }
+        else if(parseInt(f4_posBox[boxIndex].result) == 7 && parseInt(f4_resultBox[boxIndex].result) < 0){
+          nextPos = nextPos + parseInt(f4_resultBox[boxIndex].result);
+        }
+
+        else if(parseInt(f4_posBox[boxIndex].result) == 1 && parseInt(f4_resultBox[boxIndex].result) > 0){
+          nextPos = nextPos + parseInt(f4_resultBox[boxIndex].result);
+        }
+
+        if(isNaN(nextPos)){
+          document.getElementById(f4_posBox[posIndex].box).innerHTML = "";
+        }
+        else{
+          f4_posBox[posIndex].result = nextPos;
+          document.getElementById(f4_posBox[posIndex].box).innerText = nextPos;
+        }
+      }
+      else if(boxIndex == 9){
+        calcTotal4();
+      }
+    }
+
+    function calcTotal4(){
+      total = 4;
+      for(var i = 0; i < f4_resultBox.length; i++){
+        total = total + parseInt(f4_resultBox[i].result);
+        if(total < 1){
+          total = 1;
+        }
+      }
+
+      if(total < 1){
+        total = 1;
+      }
+
+      else if(total > 10){
+        total = 10;
+      }
+      drillScores[3] = total;
+      alert("Points for this drill: " + drillScores[3]);
+    }
   </script>
 </html>
