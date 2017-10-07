@@ -3,35 +3,3 @@ body {
 	margin: auto;
 	background-color: #6198E7;
 }
-
-h1 {
-	color: white;
-}
-
-#main {
-	margin-left: 15px;
-}
-
-.examImages {
-	
-}
-
-.drill {
-	width: 15%;
-}
-
-#rightSide {
-	right: 0;
-}
-
-.affix {
-	top: 20;
-}
-
-td, th {
-	text-align: center;
-}
-
-.btn {
-	width: 100%;
-}
