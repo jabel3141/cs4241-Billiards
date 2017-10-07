@@ -3,19 +3,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link id="css" rel="stylesheet" type="text/css" href="style.css"/>
+    <link id="css" rel="stylesheet" type="text/css" href="style.css"/>   
   </head>
-  <body>
-    <!-- 
-    Jumbotron
-    About
-    Link to BU Exam Site
-    Initial Table Setup
-    BU Score and Rating Table
-  
-    Link to http://billiarduniversity.org/exams.html
-    -->
-
+  <body onload="init();">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -27,7 +17,6 @@
           </button>
           <a class="navbar-brand" href="#"><span class="active">WPI CSC Billiard Analytics </span> <span class="sr-only">Current</span></a>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <ul class="nav navbar-nav">
             <li><a href="examFundamentals.html">Exam 1 </a></li>
@@ -57,19 +46,42 @@
     </nav>
 
     <div class="row">
-      <div class="col-sm-12">
-        <img src="img/home/1.png" alt="General Setup" width="700px" height="350px" class="img-responsive center-block">
-      </div>
-    </div>
       
-    <div class="row">
-      <div class="col-sm-12">
-        <img src="img/home/2.png" alt="Point Conversion" width="600px" height="300px" class="img-responsive center-block">
+      <div class="col-sm-6">
+
+        <div class="well row">
+
+          <form action="search" method="POST" onsubmit="return false">
+            <div class="input-group">
+              <input id="searchTitle" class="form-control" type="text" name="movie" />
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit" onclick="search()">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="well row">
+          <form action="#" method="GET" onsubmit="return false">
+            <div class="input-group">
+              <input id="searchTitleClear" class="form-control" style="display:none" type="text" name="movie" />
+              <div class="input-group-btn">
+                <button style="margin: auto; width: 100%; padding: 10px;" class="btn btn-default" type="submit" onclick="clearSearch()">Clear Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="list-group">
+          <a href="Profiles.html" class="list-group-item">Test Dummy 1</a>
+          <a href="#" class="list-group-item">Second item</a>
+          <a href="#" class="list-group-item">Third item</a>
+        </div>
       </div>
     </div>
-
+    
   </body>
-  
+
   <script>
 
 

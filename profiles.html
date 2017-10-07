@@ -15,9 +15,48 @@
     </style>
   </head>
   <body onload="init();">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="active">WPI CSC Billiard Analytics </span> <span class="sr-only">Current</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li><a href="examFundamentals.html">Exam 1 </a></li>
+            <li><a href="examSkills.html">Exam 2</a></li>
+            <li class="dropdown">
+              <a href="searchProfile.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Week's Top 10</a></li>
+                <li><a href="#">Month's Top </a></li>
+                <li><a href="#">Year's Top 10</a></li>
+                <li class="divider"></li>
+                <li><a href="searchProfile.html">All Players</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Profiles">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://billiarduniversity.org/exams.html" target="_blank">Link</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <div class="row">
       <div class="jumbotron text-center">
-        <h2 id="name"></h2>
+        <h1 id="name"></h1>
         <h4 id="user"></h4>
       </div>
     </div>
@@ -105,24 +144,26 @@
 
     function createExam1(){  
         var exam1Scores = document.getElementById("exam1Results");
-        var row = exam1Scores.insertRow(0);
-        var cell1 = row.insertCell(0)
-        var cell2 = row.insertCell(1)
-        var cell3 = row.insertCell(2)
-        var cell4 = row.insertCell(3)
-        var cell5 = row.insertCell(4)
-        var cell6 = row.insertCell(5)
-        var cell7 = row.insertCell(6)
-        var cell8 = row.insertCell(7)
+        for(var i = 0; i < 5; i++){
+          var row = exam1Scores.insertRow(i);
+          var cell1 = row.insertCell(0)
+          var cell2 = row.insertCell(1)
+          var cell3 = row.insertCell(2)
+          var cell4 = row.insertCell(3)
+          var cell5 = row.insertCell(4)
+          var cell6 = row.insertCell(5)
+          var cell7 = row.insertCell(6)
+          var cell8 = row.insertCell(7)
 
-        cell1.innerHTML += "5"
-        cell2.innerHTML += "5"
-        cell3.innerHTML += "5"
-        cell4.innerHTML += "5"
-        cell5.innerHTML += "5"
-        cell6.innerHTML += "5"
-        cell7.innerHTML += "5"
-        cell8.innerHTML += "5"
+          cell1.innerHTML += "5"
+          cell2.innerHTML += "5"
+          cell3.innerHTML += "5"
+          cell4.innerHTML += "5"
+          cell5.innerHTML += "5"
+          cell6.innerHTML += "5"
+          cell7.innerHTML += "5"
+          cell8.innerHTML += "5"
+        }
 
     }
 

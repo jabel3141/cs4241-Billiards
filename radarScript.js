@@ -4,12 +4,11 @@ var w = 500,
 var colorscale = d3.scale.category10();
 
 //Legend titles
-var LegendOptions = ['Person 1','Person 2'];
+var LegendOptions = ['Test 1', 'Test 2', 'Test 3'];
 
 //Data
 var d = [
 		  [
-			
 			{axis:"Ball Control",value:0.56},
 			{axis:"Accuracy",value:0.59},
 			{axis:"Positioning",value:0.42},
@@ -17,14 +16,24 @@ var d = [
 			{axis:"Safe Ability",value:0.34},
 			{axis:"Special Shot Ability",value:0.48},
 			{axis:"Break Ability",value:0.48},
-		  ],[
+		  ],
+		  [
 			{axis:"Ball Control",value:0.9},
-			{axis:"Accuracy",value:0.4},
-			{axis:"Positioning",value:0.36},
-			{axis:"Complex Situation Ability",value:0.23},
-			{axis:"Safe Ability",value:0.78},
-			{axis:"Special Shot Ability",value:0.56},
-			{axis:"Break Ability",value:0.1},
+			{axis:"Accuracy",value:0.9},
+			{axis:"Positioning",value:0.9},
+			{axis:"Complex Situation Ability",value:0.48},
+			{axis:"Safe Ability",value:0.34},
+			{axis:"Special Shot Ability",value:0.11},
+			{axis:"Break Ability",value:0.2},
+		  ],
+		  [
+			{axis:"Ball Control",value:0.1},
+			{axis:"Accuracy",value:0.1},
+			{axis:"Positioning",value:0.1},
+			{axis:"Complex Situation Ability",value:0.1},
+			{axis:"Safe Ability",value:0.1},
+			{axis:"Special Shot Ability",value:0.5},
+			{axis:"Break Ability",value:0.3},
 		  ]
 		];
 
