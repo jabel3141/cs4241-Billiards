@@ -9,15 +9,24 @@
 
     <div>
       <div class="page-header">
-        <h1>Billiards Exam - Fundamentals</h1>
+        <h1 id="headingText">Billiards Exam - Fundamentals</h1>
       </div> 
     </div>
 
     <div id="main">
 
       <div class="row">
+        <div class="col-sm-3">
+          <form action="examSubmit" method="POST" onsubmit="return false">
+            <input id="username" type="text" name="title" class="form-control" placeholder="Username" onkeyup="nameUpdate()"/>
+            <button type="submit" class="btn btn-primary" onclick="submitExam()">Submit Exam</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-sm-12">
-          
+          <p></p>
         </div>
       </div>
 
@@ -535,6 +544,7 @@
     var image = "F1"
     var currBox = ""
     var total = 4
+    var user = ""
     var drillScores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     var checkMark = "&#10004"
@@ -668,9 +678,6 @@
           document.getElementById(f1_posBox[posIndex].box).innerText = nextPos;
         }
       }
-      else if(boxIndex == 9){
-        calcTotal1();
-      }
     }
 
     function calcTotal1(){
@@ -690,7 +697,6 @@
         total = 10;
       }
       drillScores[0] = total;
-      alert("Points for this drill: " + drillScores[0]);
     }
 
     function successFail2(){
@@ -733,9 +739,6 @@
           document.getElementById(f2_posBox[posIndex].box).innerText = nextPos;
         }
       }
-      else if(boxIndex == 9){
-        calcTotal2();
-      }
     }
 
     function calcTotal2(){
@@ -755,7 +758,6 @@
         total = 10;
       }
       drillScores[1] = total;
-      alert("Points for this drill: " + drillScores[1]);
     }
 
     function successFail3(){
@@ -798,9 +800,6 @@
           document.getElementById(f3_posBox[posIndex].box).innerText = nextPos;
         }
       }
-      else if(boxIndex == 9){
-        calcTotal3();
-      }
     }
 
     function calcTotal3(){
@@ -820,7 +819,6 @@
         total = 10;
       }
       drillScores[2] = total;
-      alert("Points for this drill: " + drillScores[2]);
     }
 
     function successFail4(){
@@ -863,9 +861,6 @@
           document.getElementById(f4_posBox[posIndex].box).innerText = nextPos;
         }
       }
-      else if(boxIndex == 9){
-        calcTotal4();
-      }
     }
 
     function calcTotal4(){
@@ -885,7 +880,6 @@
         total = 10;
       }
       drillScores[3] = total;
-      alert("Points for this drill: " + drillScores[3]);
     }
 
     function successFail5(){
@@ -928,9 +922,6 @@
           document.getElementById(f5_posBox[posIndex].box).innerText = nextPos;
         }
       }
-      else if(boxIndex == 9){
-        calcTotal5();
-      }
     }
 
     function calcTotal5(){
@@ -950,7 +941,6 @@
         total = 10;
       }
       drillScores[4] = total;
-      alert("Points for this drill: " + drillScores[4]);
     }
 
     function successFail6(){
@@ -965,10 +955,6 @@
         document.getElementById(currBox).innerHTML = xMark;
         f6_resultBox[boxIndex].result = 0;
       }
-
-      if(boxIndex == 9){
-        calcTotal6();
-      }
     }
 
     function calcTotal6(){
@@ -979,7 +965,6 @@
       }
 
       drillScores[5] = total;
-      alert("Points for this drill: " + drillScores[5]);
     }
 
     function successFail7(){
@@ -994,10 +979,6 @@
         document.getElementById(currBox).innerHTML = xMark;
         f7_resultBox[boxIndex].result = 0;
       }
-
-      if(boxIndex == 19){
-        calcTotal7();
-      }
     }
 
     function calcTotal7(){
@@ -1008,7 +989,6 @@
       }
 
       drillScores[6] = total;
-      alert("Points for this drill: " + drillScores[6]);
     }
 
     function successFail8(){
@@ -1023,10 +1003,6 @@
         document.getElementById(currBox).innerHTML = xMark;
         f8_resultBox[boxIndex].result = 0;
       }
-
-      if(boxIndex == 19){
-        calcTotal8();
-      }
     }
 
     function calcTotal8(){
@@ -1037,7 +1013,35 @@
       }
 
       drillScores[7] = total;
-      alert("Points for this drill: " + drillScores[7]);
+    }
+
+    function submitExam(){
+      calcTotal1();
+      calcTotal2();
+      calcTotal3();
+      calcTotal4();
+      calcTotal5();
+      calcTotal6();
+      calcTotal7();
+      calcTotal8();
+
+      alert("Total Points: " + drillScores[0] + "," + drillScores[1] + "," + drillScores[2] + "," + drillScores[3] + "," + drillScores[4] + "," + drillScores[5] + "," + drillScores[6] + "," + drillScores[7]);
+      /*
+      var xmlhttp = new XMLHttpRequest();
+          xmlhttp.addEventListener("load", reqListener);
+          xmlhttp.open("POST", "/submitExam", true);
+          xmlhttp.send(drillScores);
+      */
+    }
+
+    function nameUpdate(){
+      user = document.getElementById("username").value
+      if(user == ""){
+        document.getElementById("headingText").innerHTML = "Billiards Exam - Fundamentals"
+      }
+      else {
+        document.getElementById("headingText").innerHTML = "Billiards Exam - Fundamentals: <i>" + user + "</i>";
+      }
     }
 
   </script>

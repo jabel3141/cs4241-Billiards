@@ -6,19 +6,20 @@ var http = require('http')
   , port = 8080
 
 
-  var config = {
-     apiKey: "AIzaSyBQxD4DSfJ31NEgQv8fUJoEmEhl5yq5JZo",
-     authDomain: "cs4241-billiards.firebaseapp.com",
-     databaseURL: "https://cs4241-billiards.firebaseio.com",
-     projectId: "cs4241-billiards",
-     storageBucket: "cs4241-billiards.appspot.com",
-     messagingSenderId: "622381521618"
-   };
-   firebase.initializeApp(config);
+var config = {
+   apiKey: "AIzaSyBQxD4DSfJ31NEgQv8fUJoEmEhl5yq5JZo",
+   authDomain: "cs4241-billiards.firebaseapp.com",
+   databaseURL: "https://cs4241-billiards.firebaseio.com",
+   projectId: "cs4241-billiards",
+   storageBucket: "cs4241-billiards.appspot.com",
+   messagingSenderId: "622381521618"
+ };
+
+firebase.initializeApp(config);
 var i;
 // writeUserData('123', 'lane', 'l@a.a', 'imgurl')
 
-function writeUserData(username, name, exam1scores, exam2scores) {
+function writeUserDataExam1(username, name, exam1scores) {
     firebase.database().ref('users/' + username).set({
           username: username,
           name: name,
@@ -37,7 +38,19 @@ function writeUserData(username, name, exam1scores, exam2scores) {
           exam1total: exam1scores[0]+exam1scores[1]+exam1scores[2]+exam1scores[3]
           +exam1scores[4]+exam1scores[5]+exam1scores[6]+exam1scores[7],
 
+          /*
+          exam_total: exam1scores[0]+exam1scores[1]+exam1scores[2]+exam1scores[3]
+          +exam1scores[4]+exam1scores[5]+exam1scores[6]+exam1scores[7]+exam2scores[0]+exam2scores[1]+exam2scores[2]+
+          exam2scores[3]+exam2scores[4]+exam2scores[5]+exam2scores[6]+exam2scores[7]+exam2scores[8]+exam2scores[9]
+          */
+        });
+}
 
+function writeUserDataExam2(username, name, exam2scores) {
+    firebase.database().ref('users/' + username).set({
+          username: username,
+          name: name,
+          
           s1: exam2scores[0],
           s2: exam2scores[1],
           s3: exam2scores[2],
@@ -56,11 +69,13 @@ function writeUserData(username, name, exam1scores, exam2scores) {
           exam2total: exam2scores[0]+exam2scores[1]+exam2scores[2]+exam2scores[3]+exam2scores[4]+
           exam2scores[5]+exam2scores[6]+exam2scores[7]+exam2scores[8]+exam2scores[9],
 
-          exam_total: exam1scores[0]+exam1scores[1]+exam1scores[2]+exam1scores[3]
+          /*exam_total: exam1scores[0]+exam1scores[1]+exam1scores[2]+exam1scores[3]
           +exam1scores[4]+exam1scores[5]+exam1scores[6]+exam1scores[7]+exam2scores[0]+exam2scores[1]+exam2scores[2]+
           exam2scores[3]+exam2scores[4]+exam2scores[5]+exam2scores[6]+exam2scores[7]+exam2scores[8]+exam2scores[9]
+          */
         });
 }
+
 // writeUserData("thagen","Tom Hagen", [1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1])
 
 curl 'https://cs4241-billiards.firebaseio.com/users'
@@ -72,17 +87,33 @@ var server = http.createServer(function (req, res) {
     case '/':
       sendFile(res, 'index.html')
       break
+
     case '/index.html':
       sendFile(res, 'index.html')
       break
+
     case '/examFundamentals.html':
       sendFile(res, 'examFundamentals.html')
       break
+
     case '/examSkills.html':
       sendFile(res, 'examSkills.html')
       break
+
+    case '/profiles.html':
+      sendFile(res, 'profiles.html')
+      break
+
+    case '/searchProfile.html':
+      sendFile(res, 'searchProfile.html')
+      break
+
     case '/style.css':
       sendFile(res, 'style.css', 'text/css')
+      break
+
+    case '/submitExam':
+      
       break
     //case '/js/scripts.js':
       //sendFile(res, 'scripts.js', 'text/javascript')

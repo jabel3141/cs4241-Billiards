@@ -31,3 +31,7 @@ h1 {
 td, th {
 	text-align: center;
 }
+
+.btn {
+	width: 100%;
+}
