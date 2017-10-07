@@ -4,6 +4,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link id="css" rel="stylesheet" type="text/css" href="style.css"/>
+
+    <style>
+      .btn {width: 100%;}
+
+      h1 {color: white;}
+
+      #main {margin-left: 15px;}
+
+      .drill {width: 15%;}
+
+      #rightSide {right: 0;}
+
+      .affix {top: 20;}
+      
+      td, th {text-align: center;}
+    </style>
+
   </head>
   <body>
 
@@ -33,46 +50,20 @@
                        <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Shot</th>
+                            <th>Attempt</th>
                             <th>1</th>
                             <th>2</th>
-                            <th>3</th>
-                            <th>4</th>
-                            <th>5</th>
-                            <th>6</th>
-                            <th>7</th>
-                            <th>8</th>
-                            <th>9</th>
-                            <th>10</th>
+
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Result</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <th>Balls Pocketed</th>
+                            <td id="r1_1">0</td>
+                            <td id="r1_2">0</td>
+
                           </tr>
-                          <tr>
-                            <th>Position</th>
-                            <td>4</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
+
                         </tbody>
                       </table>
                     </td>
@@ -95,7 +86,25 @@
                   <tr>
                     <td>S2-Rail Cut</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Attempt</th>
+                            <th>1</th>
+                            <th>2</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Balls Pocketed</th>
+                            <td id="r2_1">0</td>
+                            <td id="r2_2">0</td>
+
+                          </tr>
+
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -116,7 +125,26 @@
                   <tr>
                     <td>S3-9 Ball</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Attempt</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Balls Pocketed</th>
+                            <td id="r3_1">0</td>
+                            <td id="r3_2">0</td>
+                            <td id="r3_3">0</td>
+
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -137,7 +165,26 @@
                   <tr>
                     <td>S4-8 Ball</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Attempt</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Balls Pocketed</th>
+                            <td id="r4_1">0</td>
+                            <td id="r4_2">0</td>
+                            <td id="r4_3">0</td>
+
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -287,6 +334,19 @@
     var toggleS3 = 2;
     var toggleS4 = 5;
 
+    var currBox = ""
+    var total = 4
+    var user = ""
+    var drillScores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    var s1_resultBox = [{"box":"r1_1", "result":"0"}, {"box":"r1_2", "result":"0"}]
+
+    var s2_resultBox = [{"box":"r2_1", "result":"0"}, {"box":"r2_2", "result":"0"}]
+
+    var s3_resultBox = [{"box":"r3_1", "result":"0"}, {"box":"r3_2", "result":"0"}, {"box":"r3_3", "result":"0"}]
+
+    var s4_resultBox = [{"box":"r4_1", "result":"0"}, {"box":"r4_2", "result":"0"}, {"box":"r4_3", "result":"0"}]
+
     document.getElementById("rightSide").addEventListener("click", toggleImg());
 
     for(var i = 0; i < imageNames.length; i++){
@@ -306,6 +366,180 @@
           showSetup();
         });
       }
+    }
+
+    for(var i = 0; i < s1_resultBox.length; i++){
+      document.getElementById(s1_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail1();
+      });
+    }
+
+    for(var i = 0; i < s2_resultBox.length; i++){
+      document.getElementById(s2_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail2();
+      });
+    }
+
+    for(var i = 0; i < s3_resultBox.length; i++){
+      document.getElementById(s3_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail3();
+      });
+    }
+
+    for(var i = 0; i < s4_resultBox.length; i++){
+      document.getElementById(s4_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail4();
+      });
+    }
+
+    function successFail1(){
+      var boxIndex = parseInt(currBox.replace("r1_", "")) - 1;
+      var score = parseInt(s1_resultBox[boxIndex].result)
+
+      score = score + 1;
+
+      if(score > 4){
+        score = 0;
+      }
+      s1_resultBox[boxIndex].result = score;
+      document.getElementById(currBox).innerHTML = score;
+      calcTotal1();
+    }
+
+    function calcTotal1(){
+      total = 0;
+      attempt1 = parseInt(s1_resultBox[0].result);
+      attempt2 = parseInt(s1_resultBox[1].result)
+
+      if(attempt1 > attempt2){
+        total = attempt1;
+      }
+
+      else {
+        total = attempt2;
+      }
+      drillScores[0] = total;
+    }
+
+    function successFail2(){
+      var boxIndex = parseInt(currBox.replace("r2_", "")) - 1;
+      var score = parseInt(s2_resultBox[boxIndex].result)
+
+      score = score + 1;
+
+      if(score > 7){
+        score = 0;
+      }
+      s2_resultBox[boxIndex].result = score;
+      document.getElementById(currBox).innerHTML = score;
+      calcTotal2();
+    }
+
+    function calcTotal2(){
+      total = 0;
+      attempt1 = parseInt(s2_resultBox[0].result);
+      attempt2 = parseInt(s2_resultBox[1].result)
+
+      if(attempt1 > attempt2){
+        total = attempt1;
+      }
+
+      else {
+        total = attempt2;
+      }
+      drillScores[1] = total;
+    }
+
+    function successFail3(){
+      var boxIndex = parseInt(currBox.replace("r3_", "")) - 1;
+      var score = parseInt(s3_resultBox[boxIndex].result)
+
+      score = score + 1;
+
+      if(score > 5){
+        score = 0;
+      }
+      s3_resultBox[boxIndex].result = score;
+      document.getElementById(currBox).innerHTML = score;
+      calcTotal3();
+    }
+
+    function calcTotal3(){
+      total = 0;
+      layout1 = parseInt(s3_resultBox[0].result);
+      layout2 = parseInt(s3_resultBox[1].result);
+      layout3 = parseInt(s3_resultBox[2].result);
+
+      if(layout1 < layout2){
+        total = total + layout1
+        if(layout2 < layout3){
+          total = total + layout2
+        }
+        else{
+          total = total + layout3
+        }
+      }
+
+      else {
+        total = total + layout2
+        if(layout1 < layout3){
+          total = total + layout1
+        }
+        else{
+          total = total + layout3
+        }
+      }
+
+      drillScores[2] = total;
+      console.log(drillScores[2]);
+    }
+
+    function successFail4(){
+      var boxIndex = parseInt(currBox.replace("r4_", "")) - 1;
+      var score = parseInt(s3_resultBox[boxIndex].result)
+
+      score = score + 1;
+
+      if(score > 5){
+        score = 0;
+      }
+      s3_resultBox[boxIndex].result = score;
+      document.getElementById(currBox).innerHTML = score;
+      calcTotal4();
+    }
+
+    function calcTotal4(){
+      total = 0;
+      layout1 = parseInt(s3_resultBox[0].result);
+      layout2 = parseInt(s3_resultBox[1].result);
+      layout3 = parseInt(s3_resultBox[2].result);
+
+      if(layout1 < layout2){
+        total = total + layout1
+        if(layout2 < layout3){
+          total = total + layout2
+        }
+        else{
+          total = total + layout3
+        }
+      }
+
+      else {
+        total = total + layout2
+        if(layout1 < layout3){
+          total = total + layout1
+        }
+        else{
+          total = total + layout3
+        }
+      }
+
+      drillScores[3] = total;
+      console.log(drillScores[3]);
     }
     
     function showSetup(){

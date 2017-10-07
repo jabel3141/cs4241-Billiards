@@ -78,7 +78,7 @@ function writeUserDataExam2(username, name, exam2scores) {
 
 // writeUserData("thagen","Tom Hagen", [1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1])
 
-curl 'https://cs4241-billiards.firebaseio.com/users'
+//curl 'https://cs4241-billiards.firebaseio.com/users'
 var server = http.createServer(function (req, res) {
   var uri = url.parse(req.url)
   // Note we no longer have an index.html file, but we handle the cases since that's what the browser will request
