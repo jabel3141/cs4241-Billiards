@@ -109,7 +109,7 @@ var server = http.createServer(function (req, res) {
     break
 
     case '/submitExam':
-    handleSubmit();
+    handleSubmit(res,req);
     break
     //case '/js/scripts.js':
     //sendFile(res, 'scripts.js', 'text/javascript')
@@ -203,7 +203,8 @@ function sendFile(res, filename, contentType) {
   })
 
 }
-function handlePost(res, req) {
+function handleSubmit(res, req) {
+  console.log('here');
   var body = '';
   req.on('data', function (data) {
     body += data;
@@ -215,5 +216,5 @@ function handlePost(res, req) {
     var post = qs.parse(body);
     writeUserDataExam1(post.user,post.scores)
     res.end()
-  }
+  });
 }
