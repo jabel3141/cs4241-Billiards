@@ -113,11 +113,81 @@ var server = http.createServer(function (req, res) {
       break
 
     case '/submitExam':
-      
+
       break
     //case '/js/scripts.js':
       //sendFile(res, 'scripts.js', 'text/javascript')
       //break
+
+    /////////////////////// IMAGES //////////////////////////////////
+    case '/img/exam1/F1.jpg':
+      sendFile(res, '/img/exam1/F1.jpg', 'image/jpg')
+      break
+    case '/img/exam1/F2.jpg':
+      sendFile(res, '/img/exam1/F2.jpg', 'image/jpg')
+      break
+    case '/img/exam1/F3.jpg':
+      sendFile(res, '/img/exam1/F3.jpg', 'image/jpg')
+      break
+    case '/img/exam1/F4.jpg':
+      sendFile(res, '/img/exam1/F4.jpg', 'image/jpg')
+      break
+    case '/img/exam1/F5.jpg':
+      sendFile(res, '/img/exam1/F5.jpg', 'image/jpg')
+      break
+    case '/img/exam1/F6.jpg':
+      sendFile(res, '/img/exam1/F6.jpg', 'image/jpg')
+      break
+    case '/img/exam1/F7.jpg':
+      sendFile(res, '/img/exam1/F7.jpg', 'image/jpg')
+      break
+    case '/img/exam1/F8.jpg':
+      sendFile(res, '/img/exam1/F8.jpg', 'image/jpg')
+      break
+
+    case '/img/exam_2/s1.jpg':
+      sendFile(res, '/img/exam_2/s1.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s2.jpg':
+      sendFile(res, '/img/exam_2/s2.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s3.jpg':
+      sendFile(res, '/img/exam_2/s3.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s4.jpg':
+      sendFile(res, '/img/exam_2/s4.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s5.jpg':
+      sendFile(res, '/img/exam_2/s5.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s6.jpg':
+      sendFile(res, '/img/exam_2/s6.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s7.jpg':
+      sendFile(res, '/img/exam_2/s7.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s8.jpg':
+      sendFile(res, '/img/exam_2/s8.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s9.jpg':
+      sendFile(res, '/img/exam_2/s9.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s10.jpg':
+      sendFile(res, '/img/exam_2/s10.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s11.jpg':
+      sendFile(res, '/img/exam_2/s11.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s12.jpg':
+      sendFile(res, '/img/exam_2/s12.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s13.jpg':
+      sendFile(res, '/img/exam_2/s13.jpg', 'image/jpg')
+      break
+    case '/img/exam_2/s14.jpg':
+      sendFile(res, '/img/exam_2/s14.jpg', 'image/jpg')
+      break
+    /////////////////////// END - IMAGES //////////////////////////////////
     default:
       res.end('404 not found')
   }
