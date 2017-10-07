@@ -17,7 +17,7 @@
       #rightSide {right: 0;}
 
       .affix {top: 20;}
-      
+
       td, th {text-align: center;}
     </style>
 
@@ -27,7 +27,7 @@
     <div>
       <div class="page-header">
         <h1 id="headingText">Billiards Exam - Fundamentals</h1>
-      </div> 
+      </div>
     </div>
 
     <div id="main">
@@ -553,7 +553,7 @@
         </div>
       </div>
     </div>
-    
+
 
   </body>
   <script>
@@ -1043,12 +1043,12 @@
       calcTotal8();
 
       alert("Total Points: " + drillScores[0] + "," + drillScores[1] + "," + drillScores[2] + "," + drillScores[3] + "," + drillScores[4] + "," + drillScores[5] + "," + drillScores[6] + "," + drillScores[7]);
-      /*
+
       var xmlhttp = new XMLHttpRequest();
           xmlhttp.addEventListener("load", reqListener);
           xmlhttp.open("POST", "/submitExam", true);
-          xmlhttp.send(drillScores);
-      */
+          xmlhttp.send('scores='+drillScores+'&user='+user);
+
     }
 
     function nameUpdate(){
