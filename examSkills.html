@@ -26,11 +26,26 @@
 
     <div>
       <div class="page-header">
-        <h1>Billiards Exam - Skills</h1>      
+        <h1 id="headingText">Billiards Exam - Skills</h1>      
       </div>     
     </div>
 
     <div id="main">
+
+      <div class="row">
+        <div class="col-sm-3">
+          <form action="examSubmit" method="POST" onsubmit="return false">
+            <input id="username" type="text" name="title" class="form-control" placeholder="Username" onkeyup="nameUpdate()"/>
+            <button type="submit" class="btn btn-primary" onclick="submitExam()">Submit Exam</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p></p>
+        </div>
+      </div>
 
       <div id="header" class="row">
         <div class="col-sm-7"> <!-- Exam Table -->
@@ -128,7 +143,7 @@
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Attempt</th>
+                            <th>Layout</th>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
@@ -168,7 +183,7 @@
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Attempt</th>
+                            <th>Layout</th>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
@@ -203,9 +218,29 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S5-Saftey</td>
+                    <td>S5-Safety</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Shot</th>
+                            <th colspan="2">1</th>
+                            <th colspan="2">2</th>
+                            <th colspan="2">3</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r5_1"></td>
+                            <td id="r5_2"></td>
+                            <td id="r5_3"></td>
+                            <td id="r5_4"></td>
+                            <td id="r5_5"></td>
+                            <td id="r5_6"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -226,7 +261,24 @@
                   <tr>
                     <td>S6-Kicks</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Shot</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r6_1"></td>
+                            <td id="r6_2"></td>
+                            <td id="r6_3"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -247,7 +299,24 @@
                   <tr>
                     <td>S7-Banks</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Shot</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r7_1"></td>
+                            <td id="r7_2"></td>
+                            <td id="r7_3"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -268,7 +337,24 @@
                   <tr>
                     <td>S8-Elevated Cue</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Shot</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r8_1"></td>
+                            <td id="r8_2"></td>
+                            <td id="r8_3"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -289,7 +375,24 @@
                   <tr>
                     <td>S9-Jump/Mass&eacute</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Shot</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r9_1"></td>
+                            <td id="r9_2"></td>
+                            <td id="r9_3"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -310,7 +413,54 @@
                   <tr>
                     <td>S10-Breaks</td>
                     <td>
-                      Table Goes Here
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Attempt</th>
+                            <th colspan="5">1</th>
+                            <th colspan="5">2</th>
+                            <th colspan="5">3</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Criteria</th>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>d</td>
+                            <td>e</td>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>d</td>
+                            <td>e</td>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>d</td>
+                            <td>e</td>
+                          </tr>
+                          <tr>
+                            <th>Result</th>
+                            <td id="r10_1"></td>
+                            <td id="r10_2"></td>
+                            <td id="r10_3"></td>
+                            <td id="r10_4"></td>
+                            <td id="r10_5"></td>
+                            <td id="r10_6"></td>
+                            <td id="r10_7"></td>
+                            <td id="r10_8"></td>
+                            <td id="r10_9"></td>
+                            <td id="r10_10"></td>
+                            <td id="r10_11"></td>
+                            <td id="r10_12"></td>
+                            <td id="r10_13"></td>
+                            <td id="r10_14"></td>
+                            <td id="r10_15"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 </tbody>
@@ -334,6 +484,9 @@
     var toggleS3 = 2;
     var toggleS4 = 5;
 
+    var checkMark = "&#10004"
+    var xMark = "&#10006"
+
     var currBox = ""
     var total = 4
     var user = ""
@@ -346,6 +499,18 @@
     var s3_resultBox = [{"box":"r3_1", "result":"0"}, {"box":"r3_2", "result":"0"}, {"box":"r3_3", "result":"0"}]
 
     var s4_resultBox = [{"box":"r4_1", "result":"0"}, {"box":"r4_2", "result":"0"}, {"box":"r4_3", "result":"0"}]
+
+    var s5_resultBox = [{"box":"r5_1", "result":"0"}, {"box":"r5_2", "result":"0"}, {"box":"r5_3", "result":"0"}, {"box":"r5_4", "result":"0"}, {"box":"r5_5", "result":"0"}, {"box":"r5_6", "result":"0"}]
+
+    var s6_resultBox = [{"box":"r6_1", "result":"0"}, {"box":"r6_2", "result":"0"}, {"box":"r6_3", "result":"0"}]
+
+    var s7_resultBox = [{"box":"r7_1", "result":"0"}, {"box":"r7_2", "result":"0"}, {"box":"r7_3", "result":"0"}]
+
+    var s8_resultBox = [{"box":"r8_1", "result":"0"}, {"box":"r8_2", "result":"0"}, {"box":"r8_3", "result":"0"}]
+
+    var s9_resultBox = [{"box":"r9_1", "result":"0"}, {"box":"r9_2", "result":"0"}, {"box":"r9_3", "result":"0"}]
+
+    var s10_resultBox = [{"box":"r10_1", "result":"0"}, {"box":"r10_2", "result":"0"}, {"box":"r10_3", "result":"0"}, {"box":"r10_4", "result":"0"}, {"box":"r10_5", "result":"0"}, {"box":"r10_6", "result":"0"}, {"box":"r10_7", "result":"0"}, {"box":"r10_8", "result":"0"}, {"box":"r10_9", "result":"0"}, {"box":"r10_10", "result":"0"}, {"box":"r10_11", "result":"0"}, {"box":"r10_12", "result":"0"}, {"box":"r10_13", "result":"0"}, {"box":"r10_14", "result":"0"}, {"box":"r10_15", "result":"0"}]
 
     document.getElementById("rightSide").addEventListener("click", toggleImg());
 
@@ -393,6 +558,48 @@
       document.getElementById(s4_resultBox[i].box).addEventListener("click", function(){
         currBox = this.id;
         successFail4();
+      });
+    }
+
+    for(var i = 0; i < s5_resultBox.length; i++){
+      document.getElementById(s5_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail5();
+      });
+    }
+
+    for(var i = 0; i < s6_resultBox.length; i++){
+      document.getElementById(s6_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail6();
+      });
+    }
+
+    for(var i = 0; i < s7_resultBox.length; i++){
+      document.getElementById(s7_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail7();
+      });
+    }
+
+    for(var i = 0; i < s8_resultBox.length; i++){
+      document.getElementById(s8_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail8();
+      });
+    }
+
+    for(var i = 0; i < s9_resultBox.length; i++){
+      document.getElementById(s9_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail9();
+      });
+    }
+
+    for(var i = 0; i < s10_resultBox.length; i++){
+      document.getElementById(s10_resultBox[i].box).addEventListener("click", function(){
+        currBox = this.id;
+        successFail10();
       });
     }
 
@@ -541,7 +748,231 @@
       drillScores[3] = total;
       console.log(drillScores[3]);
     }
+
+    function successFail5(){
+      var boxIndex = parseInt(currBox.replace("r5_", "")) - 1;
+
+      if(s5_resultBox[boxIndex].result == "0"){
+        document.getElementById(currBox).innerHTML = checkMark;
+        s5_resultBox[boxIndex].result = 1;
+      }
+
+      else if(s5_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = xMark;
+        s5_resultBox[boxIndex].result = 0;
+      }
+    }
+
+    function calcTotal5(){
+      total = 0;
+
+      for(var i = 0; i < s5_resultBox.length; i++){
+        total = total + parseInt(s5_resultBox[i].result);
+      }
+
+      drillScores[4] = total;
+    }
+
+    function successFail6(){
+      var boxIndex = parseInt(currBox.replace("r6_", "")) - 1;
+
+      if(s6_resultBox[boxIndex].result == "0"){
+        document.getElementById(currBox).innerHTML = checkMark;
+        s6_resultBox[boxIndex].result = 1;
+      }
+
+      else if(s6_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = xMark;
+        s6_resultBox[boxIndex].result = 0;
+      }
+    }
+
+    function calcTotal6(){
+      total = 0;
+
+      for(var i = 0; i < s6_resultBox.length; i++){
+        total = total + parseInt(s6_resultBox[i].result);
+      }
+
+      drillScores[5] = total;
+    }
+
+    function successFail7(){
+      var boxIndex = parseInt(currBox.replace("r7_", "")) - 1;
+
+      if(s7_resultBox[boxIndex].result == "0"){
+        document.getElementById(currBox).innerHTML = checkMark;
+        s7_resultBox[boxIndex].result = 1;
+      }
+
+      else if(s7_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = xMark;
+        s7_resultBox[boxIndex].result = 0;
+      }
+    }
+
+    function calcTotal7(){
+      total = 0;
+
+      for(var i = 0; i < s7_resultBox.length; i++){
+        total = total + parseInt(s7_resultBox[i].result);
+      }
+
+      drillScores[6] = total;
+    }
+
+    function successFail8(){
+      var boxIndex = parseInt(currBox.replace("r8_", "")) - 1;
+
+      if(s8_resultBox[boxIndex].result == "0"){
+        document.getElementById(currBox).innerHTML = checkMark;
+        s8_resultBox[boxIndex].result = 1;
+      }
+
+      else if(s8_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = xMark;
+        s8_resultBox[boxIndex].result = 0;
+      }
+    }
+
+    function calcTotal8(){
+      total = 0;
+
+      for(var i = 0; i < s8_resultBox.length; i++){
+        total = total + parseInt(s8_resultBox[i].result);
+      }
+
+      drillScores[7] = total;
+    }
+
+    function successFail9(){
+      var boxIndex = parseInt(currBox.replace("r9_", "")) - 1;
+
+      if(s9_resultBox[boxIndex].result == "0"){
+        document.getElementById(currBox).innerHTML = checkMark;
+        s9_resultBox[boxIndex].result = 1;
+      }
+
+      else if(s9_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = xMark;
+        s9_resultBox[boxIndex].result = 0;
+      }
+    }
+
+    function calcTotal9(){
+      total = 0;
+
+      for(var i = 0; i < s9_resultBox.length; i++){
+        total = total + parseInt(s9_resultBox[i].result);
+      }
+
+      drillScores[8] = total;
+    }
+
+    function successFail10(){
+      var boxIndex = parseInt(currBox.replace("r10_", "")) - 1;
+
+      if(s10_resultBox[boxIndex].result == "0"){
+        document.getElementById(currBox).innerHTML = checkMark;
+        s10_resultBox[boxIndex].result = 1;
+      }
+
+      else if(s10_resultBox[boxIndex].result == 1){
+        document.getElementById(currBox).innerHTML = xMark;
+        s10_resultBox[boxIndex].result = 0;
+      }
+
+      calcTotal10();
+    }
+
+    function calcTotal10(){
+      total = 0;
+      var total1 = 0;
+      var total2 = 0;
+      var total3 = 0;
+      var p = 0;
+
+      for(var i = 0; i < s10_resultBox.length; i++){
+        if(i < 5){
+        total1 = total1 + parseInt(s10_resultBox[i].result);
+        }
+        if(i >=5 && i < 10){
+        total2 = total2 + parseInt(s10_resultBox[i].result);
+        }
+        if(i >= 10 && i < 15){
+        total3 = total3 + parseInt(s10_resultBox[i].result);
+        }
+      }
+
+      console.log("Break")
+      console.log(total1);
+      console.log(total2);
+      console.log(total3);
+
+      if(total1 >= total2){
+        p = total1;
+        total1 = total2;
+        total2 = p;
+
+        if(total1 >= total3){
+          p = total1;
+          total1 = total3;
+          total3 = p;
+        }
+
+      }
+
+      else if(total1 >= total3){
+          p = total1;
+          total1 = total3;
+          total3 = p;
+      }
+
+      if(total2 >= total3){
+        total = total3;
+      }
+
+      else {
+        total = total2;
+      }
+
+      drillScores[9] = total;
+
+      
+      console.log(drillScores[9]);
+    }
     
+    function submitExam(){
+      calcTotal1();
+      calcTotal2();
+      calcTotal3();
+      calcTotal4();
+      calcTotal5();
+      calcTotal6();
+      calcTotal7();
+      calcTotal8();
+      calcTotal9();
+      calcTotal10();
+
+      alert("Total Points: " + drillScores[0] + "," + drillScores[1] + "," + drillScores[2] + "," + drillScores[3] + "," + drillScores[4] + "," + drillScores[5] + "," + drillScores[6] + "," + drillScores[7] + "," + drillScores[8] + "," + drillScores[9])
+
+      var xmlhttp = new XMLHttpRequest();
+          // xmlhttp.addEventListener("load", reqListener);
+          xmlhttp.open("POST", "/submitExam2", true);
+          xmlhttp.send('scores='+drillScores+'&user='+user);
+
+    }
+
+    function nameUpdate(){
+      user = document.getElementById("username").value
+      if(user == ""){
+        document.getElementById("headingText").innerHTML = "Billiards Exam - Skills"
+      }
+      else {
+        document.getElementById("headingText").innerHTML = "Billiards Exam - Skills: <i>" + user + "</i>";
+      }
+    }
+
     function showSetup(){
       document.getElementById("examImg").src = "img/exam_2/" + image + ".jpg";
     }
