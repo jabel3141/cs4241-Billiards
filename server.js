@@ -151,6 +151,12 @@ function writeUserDataExam1(username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accura
         //break
 
         /////////////////////// IMAGES //////////////////////////////////
+        case '/img/home/1.jpg':
+        sendFile(res, 'img/home/1.jpg', 'image/jpg')
+        break
+        case '/img/home/2.jpg':
+        sendFile(res, 'img/home/2.jpg', 'image/jpg')
+        break
         case '/img/exam1/F1.jpg':
         sendFile(res, 'img/exam1/F1.jpg', 'image/jpg')
         break
