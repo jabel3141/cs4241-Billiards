@@ -1,3 +1,22 @@
+/*
+var username = document.getElementById("user").value
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("POST", "/getUser", true);
+xmlhttp.send('username='+username);
+
+
+
+
+
+var database = firebase.database();
+
+var User = firebase.database().ref('users/' + username);
+console.log(User)
+/*User.on('value', function(snapshot) {
+  updateStarCount(postElement, snapshot.val());
+});*/
+
 var w = 500,
 	h = 500;
 

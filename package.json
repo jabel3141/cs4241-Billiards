@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "express": "^4.15.4",
+    "firebase": "^3.9.0",
     "formidable": "^1.1.1",
     "pg": "7.3.0",
     "sqlite": "^2.8.0",
-    "sqlite3": "^3.1.12",
-    "firebase": "3.x.x"
+    "sqlite3": "^3.1.12"
   }
 }

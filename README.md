@@ -40,3 +40,4 @@
 - Basic info
 	* Username
 	* First name last initial
+	
