@@ -21,12 +21,14 @@ firebase.initializeApp(config);
 function writeUserDataExam1(username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accuracy,positioning,exam1total) {
     var attempt=1;
 
-    var ref = firebase.database().ref("/users");
+    var ref = firebase.database().ref("/users/");
     ref.once("value").then(function(snapshot) {
       var hasName = snapshot.hasChild(username); // true
       console.log(hasName);
       if(hasName){
-        attempt++
+        var addToAttempts = parseInt(snapshot.child(username+'/attempts/attempts').val())
+        console.log(addToAttempts)
+        attempt+=addToAttempts;
       }
       updateDatabase(attempt,username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accuracy,positioning,exam1total)
     });
@@ -46,16 +48,18 @@ function writeUserDataExam1(username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accura
 //         });
 // });
 
-    
+
 
     // firebase.database().ref('users/'+username).set({
     //   attempts: attempt
     // })
-    
+
   }
 
   function updateDatabase(attempt,username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accuracy,positioning,exam1total){
-    console.log("test")
+    firebase.database().ref('users/'+ username + '/attempts').set({
+      attempts: attempt
+    })
     firebase.database().ref('users/' + username + '/Exam1/Attempt '+attempt).set({
       f1: f1,
       f2: f2,
