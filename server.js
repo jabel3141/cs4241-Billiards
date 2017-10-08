@@ -21,11 +21,11 @@ firebase.initializeApp(config);
 function writeUserDataExam1(username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accuracy,positioning,exam1total) {
     var attempt=1;
 
-    var ref = firebase.database().ref("https://cs4241-billiards.firebaseio.com/users");
-    ref.once("value").then(function(snapshot) {
-      var hasName = snapshot.hasChild(username); // true
-      console.log(hasName);
-      });
+    // var ref = firebase.database().ref("https://cs4241-billiards.firebaseio.com/users");
+    // ref.once("value").then(function(snapshot) {
+    //   var hasName = snapshot.hasChild(username); // true
+    //   console.log(hasName);
+    //   });
 
 
 
