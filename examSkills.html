@@ -904,11 +904,6 @@
         }
       }
 
-      console.log("Break")
-      console.log(total1);
-      console.log(total2);
-      console.log(total3);
-
       if(total1 >= total2){
         p = total1;
         total1 = total2;
@@ -960,6 +955,8 @@
           // xmlhttp.addEventListener("load", reqListener);
           xmlhttp.open("POST", "/submitExam2", true);
           xmlhttp.send('scores='+drillScores+'&user='+user);
+
+      window.location.href = "searchProfile.html";
 
     }
 

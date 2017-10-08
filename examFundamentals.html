@@ -1042,12 +1042,35 @@
       calcTotal7();
       calcTotal8();
 
+      if(isNaN(calcTotal1)){
+        drillScores[0] = 0;
+      }
+
+      if(isNaN(calcTotal2)){
+        drillScores[1] = 0;
+      }
+
+      if(isNaN(calcTotal3)){
+        drillScores[2] = 0;
+      }
+
+      if(isNaN(calcTotal4)){
+        drillScores[3] = 0;
+      }
+
+      if(isNaN(calcTotal5)){
+        drillScores[4] = 0;
+      }
+
       alert("Total Points: " + drillScores[0] + "," + drillScores[1] + "," + drillScores[2] + "," + drillScores[3] + "," + drillScores[4] + "," + drillScores[5] + "," + drillScores[6] + "," + drillScores[7]);
 
       var xmlhttp = new XMLHttpRequest();
           // xmlhttp.addEventListener("load", reqListener);
-          xmlhttp.open("POST", "/submitExam", true);
+          xmlhttp.open("POST", "/submitExam1", true);
           xmlhttp.send('scores='+drillScores+'&user='+user);
+
+          // xmlhttp.addEventListener("load", reqListener);
+      window.location.href = "searchProfile.html";
 
     }
 
