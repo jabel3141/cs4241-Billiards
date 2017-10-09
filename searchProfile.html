@@ -103,7 +103,7 @@
       var oReq = new XMLHttpRequest();
       
       oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "/userList");
+      oReq.open("GET", "/getAllUsers");
       oReq.send();
 
     }
@@ -137,7 +137,7 @@
     
     oReq.addEventListener("load", reqListener);
     oReq.open("POST", "/search", true);
-    oReq.send('userSearch='+searchName.value);
+    oReq.send('searchName='+searchName.value);
 
     searchTitle.value = ""
 
@@ -155,7 +155,7 @@
     
     oReq.addEventListener("load", reqListener);
     oReq.open("POST", "/search", true);
-    oReq.send('userSearch='+searchNameClear.value);
+    oReq.send('searchName='+searchNameClear.value);
 
     searchTitleClear.value = ""
 
