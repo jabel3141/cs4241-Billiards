@@ -19,6 +19,10 @@
       .affix {top: 20;}
       
       td, th {text-align: center;}
+
+      .modButton {width: 45%; display: inline-block; float: left;}
+
+      .ldt {width: 20%;}      
     </style>
 
   </head>
@@ -35,11 +39,32 @@
       <div class="row">
         <div class="col-sm-3">
           <form action="examSubmit" method="POST" onsubmit="return false">
-            <input id="username" type="text" name="title" class="form-control" placeholder="Username" onkeyup="nameUpdate()"/>
-            <button type="submit" class="btn btn-primary" onclick="submitExam()">Submit Exam</button>
+            <input id="username" type="text" name="title" class="form-control" placeholder="Username" onkeyup="nameUpdate()" onblur="nameUpdate()"/>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal">Submit Exam</button>
           </form>
         </div>
       </div>
+
+      <div id="alertModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Confirm Submit</h4>
+              </div>
+              <div class="modal-body">
+                <p>Are you sure you want to submit the exam?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>
+                <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
 
       <div class="row">
         <div class="col-sm-12">
@@ -60,12 +85,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S1-Line</td>
+                    <th>S1-Line</th>
                     <td>
                        <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Attempt</th>
+                            <th class="ldt">Attempt</th>
                             <th>1</th>
                             <th>2</th>
 
@@ -73,7 +98,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Balls Pocketed</th>
+                            <th class="ldt">Balls Pocketed</th>
                             <td id="r1_1">0</td>
                             <td id="r1_2">0</td>
 
@@ -99,12 +124,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S2-Rail Cut</td>
+                    <th>S2-Rail Cut</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Attempt</th>
+                            <th class="ldt">Attempt</th>
                             <th>1</th>
                             <th>2</th>
 
@@ -112,7 +137,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Balls Pocketed</th>
+                            <th class="ldt">Balls Pocketed</th>
                             <td id="r2_1">0</td>
                             <td id="r2_2">0</td>
 
@@ -138,12 +163,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S3-9 Ball</td>
+                    <th>S3-9 Ball</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Layout</th>
+                            <th class="ldt">Layout</th>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
@@ -152,7 +177,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Balls Pocketed</th>
+                            <th class="ldt">Balls Pocketed</th>
                             <td id="r3_1">0</td>
                             <td id="r3_2">0</td>
                             <td id="r3_3">0</td>
@@ -178,12 +203,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S4-8 Ball</td>
+                    <th>S4-8 Ball</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Layout</th>
+                            <th class="ldt">Layout</th>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
@@ -192,7 +217,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Balls Pocketed</th>
+                            <th class="ldt">Balls Pocketed</th>
                             <td id="r4_1">0</td>
                             <td id="r4_2">0</td>
                             <td id="r4_3">0</td>
@@ -218,12 +243,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S5-Safety</td>
+                    <th>S5-Safety</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Shot</th>
+                            <th class="ldt">Shot</th>
                             <th colspan="2">1</th>
                             <th colspan="2">2</th>
                             <th colspan="2">3</th>
@@ -231,7 +256,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Result</th>
+                            <th class="ldt">Result</th>
                             <td id="r5_1"></td>
                             <td id="r5_2"></td>
                             <td id="r5_3"></td>
@@ -259,12 +284,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S6-Kicks</td>
+                    <th>S6-Kicks</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Shot</th>
+                            <th class="ldt">Shot</th>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
@@ -272,7 +297,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Result</th>
+                            <th class="ldt">Result</th>
                             <td id="r6_1"></td>
                             <td id="r6_2"></td>
                             <td id="r6_3"></td>
@@ -297,12 +322,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S7-Banks</td>
+                    <th>S7-Banks</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Shot</th>
+                            <th class="ldt">Shot</th>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
@@ -310,7 +335,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Result</th>
+                            <th class="ldt">Result</th>
                             <td id="r7_1"></td>
                             <td id="r7_2"></td>
                             <td id="r7_3"></td>
@@ -335,12 +360,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S8-Elevated Cue</td>
+                    <th>S8-Elevated Cue</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Shot</th>
+                            <th class="ldt">Shot</th>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
@@ -348,7 +373,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Result</th>
+                            <th class="ldt">Result</th>
                             <td id="r8_1"></td>
                             <td id="r8_2"></td>
                             <td id="r8_3"></td>
@@ -373,12 +398,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S9-Jump/Mass&eacute</td>
+                    <th>S9-Jump/Mass&eacute</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Shot</th>
+                            <th class="ldt">Shot</th>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
@@ -386,7 +411,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Result</th>
+                            <th class="ldt">Result</th>
                             <td id="r9_1"></td>
                             <td id="r9_2"></td>
                             <td id="r9_3"></td>
@@ -411,12 +436,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>S10-Breaks</td>
+                    <th>S10-Breaks</th>
                     <td>
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Attempt</th>
+                            <th class="ldt">Attempt</th>
                             <th colspan="5">1</th>
                             <th colspan="5">2</th>
                             <th colspan="5">3</th>
@@ -424,7 +449,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Criteria</th>
+                            <th class="ldt">Criteria</th>
                             <td>a</td>
                             <td>b</td>
                             <td>c</td>
@@ -442,7 +467,7 @@
                             <td>e</td>
                           </tr>
                           <tr>
-                            <th>Result</th>
+                            <th class="ldt">Result</th>
                             <td id="r10_1"></td>
                             <td id="r10_2"></td>
                             <td id="r10_3"></td>
@@ -949,12 +974,10 @@
       calcTotal9();
       calcTotal10();
 
-      alert("Total Points: " + drillScores[0] + "," + drillScores[1] + "," + drillScores[2] + "," + drillScores[3] + "," + drillScores[4] + "," + drillScores[5] + "," + drillScores[6] + "," + drillScores[7] + "," + drillScores[8] + "," + drillScores[9])
-
       var xmlhttp = new XMLHttpRequest();
-          // xmlhttp.addEventListener("load", reqListener);
-          xmlhttp.open("POST", "/submitExam2", true);
-          xmlhttp.send('scores='+drillScores+'&user='+user);
+            // xmlhttp.addEventListener("load", reqListener);
+      xmlhttp.open("POST", "/submitExam2", true);
+      xmlhttp.send('scores='+drillScores+'&user='+user);
 
       window.location.href = "searchProfile.html";
 
