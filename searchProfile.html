@@ -55,7 +55,7 @@
             <div class="input-group">
               <input id="searchTitle" class="form-control" type="text" name="movie" />
               <div class="input-group-btn">
-                <button class="btn btn-default" type="submit" onclick="search()">Search</button>
+                <button class="btn btn-default" type="submit" onclick="searchUser()">Search</button>
               </div>
             </div>
           </form>
@@ -72,8 +72,8 @@
         </div>
       </div>
       <div class="col-sm-6">
-        <div class="list-group">
-          <a href="Profiles.html" class="list-group-item">Test Dummy 1</a>
+        <div class="list-group" id="userList">
+          <a id="user" href="Profiles.html" class="list-group-item">Test Dummy 1</a>
           <a href="#" class="list-group-item">Second item</a>
           <a href="#" class="list-group-item">Third item</a>
         </div>
@@ -84,6 +84,82 @@
 
   <script>
 
+    function userList( list ) {
+      var code = document.getElementById('userList')
+      code.innerHTML = "";
+      list.forEach(function(info) {
+        code.innerHTML += '<a onclick=setUser(' + info.username + ') href="Profiles.html" class="list-group-item">' + info.username + '</a>';
+      })
+    }
+
+    function getUserList() {
+
+      function reqListener () {
+        var userList = JSON.parse(this.responseText)
+        console.log( userList )
+        userList( userList )
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "/userList");
+      oReq.send();
+
+    }
+
+
+    function setUser(username) {
+
+      //var username = document.getElementById('user')
+
+      function reqListener () {
+        
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      oReq.addEventListener("load", reqListener);
+      oReq.open("POST", "/setUser", true);
+      oReq.send('username='+username);
+
+    }
+
+
+    function searchUser() {
+
+    var searchName = document.getElementById('searchTitle')
+    function reqListener () {
+      
+    }
+    
+    var oReq = new XMLHttpRequest();
+    
+    oReq.addEventListener("load", reqListener);
+    oReq.open("POST", "/search", true);
+    oReq.send('userSearch='+searchName.value);
+
+    searchTitle.value = ""
+
+  }
+
+  function clearSearch() {
+
+    var searchNameClear = document.getElementById('searchTitleClear')
+
+    function reqListener () {
+      
+    }
+    
+    var oReq = new XMLHttpRequest();
+    
+    oReq.addEventListener("load", reqListener);
+    oReq.open("POST", "/search", true);
+    oReq.send('userSearch='+searchNameClear.value);
+
+    searchTitleClear.value = ""
+
+  }
 
   </script>
 </html>

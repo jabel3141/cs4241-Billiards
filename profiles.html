@@ -14,7 +14,7 @@
       } 
     </style>
   </head>
-  <body onload="init();">
+  <body>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -129,17 +129,22 @@
   <script type="text/javascript" src="radarScript.js"></script>
   <script>
 
-    function setUser(user){
+    getUser()
+
+    function setInfo(user){
       var username = document.getElementById("user");
 
       username.innerText = user.username
+
+      createExam1(user)
+      createExam2(user)
     }
 
     function getUser(){
       function reqListener () {
         var user = JSON.parse(this.responseText)
         console.log( user )
-        setUser( user )
+        setInfo( user )
       }
       
       var oReq = new XMLHttpRequest();
@@ -150,27 +155,9 @@
     }
 
 
-    function init(){
-
-      function reqListener () {
-        var username = JSON.parse(this.responseText)
-        console.log( username )
-        
-
-      }
-     
-      var username = document.getElementById("user");
-
-      username.innerText = ''
-
-      createExam1()
-      createExam2()
-    }
-
-
-    function createExam1(){  
+    function createExam1(user){  
         var exam1Scores = document.getElementById("exam1Results");
-        for(var i = 0; i < 5; i++){
+        user.exam1.forEach(function(info) {
           var row = exam1Scores.insertRow(i);
           var cell1 = row.insertCell(0)
           var cell2 = row.insertCell(1)
@@ -181,19 +168,19 @@
           var cell7 = row.insertCell(6)
           var cell8 = row.insertCell(7)
 
-          cell1.innerHTML += "5"
-          cell2.innerHTML += "5"
-          cell3.innerHTML += "5"
-          cell4.innerHTML += "5"
-          cell5.innerHTML += "5"
-          cell6.innerHTML += "5"
-          cell7.innerHTML += "5"
-          cell8.innerHTML += "5"
-        }
+          cell1.innerHTML += info.f1
+          cell2.innerHTML += info.f2
+          cell3.innerHTML += info.f3
+          cell4.innerHTML += info.f4
+          cell5.innerHTML += info.f5
+          cell6.innerHTML += info.f6
+          cell7.innerHTML += info.f7
+          cell8.innerHTML += info.f8
+        })
 
     }
 
-    function createExam2(){  
+    function createExam2(user){  
         var exam2Scores = document.getElementById("exam2Results");
         var row = exam2Scores.insertRow(0);
         var cell1 = row.insertCell(0)
