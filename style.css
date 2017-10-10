@@ -1,7 +1,14 @@
 body {
 	width: 98%;
 	margin: auto;
-	background-color: #6198E7;
+	background-color: #2E2E2E;
+	font-family: 'Arvo', sans-serif;
+
+	background: #008ECC; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(#003A53, #008ECC); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#003A53, #008ECC); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#003A53, #008ECC); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#003A53, #008ECC); /* Standard syntax */
 }
 
 .jumbotron {

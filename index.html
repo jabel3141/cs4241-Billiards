@@ -9,22 +9,6 @@
   <style>
   table {color: black;}
 
-  .grad {
-    background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#00517C, white); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#00517C, white); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#00517C, white); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#00517C, white); /* Standard syntax */
-  }
-
-  .grad-inverse {
-    background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(white, #00517C); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(white, #00517C); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, #00517C); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(white, #00517C); /* Standard syntax */
-  }
-
   .animate {
     font-size: 50px;
     margin: 100px 0 0;
@@ -116,7 +100,7 @@
 </head>
 <body>
 
-  <div class="jumbotron grad">
+  <div class="jumbotron">
     <center><div class="animate one">
       <span>C</span><span>S</span><span>C</span>&nbsp;
       <span>B</span><span>i</span><span>l</span><span>l</span><span>i</span><span>a</span><span>r</span><span>d</span>&nbsp;
@@ -167,7 +151,20 @@
       </div>
     </nav>
 
-    <div class="main grad-inverse">
+    <div class="main">
+
+      <div class="row">
+        <div class="col-sm-6">
+          <h2><center>About</center></h2>
+          <p>[Put stuff here!]</p>
+        </div>
+
+        <div class="col-sm-6">
+          <h2><center>More stuff</center></h2>
+          <p>[Put stuff here!]</p>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-sm-6">
           <h2><center>Exam Table Setup</center></h2>
@@ -175,7 +172,7 @@
         </div>
         <div class="col-sm-6">
           <h2><center>Final Point Conversion</center></h2>
-          <table class="table">
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th>Score</th>
