@@ -299,7 +299,7 @@ function makeUserList(){
     });
     //console.log(allUsers)
     searchedUsers = allUsers
-    //  console.log(searchedUsers)
+    //console.log(searchedUsers)
   });
 }
 
@@ -319,7 +319,7 @@ function setCurrentUser(res, req, uri){
 
       snapshot.forEach(function(childSnapshot) {
         var key = childSnapshot.key;
-        var childData = childSnapshot.val();
+        var childData = childSnapshot.toJSON();
 
         if(key.toLowerCase() == data.username.toLowerCase()){
           userData = {"username": key, "userData": childData};

@@ -157,9 +157,19 @@
 
     function createExam1(user){  
         var exam1Scores = document.getElementById("exam1Results");
+        var i = 0
 
-        //user.userData.Exam1.forEach(function(info) {
-          var row = exam1Scores.insertRow(0);
+        console.log(user)
+        console.log(user.userData)
+        console.log(user.userData.Exam1)
+        console.log()
+
+        Object.keys(user.userData.Exam1).forEach(function(key){
+
+          console.log(key)
+          console.log(user.userData.Exam1[key])
+
+          var row = exam1Scores.insertRow(i);
           var cell1 = row.insertCell(0)
           var cell2 = row.insertCell(1)
           var cell3 = row.insertCell(2)
@@ -169,42 +179,59 @@
           var cell7 = row.insertCell(6)
           var cell8 = row.insertCell(7)
 
-          cell1.innerHTML += user.userData.Exam1.f1
-          cell2.innerHTML += user.userData.Exam1.f2
-          cell3.innerHTML += user.userData.Exam1.f3
-          cell4.innerHTML += user.userData.Exam1.f4
-          cell5.innerHTML += user.userData.Exam1.f5
-          cell6.innerHTML += user.userData.Exam1.f6
-          cell7.innerHTML += user.userData.Exam1.f7
-          cell8.innerHTML += user.userData.Exam1.f8
-        //})
+          cell1.innerHTML += user.userData.Exam1[key].f1
+          cell2.innerHTML += user.userData.Exam1[key].f2
+          cell3.innerHTML += user.userData.Exam1[key].f3
+          cell4.innerHTML += user.userData.Exam1[key].f4
+          cell5.innerHTML += user.userData.Exam1[key].f5
+          cell6.innerHTML += user.userData.Exam1[key].f6
+          cell7.innerHTML += user.userData.Exam1[key].f7
+          cell8.innerHTML += user.userData.Exam1[key].f8
+
+          i++
+        });
 
     }
 
     function createExam2(user){  
         var exam2Scores = document.getElementById("exam2Results");
-        var row = exam2Scores.insertRow(0);
-        var cell1 = row.insertCell(0)
-        var cell2 = row.insertCell(1)
-        var cell3 = row.insertCell(2)
-        var cell4 = row.insertCell(3)
-        var cell5 = row.insertCell(4)
-        var cell6 = row.insertCell(5)
-        var cell7 = row.insertCell(6)
-        var cell8 = row.insertCell(7)
-        var cell9 = row.insertCell(8)
-        var cell10 = row.insertCell(9)
+        var i = 0
 
-        cell1.innerHTML += "5"
-        cell2.innerHTML += "5"
-        cell3.innerHTML += "5"
-        cell4.innerHTML += "5"
-        cell5.innerHTML += "5"
-        cell6.innerHTML += "5"
-        cell7.innerHTML += "5"
-        cell8.innerHTML += "5"
-        cell9.innerHTML += "5"
-        cell10.innerHTML += "5"
+
+        console.log(user)
+        console.log(user.userData)
+        console.log(user.userData.Exam2)
+        console.log()
+
+        //for(var i = 0; i < Object.keys(user.userData.Exam1).length; i++){
+        Object.keys(user.userData.Exam2).forEach(function(key){
+
+          var row = exam2Scores.insertRow(i);
+          var cell1 = row.insertCell(0)
+          var cell2 = row.insertCell(1)
+          var cell3 = row.insertCell(2)
+          var cell4 = row.insertCell(3)
+          var cell5 = row.insertCell(4)
+          var cell6 = row.insertCell(5)
+          var cell7 = row.insertCell(6)
+          var cell8 = row.insertCell(7)
+          var cell9 = row.insertCell(8)
+          var cell10 = row.insertCell(9)
+
+
+          cell1.innerHTML += user.userData.Exam2[key].s1
+          cell2.innerHTML += user.userData.Exam2[key].s2
+          cell3.innerHTML += user.userData.Exam2[key].s3
+          cell4.innerHTML += user.userData.Exam2[key].s4
+          cell5.innerHTML += user.userData.Exam2[key].s5
+          cell6.innerHTML += user.userData.Exam2[key].s6
+          cell7.innerHTML += user.userData.Exam2[key].s7
+          cell8.innerHTML += user.userData.Exam2[key].s8
+          cell9.innerHTML += user.userData.Exam2[key].s9
+          cell10.innerHTML += user.userData.Exam2[key].s10
+
+          i++
+        });
     }
 
   </script>
