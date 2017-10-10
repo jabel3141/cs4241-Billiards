@@ -66,7 +66,7 @@
         </div>
 
         <div class="col-sm-3">
-          
+
         </div>
       </div>
 
@@ -1094,8 +1094,8 @@
 
       var xmlhttp = new XMLHttpRequest();
         // xmlhttp.addEventListener("load", reqListener);
-      xmlhttp.open("POST", "/submitExam1", true);
-      xmlhttp.send('scores='+drillScores+'&user='+user);
+      xmlhttp.open("POST", "/submitExam", true);
+      xmlhttp.send('scores='+drillScores+'&user='+user +'&exam='+1);
 
         // xmlhttp.addEventListener("load", reqListener);
       window.location.href = "searchProfile.html";
