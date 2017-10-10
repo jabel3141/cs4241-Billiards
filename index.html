@@ -9,6 +9,10 @@
   <style>
   table {color: black;}
 
+  #about, #exam-info {padding-left: 3%; padding-right: 3%;}
+
+  .index-p {font-size: 1.5em;}
+
   .animate {
     font-size: 50px;
     margin: 100px 0 0;
@@ -18,63 +22,25 @@
     display: inline-block;
   }
 
-  .animate span:nth-of-type(2) {
-    animation-delay: .05s;
-  }
-  .animate span:nth-of-type(3) {
-    animation-delay: .1s;
-  }
-  .animate span:nth-of-type(4) {
-    animation-delay: .15s;
-  }
-  .animate span:nth-of-type(5) {
-    animation-delay: .2s;
-  }
-  .animate span:nth-of-type(6) {
-    animation-delay: .25s;
-  }
-  .animate span:nth-of-type(7) {
-    animation-delay: .3s;
-  }
-  .animate span:nth-of-type(8) {
-    animation-delay: .35s;
-  }
-  .animate span:nth-of-type(9) {
-    animation-delay: .4s;
-  }
-  .animate span:nth-of-type(10) {
-    animation-delay: .45s;
-  }
-  .animate span:nth-of-type(11) {
-    animation-delay: .5s;
-  }
-  .animate span:nth-of-type(12) {
-    animation-delay: .55s;
-  }
-  .animate span:nth-of-type(13) {
-    animation-delay: .6s;
-  }
-  .animate span:nth-of-type(14) {
-    animation-delay: .65s;
-  }
-  .animate span:nth-of-type(15) {
-    animation-delay: .7s;
-  }
-  .animate span:nth-of-type(16) {
-    animation-delay: .75s;
-  }
-  .animate span:nth-of-type(17) {
-    animation-delay: .8s;
-  }
-  .animate span:nth-of-type(18) {
-    animation-delay: .85s;
-  }
-  .animate span:nth-of-type(19) {
-    animation-delay: .9s;
-  }
-  .animate span:nth-of-type(20) {
-    animation-delay: .95s;
-  }
+  .animate span:nth-of-type(2) {animation-delay: .05s;}
+  .animate span:nth-of-type(3) {animation-delay: .1s;}
+  .animate span:nth-of-type(4) {animation-delay: .15s;}
+  .animate span:nth-of-type(5) {animation-delay: .2s;}
+  .animate span:nth-of-type(6) {animation-delay: .25s;}
+  .animate span:nth-of-type(7) {animation-delay: .3s;}
+  .animate span:nth-of-type(8) {animation-delay: .35s;}
+  .animate span:nth-of-type(9) {animation-delay: .4s;}
+  .animate span:nth-of-type(10) {animation-delay: .45s;}
+  .animate span:nth-of-type(11) {animation-delay: .5s;}
+  .animate span:nth-of-type(12) {animation-delay: .55s;}
+  .animate span:nth-of-type(13) {animation-delay: .6s;}
+  .animate span:nth-of-type(14) {animation-delay: .65s;}
+  .animate span:nth-of-type(15) {animation-delay: .7s;}
+  .animate span:nth-of-type(16) {animation-delay: .75s;}
+  .animate span:nth-of-type(17) {animation-delay: .8s;}
+  .animate span:nth-of-type(18) {animation-delay: .85s;}
+  .animate span:nth-of-type(19) {animation-delay: .9s;}
+  .animate span:nth-of-type(20) {animation-delay: .95s;}
 
   .one span {
     color: black;
@@ -122,8 +88,8 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <ul class="nav navbar-nav">
-            <li><a href="examFundamentals.html">Exam 1 </a></li>
-            <li><a href="examSkills.html">Exam 2</a></li>
+            <li><a href="examFundamentals.html">Exam I </a></li>
+            <li><a href="examSkills.html">Exam II</a></li>
             <li class="dropdown">
               <a href="searchProfile.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -154,24 +120,35 @@
     <div class="main">
 
       <div class="row">
-        <div class="col-sm-6">
-          <h2><center>About</center></h2>
-          <p>[Put stuff here!]</p>
+        <div id="about" class="col-sm-6">
+          <h2><center><b>About</b></center></h2>
+          <p class="index-p">Welcome to the <b>Cue Sports Club Billiard Analytics</b> website! If you've ever wanted to evaluate how well you actually play, we allow you to take a two part exam that can help you understand your strengths and weaknesses. </p>
+          <p class="index-p">The exam is officially designed by Billiard University (founded in 2012). The purpose is to <i>"provide a complete, structured, well designed, and challenging pool workout you can use to develop and improve your game to reach the next level."</i></p>
+          <p class="index-p"><b>Personal Analysis</b> After you've taken your exam, you will be taken to your profile page to see a breakdown and a chart displaying your abilities in the areas of: (aspects)</p>
+          <p class="index-p"><b>Ready to take the exam?</b> Before you begin, please read about the exams and setup the pool table as shown in the diagram below.
+          </p>
         </div>
 
-        <div class="col-sm-6">
-          <h2><center>More stuff</center></h2>
-          <p>[Put stuff here!]</p>
+        <div id="exam-info" class="col-sm-6">
+          <h2><center><b>Exams</b></center></h2>
+          <p class="index-p"><b>Exam I: Fundamentals</b></p>
+          <p class="index-p">The first exam covers fundamentals including aiming, stroke, stop/follow/draw control, and cue ball position control.</p>
+          <p class="index-p"><b>Exam II: Skills (Bachelor)</b></p>
+          <p class="index-p">The second exam assesses important pool skills including aiming, position play, rail cut shots, safeties, kicks and banks, jump and masse shots, and the break.</p>
+
+          <p class="index-p"><b>Exam II: Skills (Master/Doctorate)</b></p>
+          <p class="index-p">There are three different levels of Exam II (Bachelors, Masters, and Doctorate). However, at the moment we only support the Bachelors exam. Your performance on Exam I places you into the appropriate Exam II. The difficulty level and number of available points increases with Exam level. So, if you are ready for something more than Bachelor level please visit the <a href="http://billiarduniversity.org/exams.html" target="_blank">Billiard University Website</a>.</p>
+
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-6">
-          <h2><center>Exam Table Setup</center></h2>
+          <h2><center><b>Exam Table Setup</b></center></h2>
           <img src="img/home/1.png" alt="General Setup" width="100%" class="img-responsive center-block">
         </div>
         <div class="col-sm-6">
-          <h2><center>Final Point Conversion</center></h2>
+          <h2><center><b>Final Point Conversion</b></center></h2>
           <table class="table table-striped">
             <thead>
               <tr>
