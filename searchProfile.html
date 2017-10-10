@@ -5,7 +5,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link id="css" rel="stylesheet" type="text/css" href="style.css"/>   
   </head>
-  <body onload="init();">
+  <body>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -72,10 +72,8 @@
         </div>
       </div>
       <div class="col-sm-6">
-        <div class="list-group">
+        <div class="list-group" id="list">
           <a href="profiles.html" class="list-group-item">Test Dummy 1</a>
-          <a href="#" class="list-group-item">Second item</a>
-          <a href="#" class="list-group-item">Third item</a>
         </div>
       </div>
     </div>
@@ -84,8 +82,10 @@
 
   <script>
 
+    getUserList()
+
     function userList( list ) {
-      var code = document.getElementById('userList')
+      var code = document.getElementById('list')
       code.innerHTML = "";
       list.forEach(function(info) {
         code.innerHTML += '<a onclick=setUser(' + info.username + ') href="Profiles.html" class="list-group-item">' + info.username + '</a>';
@@ -95,9 +95,9 @@
     function getUserList() {
 
       function reqListener () {
-        var userList = JSON.parse(this.responseText)
-        console.log( userList )
-        userList( userList )
+        var users = JSON.parse(this.responseText)
+        console.log( users )
+        userList( users )
       }
       
       var oReq = new XMLHttpRequest();

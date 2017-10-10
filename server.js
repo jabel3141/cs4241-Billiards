@@ -359,7 +359,7 @@ function setCurrentUser(res, req, uri){
     });
 
     res.end()
-  }
+  })
 }
 
 
@@ -388,5 +388,5 @@ function searchUsers(res, req, uri){
     });
 
     res.end()
-  }
+  })
 }
