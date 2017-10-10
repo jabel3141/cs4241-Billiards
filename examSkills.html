@@ -17,12 +17,12 @@
       #rightSide {right: 0;}
 
       .affix {top: 20;}
-      
+
       td, th {text-align: center;}
 
       .modButton {width: 45%; display: inline-block; float: left;}
 
-      .ldt {width: 20%;}      
+      .ldt {width: 20%;}
     </style>
 
   </head>
@@ -30,8 +30,8 @@
 
     <div>
       <div class="page-header">
-        <h1 id="headingText">Billiards Exam - Skills</h1>      
-      </div>     
+        <h1 id="headingText">Billiards Exam - Skills</h1>
+      </div>
     </div>
 
     <div id="main">
@@ -500,7 +500,7 @@
         </div>
       </div>
     </div>
-    
+
 
   </body>
   <script>
@@ -958,10 +958,10 @@
 
       drillScores[9] = total;
 
-      
+
       console.log(drillScores[9]);
     }
-    
+
     function submitExam(){
       calcTotal1();
       calcTotal2();
@@ -976,8 +976,8 @@
 
       var xmlhttp = new XMLHttpRequest();
             // xmlhttp.addEventListener("load", reqListener);
-      xmlhttp.open("POST", "/submitExam2", true);
-      xmlhttp.send('scores='+drillScores+'&user='+user);
+      xmlhttp.open("POST", "/submitExam", true);
+      xmlhttp.send('scores='+drillScores+'&user='+user+'&exam='+2);
 
       window.location.href = "searchProfile.html";
 

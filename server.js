@@ -18,93 +18,7 @@ var config = {
 firebase.initializeApp(config);
 // writeUserData('123', 'lane', 'l@a.a', 'imgurl')
 
-function writeUserDataExam1(username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accuracy,positioning,exam1total) {
-  var exam1attempt=1;
 
-  var ref = firebase.database().ref("/users/");
-  ref.once("value").then(function(snapshot) {
-    var hasName = snapshot.hasChild(username); // true
-    console.log(hasName);
-    if(hasName){
-      var hasAttempts = snapshot.hasChild(username+'/attempts/Exam 1');
-      console.log(snapshot.child(username+'/attempts/Exam 1').val())
-      if(hasAttempts){
-        var addToAttempts = parseInt(snapshot.child(username+'/attempts/Exam 1/exam1attempts').val())
-        console.log(addToAttempts)
-        exam1attempt+=addToAttempts;
-      }}
-      updateDatabase1(exam1attempt,username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accuracy,positioning,exam1total)
-    });
-}
-
-function updateDatabase1(attempt,username,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accuracy,positioning,exam1total){
-  firebase.database().ref('users/'+ username + '/attempts/Exam 1').set({
-    exam1attempts: attempt
-  })
-  firebase.database().ref('users/' + username + '/Exam1/Attempt '+attempt).set({
-    f1: f1,
-    f2: f2,
-    f3: f3,
-    f4: f4,
-    f5: f5,
-    f6: f6,
-    f7: f7,
-    f8: f8,
-    ball_control: ball_control,
-    accuracy: accuracy,
-    positioning: positioning,
-    exam1total: exam1total
-  });
-}
-
-
-function writeUserDataExam2(username,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,complex_situation_ability, safe_ability,special_shot_ability,break_ability,exam2total) {
-  var exam2attempt=1;
-
-  var ref = firebase.database().ref("/users/");
-  ref.once("value").then(function(snapshot) {
-      var hasName = snapshot.hasChild(username); // true
-      console.log(hasName);
-      if(hasName){
-        var hasAttempts = snapshot.hasChild(username+'/attempts/Exam 2');
-        console.log(snapshot.child(username+'/attempts/exam2attempts').val())
-        if(hasAttempts){
-          var addToAttempts = parseInt(snapshot.child(username+'/attempts/Exam 2/exam2attempts').val())
-          console.log(addToAttempts)
-          exam2attempt+=addToAttempts;
-        }
-      }
-      updateDatabase2(exam2attempt,username,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,complex_situation_ability, safe_ability,special_shot_ability,break_ability,exam2total)
-    }
-    );
-
-}
-
-function updateDatabase2(exam2attempt,username,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,complex_situation_ability, safe_ability,special_shot_ability,break_ability,exam2total){
-  firebase.database().ref('users/'+ username + '/attempts/Exam 2').set({
-    exam2attempts: exam2attempt
-  })
-  firebase.database().ref('users/' + username + '/Exam2/Attempt '+exam2attempt).set({
-    s1: s1,
-    s2: s2,
-    s3: s3,
-    s4: s4,
-    s5: s5,
-    s6: s6,
-    s7: s7,
-    s8: s8,
-    s9: s9,
-    s10: s10,
-
-    complex_situation_ability: complex_situation_ability,
-    safe_ability: safe_ability,
-    special_shot_ability: special_shot_ability,
-    break_ability: break_ability,
-    exam2total: exam2total
-  });
-}
-
-// writeUserData("thagen","Tom Hagen", [1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1])
 
 var server = http.createServer(function (req, res) {
   var uri = url.parse(req.url)
@@ -139,12 +53,8 @@ var server = http.createServer(function (req, res) {
     sendFile(res, 'style.css', 'text/css')
     break
 
-    case '/submitExam1':
-    handleSubmitExam1(res,req);
-    break
-
-    case '/submitExam2':
-    handleSubmitExam2(res,req);
+    case '/submitExam':
+    handleSubmitExam(res,req);
     break
 
     case '/search':
@@ -259,7 +169,7 @@ function sendFile(res, filename, contentType) {
   })
 
 }
-function handleSubmitExam1(res, req) {
+function handleSubmitExam(res, req) {
   var body = '';
   req.on('data', function (data) {
     body += data;
@@ -268,67 +178,101 @@ function handleSubmitExam1(res, req) {
     }
   });
   req.on('end', function () {
+    console.log("here");
     var post = qs.parse(body);
-    post.scores = post.scores.split(',').map(Number);
+    var examScores = post.scores.split(',').map(Number);
+    var username = post.user;
+    var whichExam = parseInt(post.exam)
+    var totalscore = 0;
+    var combinedScores=[];
 
-    var f1= post.scores[0];
-    var f2= post.scores[1];
-    var f3= post.scores[2];
-    var f4= post.scores[3];
-    var f5= post.scores[4];
-    var f6= post.scores[5];
-    var f7= post.scores[6];
-    var f8= post.scores[7];
+    switch(whichExam){
+      case 1:
+      combinedScores[0] = examScores[1]+examScores[2]+examScores[3]+examScores[4]+examScores[6];
+      combinedScores[1] = examScores[0]+examScores[5];
+      combinedScores[2] = examScores[7];
+      examScores.forEach(function (e){
+        totalscore += e;
+      });
+      combinedScores[3] = totalscore;
+      break;
 
-    var ball_control= post.scores[1]+post.scores[2]+post.scores[3]+post.scores[4]+post.scores[6];
-    var accuracy= post.scores[0]+post.scores[5];
-    var positioning= post.scores[7];
-
-    var exam1total= post.scores[0]+post.scores[1]+post.scores[2]+post.scores[3]+post.scores[4]+post.scores[5]+post.scores[6]+post.scores[7];
-
-    writeUserDataExam1(post.user,f1,f2,f3,f4,f5,f6,f7,f8,ball_control,accuracy,positioning,exam1total)
-
-    res.end()
-  });
-}
-function handleSubmitExam2(res, req) {
-  var body = '';
-  req.on('data', function (data) {
-    body += data;
-    if (body.length > 1e6) {
-      req.connection.destroy();
+      case 2:
+       combinedScores[0] = examScores[0]+ examScores[1]+examScores[2]+examScores[3]
+       combinedScores[1] = examScores[4];
+       combinedScores[2] = examScores[5]+ examScores[6]+examScores[7]+examScores[8];
+       combinedScores[3] = examScores[9];
+      examScores.forEach(function (e){
+        totalscore += e;
+      })
+      combinedScores[4] = totalscore
+      break;
     }
-  });
-  req.on('end', function () {
-    var post = qs.parse(body);
-    post.scores = post.scores.split(',').map(Number);
 
-    var s1= post.scores[0];
-    var s2= post.scores[1];
-    var s3= post.scores[2];
-    var s4= post.scores[3];
-    var s5= post.scores[4];
-    var s6= post.scores[5];
-    var s7= post.scores[6];
-    var s8= post.scores[7];
-    var s9= post.scores[8];
-    var s10= post.scores[9];
-
-    var complex_situation_ability= s1+s2+s3+s4
-    var safe_ability = s5
-    var special_shot_ability = s6+s7+s8+s9
-    var break_ability = s10
-
-    var exam2total =complex_situation_ability+safe_ability+special_shot_ability+break_ability;
-
-    writeUserDataExam2(post.user,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,complex_situation_ability,safe_ability,special_shot_ability,break_ability,exam2total);
-
-
+    writeUserData(username,examScores,combinedScores,whichExam)
     res.end()
   });
 }
 
+function writeUserData(username,examScores,combinedScores, whichExam) {
+  var attempt=1;
 
+  var ref = firebase.database().ref("/users/");
+  ref.once("value").then(function(snapshot) {
+    var hasName = snapshot.hasChild(username); // true
+    if(hasName){
+      switch(whichExam){
+        case 1:
+        attempt = snapshot.child(username+'/Exam 1/').numChildren()+1;
+        break;
+        case 2:
+        attempt = snapshot.child(username+'/Exam 2S/').numChildren()+1;
+        break;
+      }
+    }
+    console.log("Exam "+whichExam+ "      Attempt: "+attempt);
+
+    switch(whichExam){
+      case 1:
+      firebase.database().ref('users/'+username+'/Exam 1/Attempt '+attempt).set({
+        f1: examScores[0],
+        f2: examScores[1],
+        f3: examScores[2],
+        f4: examScores[3],
+        f5: examScores[4],
+        f6: examScores[5],
+        f7: examScores[6],
+        f8: examScores[7],
+
+        ballControl: combinedScores[0],
+        accuracy: combinedScores[1],
+        positioning: combinedScores[2],
+        total: combinedScores[3]
+      })
+      break;
+      case 2:
+      attempt = snapshot.child(username+'/Exam 2/').numChildren()+1;
+      firebase.database().ref('users/'+username+'/Exam 2/Attempt '+attempt).set({
+        s1: examScores[0],
+        s2: examScores[1],
+        s3: examScores[2],
+        s4: examScores[3],
+        s5: examScores[4],
+        s6: examScores[5],
+        s7: examScores[6],
+        s8: examScores[7],
+        s9: examScores[8],
+        s10: examScores[9],
+
+        complexSituationAbility: combinedScores[0],
+        safeAbility: combinedScores[1],
+        specialShotAbility: combinedScores[2],
+        breakAbility: combinedScores[3],
+        total: combinedScores[4]
+      }
+    )
+  }
+})}
 
 var currentUserData = null
 var allUsers = []
@@ -382,11 +326,10 @@ function setCurrentUser(res, req, uri){
           userData = {"username": key, "userData": childData};
           currentUserData = userData
         }
-        //console.log(userData)
 
-
-      });
-      console.log(currentUserData)
+      })
+      console.log(userData)
+      currentUserData = userData
     });
 
     res.end()
@@ -411,18 +354,14 @@ function searchUsers(res, req, uri){
         if(username.toLowerCase().includes(data.searchName.toLowerCase())){
           search.push({"username": username});
         }
-        
+
       })
       console.log(search);
-      
       searchedUsers = search
-      console.log(search)
-    }, function(){
-      console.log("something")
-      endres(res)
+      res.end()
     });
 
-    
+
   })
 }
 
