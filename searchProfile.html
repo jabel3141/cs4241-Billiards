@@ -89,7 +89,7 @@
       var code = document.getElementById('list')
       code.innerHTML = "";
       list.forEach(function(info) {
-        code.innerHTML += '<a onclick=setUser() class="list-group-item">' + info.username + '</a>';
+        code.innerHTML += '<a onclick=setUser("' + info.username + '") href="profiles.html" class="list-group-item">' + info.username + '</a>';
       })
     }
 
@@ -110,7 +110,8 @@
     }
 
 
-    function setUser() {
+    function setUser(username) {
+      console.log(username)
       //var username = document.getElementById('user')
       function reqListener () {
         

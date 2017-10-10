@@ -369,23 +369,27 @@ function setCurrentUser(res, req, uri){
   req.on('end', function() {
     var data = qs.parse(postdata)
 
-    var ref = firebase.database().ref("/users/");
+    var ref = firebase.database().ref("users").orderByKey();
     ref.once("value").then(function(snapshot) {
       var user = ''
       var userData = null
-      snapshot.forEach(function(childSnapshot){
-        var username = childSnapshot.key;
-        var userinfo = childSnapshot.val;
-        if(username.toLowerCase() == data.searchName.toLowerCase()){
-          userData = {"username": username, "userData": userinfo};
+
+      snapshot.forEach(function(childSnapshot) {
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+
+        if(key.toLowerCase() == data.username.toLowerCase()){
+          userData = {"username": key, "userData": childData};
+          currentUserData = userData
         }
-        
-      })
-      console.log(userData)
-      currentUserData = userData
+        //console.log(userData)
+
+
+      });
+      console.log(currentUserData)
     });
 
-    sendFile(res, 'profiles.html')
+    res.end()
   })
 }
 
