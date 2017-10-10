@@ -312,15 +312,18 @@ function setCurrentUser(res, req, uri){
   req.on('end', function() {
     var data = qs.parse(postdata)
 
-    var ref = firebase.database().ref("/users/");
+    var ref = firebase.database().ref("users").orderByKey();
     ref.once("value").then(function(snapshot) {
       var user = ''
       var userData = null
-      snapshot.forEach(function(childSnapshot){
-        var username = childSnapshot.key;
-        var userinfo = childSnapshot.val;
-        if(username.toLowerCase() == data.searchName.toLowerCase()){
-          userData = {"username": username, "userData": userinfo};
+
+      snapshot.forEach(function(childSnapshot) {
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+
+        if(key.toLowerCase() == data.username.toLowerCase()){
+          userData = {"username": key, "userData": childData};
+          currentUserData = userData
         }
 
       })
@@ -328,7 +331,7 @@ function setCurrentUser(res, req, uri){
       currentUserData = userData
     });
 
-    sendFile(res, 'profiles.html')
+    res.end()
   })
 }
 
@@ -353,12 +356,8 @@ function searchUsers(res, req, uri){
 
       })
       console.log(search);
-
       searchedUsers = search
-      console.log(search)
-    }, function(){
-      console.log("something")
-      endres(res)
+      res.end()
     });
 
 
