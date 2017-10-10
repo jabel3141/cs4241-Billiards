@@ -234,7 +234,7 @@ function writeUserData(username,examScores,combinedScores, whichExam) {
 
     switch(whichExam){
       case 1:
-      firebase.database().ref('users/'+username+'/Exam1/Attempt '+attempt).set({
+      firebase.database().ref('users/'+username+'/Exam1/Attempt'+attempt).set({
         f1: examScores[0],
         f2: examScores[1],
         f3: examScores[2],
@@ -251,7 +251,7 @@ function writeUserData(username,examScores,combinedScores, whichExam) {
       })
       break;
       case 2:
-      firebase.database().ref('users/'+username+'/Exam2/Attempt '+attempt).set({
+      firebase.database().ref('users/'+username+'/Exam2/Attempt'+attempt).set({
         s1: examScores[0],
         s2: examScores[1],
         s3: examScores[2],
