@@ -1,165 +1,271 @@
- <html>
- <head>
+<html>
+<head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
   <link id="css" rel="stylesheet" type="text/css" href="style.css"/>
+
+  <style>
+  table {color: black;}
+
+  .grad {
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#00517C, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#00517C, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#00517C, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#00517C, white); /* Standard syntax */
+  }
+
+  .grad-inverse {
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(white, #00517C); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, #00517C); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, #00517C); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #00517C); /* Standard syntax */
+  }
+
+  .animate {
+    font-size: 50px;
+    margin: 100px 0 0;
+  }
+
+  .animate span {
+    display: inline-block;
+  }
+
+  .animate span:nth-of-type(2) {
+    animation-delay: .05s;
+  }
+  .animate span:nth-of-type(3) {
+    animation-delay: .1s;
+  }
+  .animate span:nth-of-type(4) {
+    animation-delay: .15s;
+  }
+  .animate span:nth-of-type(5) {
+    animation-delay: .2s;
+  }
+  .animate span:nth-of-type(6) {
+    animation-delay: .25s;
+  }
+  .animate span:nth-of-type(7) {
+    animation-delay: .3s;
+  }
+  .animate span:nth-of-type(8) {
+    animation-delay: .35s;
+  }
+  .animate span:nth-of-type(9) {
+    animation-delay: .4s;
+  }
+  .animate span:nth-of-type(10) {
+    animation-delay: .45s;
+  }
+  .animate span:nth-of-type(11) {
+    animation-delay: .5s;
+  }
+  .animate span:nth-of-type(12) {
+    animation-delay: .55s;
+  }
+  .animate span:nth-of-type(13) {
+    animation-delay: .6s;
+  }
+  .animate span:nth-of-type(14) {
+    animation-delay: .65s;
+  }
+  .animate span:nth-of-type(15) {
+    animation-delay: .7s;
+  }
+  .animate span:nth-of-type(16) {
+    animation-delay: .75s;
+  }
+  .animate span:nth-of-type(17) {
+    animation-delay: .8s;
+  }
+  .animate span:nth-of-type(18) {
+    animation-delay: .85s;
+  }
+  .animate span:nth-of-type(19) {
+    animation-delay: .9s;
+  }
+  .animate span:nth-of-type(20) {
+    animation-delay: .95s;
+  }
+
+  .one span {
+    color: black;
+    font-family: 'Arvo', sans-serif;
+    font-size: 2em;
+    opacity: 0;
+    transform: translate(-150px, -50px) rotate(-180deg) scale(3);
+    animation: revolveScale .4s forwards;
+  }
+
+  @keyframes revolveScale {
+    60% {
+      transform: translate(20px, 20px) rotate(30deg) scale(.3);
+    }
+
+    100% {
+      transform: translate(0) rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  </style>
 </head>
 <body>
-    <!-- 
-    Jumbotron
-    About
-    Link to BU Exam Site
-    Initial Table Setup
-    BU Score and Rating Table
-  
-    Link to http://billiarduniversity.org/exams.html
-  -->
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#"><span class="active">WPI CSC Billiard Analytics </span> <span class="sr-only">Current</span></a>
+  <div class="jumbotron grad">
+    <center><div class="animate one">
+      <span>C</span><span>S</span><span>C</span>&nbsp;
+      <span>B</span><span>i</span><span>l</span><span>l</span><span>i</span><span>a</span><span>r</span><span>d</span>&nbsp;
+      <span>A</span><span>n</span><span>a</span><span>l</span><span>y</span><span>t</span><span>i</span><span>c</span><span>s</span></center>
+      <center><p>Bringing out the best of your abilities!</p></center>
+    </div>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="active">Billiard Analytics </span> <span class="sr-only">Current</span></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li><a href="examFundamentals.html">Exam 1 </a></li>
+            <li><a href="examSkills.html">Exam 2</a></li>
+            <li class="dropdown">
+              <a href="searchProfile.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Week's Top 10</a></li>
+                <li><a href="#">Month's Top </a></li>
+                <li><a href="#">Year's Top 10</a></li>
+                <li class="divider"></li>
+                <li><a href="searchProfile.html">All Players</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Profiles">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-left">
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://billiarduniversity.org/exams.html" target="_blank">BU Site</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main grad-inverse">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2><center>Exam Table Setup</center></h2>
+          <img src="img/home/1.png" alt="General Setup" width="100%" class="img-responsive center-block">
+        </div>
+        <div class="col-sm-6">
+          <h2><center>Final Point Conversion</center></h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Score</th>
+                <th>Player Category</th>
+                <th>Player Level</th>
+                <th>A-D Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>180-200</td>
+                <td>Pro</td>
+                <td>Professional</td>
+                <td>A+++</td>
+              </tr>
+              <tr>
+                <td>160-179</td>
+                <td>Semi-Pro</td>
+                <td>Master</td>
+                <td>A++</td>
+              </tr>
+              <tr>
+                <td>140-159</td>
+                <td>Advanced 3</td>
+                <td>Expert</td>
+                <td>A+</td>
+              </tr>
+              <tr>
+                <td>125-139</td>
+                <td>Advanced 2</td>
+                <td>Upper Advanced</td>
+                <td>A-/B+</td>
+              </tr>
+              <tr>
+                <td>110-124</td>
+                <td>Advanced 1</td>
+                <td>Lower Advanced</td>
+                <td>B/B-</td>
+              </tr>
+              <tr>
+                <td>95-109</td>
+                <td>Intermediate 3</td>
+                <td>Upper Intermediate</td>
+                <td>B-/C+</td>
+              </tr>
+              <tr>
+                <td>70-94</td>
+                <td>Intermediate 2</td>
+                <td>Middle Intermediate</td>
+                <td>C+/C</td>
+              </tr>
+              <tr>
+                <td>55-69</td>
+                <td>Intermediate 1</td>
+                <td>Lower Intermediate</td>
+                <td>C</td>
+              </tr>
+              <tr>
+                <td>40-54</td>
+                <td>Beginner 3</td>
+                <td>Upper Novice</td>
+                <td>C-</td>
+              </tr>
+              <tr>
+                <td>30-39</td>
+                <td>Beginner 2</td>
+                <td>Middle Novice</td>
+                <td>D+</td>
+              </tr>
+              <tr>
+                <td>20-29</td>
+                <td>Beginner 1</td>
+                <td>Lower Novice</td>
+                <td>D</td>
+              </tr>
+              <tr>
+                <td>0-19</td>
+                <td>Beginner 0</td>
+                <td>Absolute Beginner</td>
+                <td>D-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-        <ul class="nav navbar-nav">
-          <li><a href="examFundamentals.html">Exam 1 </a></li>
-          <li><a href="examSkills.html">Exam 2</a></li>
-          <li class="dropdown">
-            <a href="searchProfile.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Week's Top 10</a></li>
-              <li><a href="#">Month's Top </a></li>
-              <li><a href="#">Year's Top 10</a></li>
-              <li class="divider"></li>
-              <li><a href="searchProfile.html">All Players</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search Profiles">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <ul class="nav navbar-nav navbar-left">
-          <li>
-            <a href="https://www.miniclip.com/games/8-ball-pool-multiplayer/en/#t-w-c-H" target="_blank">
-              <img src="img/home/3.png" alt="easter_egg" width="22px" height="22px" class="img-responsive center-block" id="unhide">
-            </a>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://billiarduniversity.org/exams.html" target="_blank">Link</a></li>
-        </ul>
-      </div>
     </div>
-  </nav>
+  </body>
 
-  <div class="row">
-    <div class="col-sm-3">
-      <h2><center>World's TOP 10</center></h2>                                                                              
-      <div class="table-responsive">          
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Firstname</th>
-              <th>Lastname</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Efren</td>
-              <td>Reyes</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Ron</td>
-              <td>Dooley</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Shane</td>
-              <td>Van Boening</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Earl</td>
-              <td>Strickland</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>John</td>
-              <td>Archer</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Mika</td>
-              <td>Immonen</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Francisco</td>
-              <td>Bustamante</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Darren</td>
-              <td>Appleton</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>Alex</td>
-              <td>Pagulayan</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>Ralf</td>
-              <td>Souquet</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <h2><center>Exam Setup</center></h2>
-    <div class="col-sm-9">
-     <img src="img/home/1.png" alt="General Setup" width="700px" height="350px" class="img-responsive center-block">
-     
-   </div>
- </div>
+  <script>
 
-  <div class="row">
-    <div class="col-sm-3">
-    </div>
-    <div class="col-sm-9">
-      <h2><center>Point Conversion</center></h2>
-      <img src="img/home/2.png" alt="Point Conversion" width="600px" height="300px" class="img-responsive center-block">
-    </div>
-  </div>
-
-</body>
-
-<script>
-
-
-    var picture = document.getElementById('unhide');
-
-    picture.addEventListener("mouseout", function(){
-      picture.style.display = 'none';
-    });
-    picture.addEventListener("mouseover", function(){
-      picture.style.display = 'block';
-    });
-
-
-</script>
-</html>
+  </script>
+  </html>
