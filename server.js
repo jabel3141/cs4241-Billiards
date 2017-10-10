@@ -354,12 +354,8 @@ function searchUsers(res, req, uri){
 
       })
       console.log(search);
-
       searchedUsers = search
-      console.log(search)
-    }, function(){
-      console.log("something")
-      endres(res)
+      res.end()
     });
 
 
