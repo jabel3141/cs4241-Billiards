@@ -85,10 +85,11 @@
     getUserList()
 
     function userList( list ) {
+      console.log(list)
       var code = document.getElementById('list')
       code.innerHTML = "";
       list.forEach(function(info) {
-        code.innerHTML += '<a onclick=setUser(' + info.username + ') href="Profiles.html" class="list-group-item">' + info.username + '</a>';
+        code.innerHTML += '<a onclick=setUser() class="list-group-item">' + info.username + '</a>';
       })
     }
 
@@ -103,16 +104,14 @@
       var oReq = new XMLHttpRequest();
       
       oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "/getAllUsers");
+      oReq.open("GET", "/getUserList");
       oReq.send();
 
     }
 
 
-    function setUser(username) {
-
+    function setUser() {
       //var username = document.getElementById('user')
-
       function reqListener () {
         
       }
@@ -130,7 +129,7 @@
 
     var searchName = document.getElementById('searchTitle')
     function reqListener () {
-      
+      getUserList()
     }
     
     var oReq = new XMLHttpRequest();

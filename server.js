@@ -65,7 +65,7 @@ var server = http.createServer(function (req, res) {
     setCurrentUser(res,req,uri);
     break
 
-    case '/getAllUsers':
+    case '/getUserList':
     res.end(JSON.stringify(searchedUsers))
     break
 
@@ -276,7 +276,34 @@ function writeUserData(username,examScores,combinedScores, whichExam) {
 
 var currentUserData = null
 var allUsers = []
-var searchedUsers = allUsers
+var searchedUsers = []
+
+makeUserList()
+console.log(searchedUsers)
+
+function makeUserList(){
+  //console.log("here")
+
+  var ref = firebase.database().ref("users").orderByKey();
+  ref.once("value").then(function(snapshot) {
+    var user = ''
+    var userData = null
+
+    snapshot.forEach(function(childSnapshot) {
+      var key = childSnapshot.key;
+      var childData = childSnapshot.val();
+
+      userData = {"username": key, "userData": childData};
+      //console.log(userData)
+
+      allUsers.push(userData)
+    });
+    //console.log(allUsers)
+    searchedUsers = allUsers
+    //  console.log(searchedUsers)
+  });
+}
+
 
 function setCurrentUser(res, req, uri){
   var postdata = ''
@@ -298,11 +325,11 @@ function setCurrentUser(res, req, uri){
         }
 
       })
-
+      console.log(userData)
       currentUserData = userData
     });
 
-    res.end()
+    sendFile(res, 'profiles.html')
   })
 }
 
@@ -328,9 +355,18 @@ function searchUsers(res, req, uri){
       })
       console.log(search);
 
-      allUsers = search
+      searchedUsers = search
+      console.log(search)
+    }, function(){
+      console.log("something")
+      endres(res)
     });
 
-    res.end()
+
   })
+}
+
+function endres(res){
+  console.log("here")
+  res.end()
 }
