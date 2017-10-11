@@ -17,7 +17,7 @@ var mycfg = {
 	h: h,
 	maxValue: 1,
 	levels: 5,
-	ExtraWidthX: 300
+	ExtraWidthX: 200
 }
 
 function getUser(){
