@@ -71,9 +71,14 @@ var server = http.createServer(function (req, res) {
 
     case '/getUser':
     res.end(JSON.stringify(currentUserData))
-    //case '/js/scripts.js':
-    //sendFile(res, 'scripts.js', 'text/javascript')
-    //break
+
+    case '/radarScript.js':
+    sendFile(res, 'radarScript.js', 'text/javascript')
+    break
+
+    case '/radar.js':
+    sendFile(res, 'radar.js', 'text/javascript')
+    break
 
     /////////////////////// IMAGES //////////////////////////////////
     case '/img/home/1.png':

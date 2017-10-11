@@ -136,8 +136,16 @@
 
       username.innerText = user.username
 
-      createExam1(user)
-      createExam2(user)
+      Object.keys(user.userData).forEach(function(key){
+
+        if(key == "Exam1"){
+          createExam1(user)
+        }
+        if(key == "Exam2"){
+          createExam2(user)
+        }
+      })
+
     }
 
     function getUser(){
