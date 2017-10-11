@@ -68,9 +68,9 @@ function setChart(user){
 	})
 
 	for(var i = 0; i < numExams; i++){
-		
+
 		var temp = []
-		LegendOptions.push("Test " + (i+1) + " Score = " + (exam1Totals[i] + exam2Totals[i]))
+		LegendOptions.push("Exam Total (" + (i+1) + ") = " + (exam1Totals[i] + exam2Totals[i]))
 		d.push(temp)
 	}
 
@@ -78,7 +78,7 @@ function setChart(user){
 }
 
 
-function createData(user, numExams){  
+function createData(user, numExams){
 	var exam1Scores = document.getElementById("exam1Results");
 	var i = 0
 	var exam1Length = 0
@@ -151,26 +151,26 @@ function createChart(){
 	//Create the title for the legend
 	var text = svg.append("text")
 	.attr("class", "title")
-	.attr('transform', 'translate(200,10)') 
-	.attr("x", w - 70)
+	.attr('transform', 'translate(200,10)')
+	.attr("x", w - 100)
 	.attr("y", 10)
-	.attr("font-size", "20px")
+	.attr("font-size", "1.3em")
 	.attr("fill", "#000")
-	.text("Exam Statistic Key");
+	.text("Key:");
 
-	//Initiate Legend	
+	//Initiate Legend
 	var legend = svg.append("g")
 	.attr("class", "legend")
 	.attr("height", 100)
 	.attr("width", 200)
-	.attr('transform', 'translate(200,30)') 
+	.attr('transform', 'translate(200,30)')
 	;
 		//Create colour squares
 		legend.selectAll('rect')
 		.data(LegendOptions)
 		.enter()
 		.append("rect")
-		.attr("x", w - 65)
+		.attr("x", w - 100)
 		.attr("y", function(d, i){ return i * 20;})
 		.attr("width", 10)
 		.attr("height", 10)
@@ -181,15 +181,10 @@ function createChart(){
 		.data(LegendOptions)
 		.enter()
 		.append("text")
-		.attr("x", w - 52)
+		.attr("x", w - 80)
 		.attr("y", function(d, i){ return i * 20 + 9;})
 		.attr("font-size", "15px")
 		.attr("fill", "#000")
 		.text(function(d) { return d; })
-		;	
+		;
 }
-
-
-
-
-

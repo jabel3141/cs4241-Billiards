@@ -17,12 +17,30 @@
     padding-right: 3%;
   }
 
+  #img-over {
+    position: relative;
+    padding-top: 35px;
+  }
   #logo {
 
   }
 
   #overlay-text {
-    position: relative;
+    position: absolute;
+    top:90%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: 0;
+    text-align:center;
+  }
+
+  #overlay-title {
+    position: absolute;
+    top:20%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: 0;
+    text-align:center;
   }
 
   .index-p {
@@ -36,6 +54,7 @@
 
   .animate span {
     display: inline-block;
+    top: 20%;
   }
 
   .animate span:nth-of-type(2) {animation-delay: .05s;}
@@ -83,12 +102,14 @@
 <body>
 
   <div class="jumbotron">
-    <center><div class="animate one">
+    <div id="img-over">
+    <center><div class="animate one" id="overlay-title">
       <span>C</span><span>S</span><span>C</span>&nbsp;
       <span>B</span><span>i</span><span>l</span><span>l</span><span>i</span><span>a</span><span>r</span><span>d</span>&nbsp;
       <span>A</span><span>n</span><span>a</span><span>l</span><span>y</span><span>t</span><span>i</span><span>c</span><span>s</span></center>
-      <span><img src="img/home/logo.png" alt="logo" width="10%"class="img-responsive center-block" id="logo"/></span>
-      <center><p id="overlay-text">Bringing out the best of your abilities!</p></center>
+        <img src="img/home/logo.png" alt="logo" width="10%"class="img-responsive center-block" id="logo"/>
+        <p id="overlay-text"><i>Bringing out the <b>best</b> of your abilities!</i></p>
+      </div>
     </div>
 
     <nav class="navbar navbar-default">

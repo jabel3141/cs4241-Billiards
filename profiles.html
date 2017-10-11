@@ -4,15 +4,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link id="css" rel="stylesheet" type="text/css" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Verdana" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="radar.js"></script>
     <style>
       table{
         font-size: 13px;
-      } 
+      }
       .panel{
-        font-size: 20px;
+        font-size: 1.2em;
+        width: 98%;
+        margin: 0 auto;
+      }
+
+      #graph-well {
+        width: 98%;
+        margin: 0 auto;
+      }
+
+      #user {
+        font-family: Arvo, sans-serif;
+        font-size: 6em;
+      }
+
+      #prof-pic {
+        display: inline-block;
       }
     </style>
   </head>
@@ -35,7 +53,7 @@
             <li><a href="searchProfile.html">Profiles</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search" action="searchProfile.html">
-            <div class="form-group">  
+            <div class="form-group">
               <input type="text" class="form-control" placeholder="Search Profiles" id="navSearchName" name="nav">
             </div>
             <button type="submit" class="btn btn-default" onclick="navSearch()">Submit</button>
@@ -49,106 +67,111 @@
         </div>
       </div>
     </nav>
-    <div class="row">
-      <div class="jumbotron text-center">
-        <h1 id="user"></h1>
-        <h3 id="bestScore"></h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6 well">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2>Exam 1 Scores
-              <button type="button" class="btn btn-primary" onclick="location.href='examFundamentals.html'">Take Exam 1 Again!</button>
-            </h2>
-          </div>
-          <div class="panel-body">
-            <table class="table table-bordered text-center">
-              <thead>
-                <tr>
-                  <th class="text-center">Cut</th>
-                  <th class="text-center">Stop</th>
-                  <th class="text-center">Follow</th>
-                  <th class="text-center">Draw</th>
-                  <th class="text-center">Stun</th>
-                  <th class="text-center">Potting</th>
-                  <th class="text-center">Wagon Wheel</th>
-                  <th class="text-center">Target</th>
-                  <th class="text-center">Total</th>
-                </tr>
-              </thead>
-              <tbody id="exam1Results">
-                
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2>Exam 2 Scores
-              <button type="button" class="btn btn-primary" onclick="location.href='examSkills.html'">Take Exam 2 Again!</button>
-            </h2>
-          </div>
-          <div class="panel-body">
-            <table class="table table-bordered text-center">
-              <thead>
-                <tr>
-                  <th class="text-center">Line</th>
-                  <th class="text-center">Rail Cut</th>
-                  <th class="text-center">9-Ball</th>
-                  <th class="text-center">8-Ball</th>
-                  <th class="text-center">Saftey</th>
-                  <th class="text-center">Kick</th>
-                  <th class="text-center">Bank</th>
-                  <th class="text-center">Elevated Cue</th>
-                  <th class="text-center">Jump/Mass&eacute</th>
-                  <th class="text-center">Break</th>
-                  <th class="text-center">Total</th>
-                </tr>
-              </thead>
-              <tbody id="exam2Results">
-                
-              </tbody>
-            </table>
+
+    <div class="main">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="well text-center">
+            <h1 id="user"></h1><img id="prof-pic" src="img/profiles/pool-stance.png" alt="Profile" height="10%"/>
+            <h3 id="bestScore"></h3>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 well text-center">
-        <h1>Exam Statistics</h1>
-        <div id="body">
-          <div id="chart"> <!-- Radar chart -->
-            
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-heading">
+              <h2>Exam 1 Scores
+                <button type="button" class="btn btn-primary" onclick="location.href='examFundamentals.html'">Take Exam 1 Again!</button>
+              </h2>
+            </div>
+            <div class="panel-body">
+              <table class="table table-bordered text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center">Cut</th>
+                    <th class="text-center">Stop</th>
+                    <th class="text-center">Follow</th>
+                    <th class="text-center">Draw</th>
+                    <th class="text-center">Stun</th>
+                    <th class="text-center">Potting</th>
+                    <th class="text-center">Wagon Wheel</th>
+                    <th class="text-center">Target</th>
+                    <th class="text-center">Total</th>
+                  </tr>
+                </thead>
+                <tbody id="exam1Results">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel panel-default well">
+            <div class="panel-heading">
+              <h2>Exam 2 Scores
+                <button type="button" class="btn btn-primary" onclick="location.href='examSkills.html'">Take Exam 2 Again!</button>
+              </h2>
+            </div>
+            <div class="panel-body">
+              <table class="table table-bordered text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center">Line</th>
+                    <th class="text-center">Rail Cut</th>
+                    <th class="text-center">9-Ball</th>
+                    <th class="text-center">8-Ball</th>
+                    <th class="text-center">Saftey</th>
+                    <th class="text-center">Kick</th>
+                    <th class="text-center">Bank</th>
+                    <th class="text-center">Elevated Cue</th>
+                    <th class="text-center">Jump/Mass&eacute</th>
+                    <th class="text-center">Break</th>
+                    <th class="text-center">Total</th>
+                  </tr>
+                </thead>
+                <tbody id="exam2Results">
+
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-        <h1>Statistic Breakdown</h1>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Ball Control</div>
-          <div class="panel-body">(Stop + Follow + Draw + Stun + Wagon Wheel) / 60</div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Accuracy</div>
-          <div class="panel-body">(Cut + Potting) / 20</div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Positioning</div>
-          <div class="panel-body">(Targeting) / 20</div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Complex Situation Ability</div>
-          <div class="panel-body">(Line of Balls + Rail Cuts + 9-Ball + 8-Ball) / 31</div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Safe Ability</div>
-          <div class="panel-body">(Safety) / 6</div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Special Shot Ability</div>
-          <div class="panel-body">(Kicks + Banks + Elevated Cue + Jump/Mass&eacute) / 12</div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Break Ability</div>
-          <div class="panel-body">(Break) / 5</div>
+        <div class="col-sm-6 text-center">
+          <div class="well" id="graph-well">
+          <h1>Exam Statistics</h1>
+            <div id="body">
+              <div id="chart"> <!-- Radar chart -->
+
+              </div>
+            </div>
+            <h3>Statistic Breakdown</h3>
+            <div class="panel panel-primary">
+              <div class="panel-heading">Ball Control</div>
+              <div class="panel-body">(Stop + Follow + Draw + Stun + Wagon Wheel) / 60</div>
+
+              <div class="panel-heading">Accuracy</div>
+              <div class="panel-body">(Cut + Potting) / 20</div>
+
+              <div class="panel-heading">Positioning</div>
+              <div class="panel-body">(Targeting) / 20</div>
+
+
+              <div class="panel-heading">Complex Situation Ability</div>
+              <div class="panel-body">(Line of Balls + Rail Cuts + 9-Ball + 8-Ball) / 31</div>
+
+
+              <div class="panel-heading">Safe Ability</div>
+              <div class="panel-body">(Safety) / 6</div>
+
+
+              <div class="panel-heading">Special Shot Ability</div>
+              <div class="panel-body">(Kicks + Banks + Elevated Cue + Jump/Mass&eacute) / 12</div>
+
+              <div class="panel-heading">Break Ability</div>
+              <div class="panel-body">(Break) / 5</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -175,7 +198,7 @@
       })
 
       var score = document.getElementById("bestScore")
-      score.innerText = "Best Combined Score: " + bestTotalScore
+      score.innerHTML = "<i>Best Combined Score: </i><b>" + bestTotalScore + "</b>"
     }
 
     function getUser(){
@@ -183,16 +206,16 @@
         var user = JSON.parse(this.responseText)
         setInfo( user )
       }
-      
+
       var oReq = new XMLHttpRequest();
-      
+
       oReq.addEventListener("load", reqListener);
       oReq.open("GET", "/getUser");
       oReq.send();
     }
 
 
-    function createExam1(user){  
+    function createExam1(user){
         var exam1Scores = document.getElementById("exam1Results");
         var i = 0
         var best = 0
@@ -230,7 +253,7 @@
         bestTotalScore += best
     }
 
-    function createExam2(user){  
+    function createExam2(user){
         var exam2Scores = document.getElementById("exam2Results");
         var i = 0
         var best = 0
@@ -277,11 +300,11 @@
 
     var searchName = document.getElementById('navSearchName')
     function reqListener () {
-      
+
     }
-    
+
     var oReq = new XMLHttpRequest();
-    
+
     oReq.addEventListener("load", reqListener);
     oReq.open("POST", "/search", true);
     oReq.send('searchName='+searchName.value);
