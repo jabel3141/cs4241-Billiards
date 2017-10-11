@@ -17,7 +17,7 @@ var mycfg = {
 	h: h,
 	maxValue: 1,
 	levels: 5,
-	ExtraWidthX: 200
+	ExtraWidthX: 300
 }
 
 function getUser(){
@@ -57,9 +57,20 @@ function setChart(user){
 		numExams = exam2Length
 	}
 
+	var exam1Totals = []
+	var exam2Totals = []
+
+	Object.keys(user.userData.Exam1).forEach(function(key){
+		exam1Totals.push(user.userData.Exam1[key].total)
+	})
+	Object.keys(user.userData.Exam2).forEach(function(key){
+		exam2Totals.push(user.userData.Exam2[key].total)
+	})
+
 	for(var i = 0; i < numExams; i++){
+		
 		var temp = []
-		LegendOptions.push("Test " + (i+1))
+		LegendOptions.push("Test " + (i+1) + " Score = " + (exam1Totals[i] + exam2Totals[i]))
 		d.push(temp)
 	}
 
@@ -140,10 +151,10 @@ function createChart(){
 	//Create the title for the legend
 	var text = svg.append("text")
 	.attr("class", "title")
-	.attr('transform', 'translate(90,0)') 
+	.attr('transform', 'translate(200,10)') 
 	.attr("x", w - 70)
 	.attr("y", 10)
-	.attr("font-size", "12px")
+	.attr("font-size", "20px")
 	.attr("fill", "#000")
 	.text("Exam Statistic Key");
 
@@ -152,7 +163,7 @@ function createChart(){
 	.attr("class", "legend")
 	.attr("height", 100)
 	.attr("width", 200)
-	.attr('transform', 'translate(90,20)') 
+	.attr('transform', 'translate(200,30)') 
 	;
 		//Create colour squares
 		legend.selectAll('rect')
@@ -172,7 +183,7 @@ function createChart(){
 		.append("text")
 		.attr("x", w - 52)
 		.attr("y", function(d, i){ return i * 20 + 9;})
-		.attr("font-size", "11px")
+		.attr("font-size", "15px")
 		.attr("fill", "#000")
 		.text(function(d) { return d; })
 		;	
