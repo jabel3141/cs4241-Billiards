@@ -72,8 +72,11 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="well text-center">
-            <h1 id="user"></h1><img id="prof-pic" src="img/profiles/pool-stance.png" alt="Profile" height="10%"/>
+            <h1 id="user"></h1>
+            <img id="prof-pic" src="img/profiles/pool-stance.png" alt="Profile" height="10%"/>
+            <h3 id="level"></h3>
             <h3 id="bestScore"></h3>
+            <h3 id="fargo"></h3>
           </div>
         </div>
       </div>
@@ -197,8 +200,78 @@
         }
       })
 
+      var level = document.getElementById("level")
+      var fargo = document.getElementById("fargo")
+      var rating = 0
+
+      if(bestTotalScore > 179){
+        level.innerHTML = "<i>Player Level: </i><b>Pro</b>"
+        rating = map_range(bestTotalScore, 180, 750, 200, 1000)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 159){
+        level.innerHTML = "<i>Player Level: </i><b>Semi Pro</b>"
+        rating = map_range(bestTotalScore, 160, 650, 179, 749)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 139){
+        level.innerHTML = "<i>Player Level: </i><b>Advanced-3</b>"
+        rating = map_range(bestTotalScore, 140, 600, 159, 649)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 124){
+        level.innerHTML = "<i>Player Level: </i><b>Advanced-2</b>"
+        rating = map_range(bestTotalScore, 125, 550, 139, 599)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 109){
+        level.innerHTML = "<i>Player Level: </i><b>Advanced-1</b>"
+        rating = map_range(bestTotalScore, 110, 500, 124, 549)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 94){
+        level.innerHTML = "<i>Player Level: </i><b>Intermediate-3</b>"
+        rating = map_range(bestTotalScore, 95, 450, 109, 499)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 69){
+        level.innerHTML = "<i>Player Level: </i><b>Intermediate-2</b>"
+        rating = map_range(bestTotalScore, 70, 400, 94, 449)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 54){
+        level.innerHTML = "<i>Player Level: </i><b>Intermediate-1</b>"
+        rating = map_range(bestTotalScore, 55, 350, 69, 399)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 39){
+        level.innerHTML = "<i>Player Level: </i><b>Beginner-3</b>"
+        rating = map_range(bestTotalScore, 40, 325, 54, 349)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 29){
+        level.innerHTML = "<i>Player Level: </i><b>Beginner-2</b>"
+        rating = map_range(bestTotalScore, 30, 300, 39, 324)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else if(bestTotalScore > 19){
+        level.innerHTML = "<i>Player Level: </i><b>Beginner-1</b>"
+        rating = map_range(bestTotalScore, 20, 200, 29, 299)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+      else{
+        level.innerHTML = "<i>Player Level: </i><b>Beginner-0</b>"
+        rating = map_range(bestTotalScore, 0, 0, 19, 200)
+        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+      }
+
       var score = document.getElementById("bestScore")
-      score.innerHTML = "<i>Best Combined Score: </i><b>" + bestTotalScore + "</b>"
+      score.innerHTML = "<i>Best BU Combined Score: </i><b>" + bestTotalScore + "</b>"
+    }
+
+
+    function map_range(value, low1, high1, low2, high2) {
+      return Math.round((value - low1) * (high2 - high1) / (low2 - low1) + high1);
     }
 
     function getUser(){

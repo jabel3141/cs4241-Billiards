@@ -117,7 +117,7 @@
       code.innerHTML = "";
       divList.innerHTML = "<p>Users Found: " + list.length + "</p>"
       list.forEach(function(info) {
-        code.innerHTML += '<a onclick=setUser("' + info.username + '") href="profiles.html" class="list-group-item">' + info.username + '</a>';
+        code.innerHTML += '<a onclick=setUser("' + info.username + '") class="list-group-item">' + info.username + '</a>';
       })
     }
 
@@ -140,7 +140,7 @@
     function setUser(username) {
 
       function reqListener () {
-
+        window.location.href = "profiles.html";
       }
 
       var oReq = new XMLHttpRequest();

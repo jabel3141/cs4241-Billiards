@@ -40,13 +40,21 @@ function setChart(user){
 	var exam1Length = 0
 	var exam2Length = 0
 	var numExams = 0
+	var exam1Totals = []
+	var exam2Totals = []
 
 	Object.keys(user.userData).forEach(function(key){
         if(key == "Exam1"){
           exam1Length = Object.keys(user.userData.Exam1).length
+          Object.keys(user.userData.Exam1).forEach(function(key){
+				exam1Totals.push(user.userData.Exam1[key].total)
+			})
         }
         if(key == "Exam2"){
           exam2Length = Object.keys(user.userData.Exam2).length
+          Object.keys(user.userData.Exam2).forEach(function(key){
+				exam2Totals.push(user.userData.Exam2[key].total)
+			})
         }
     })
 
@@ -56,16 +64,7 @@ function setChart(user){
 	else {
 		numExams = exam2Length
 	}
-
-	var exam1Totals = []
-	var exam2Totals = []
-
-	Object.keys(user.userData.Exam1).forEach(function(key){
-		exam1Totals.push(user.userData.Exam1[key].total)
-	})
-	Object.keys(user.userData.Exam2).forEach(function(key){
-		exam2Totals.push(user.userData.Exam2[key].total)
-	})
+	
 
 	for(var i = 0; i < numExams; i++){
 
