@@ -4,9 +4,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link id="css" rel="stylesheet" type="text/css" href="style.css"/>   
+    <style>
+      .list-group-item{
+        font-size: 30px;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -15,22 +20,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span class="active">WPI CSC Billiard Analytics </span> <span class="sr-only">Current</span></a>
+          <a class="navbar-brand" href="index.html"><span class="active">Billiard Analytics </span> <span class="sr-only">Current</span></a>
         </div>
+
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <ul class="nav navbar-nav">
-            <li><a href="examFundamentals.html">Exam 1 </a></li>
-            <li><a href="examSkills.html">Exam 2</a></li>
-            <li class="dropdown">
-              <a href="searchProfile.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Week's Top 10</a></li>
-                <li><a href="#">Month's Top </a></li>
-                <li><a href="#">Year's Top 10</a></li>
-                <li class="divider"></li>
-                <li><a href="searchProfile.html">All Players</a></li>
-              </ul>
-            </li>
+            <li><a href="examFundamentals.html">Exam I </a></li>
+            <li><a href="examSkills.html">Exam II</a></li>
+            <li><a href="searchProfile.html">Profiles</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
@@ -38,19 +35,20 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
+          <ul class="nav navbar-nav navbar-left">
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://billiarduniversity.org/exams.html" target="_blank">Link</a></li>
+            <li><a href="http://billiarduniversity.org/exams.html" target="_blank">BU Site</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
     <div class="row">
-      
-      <div class="col-sm-6">
-
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-4">
         <div class="well row">
-
           <form action="search" method="POST" onsubmit="return false">
             <div class="input-group">
               <input id="searchTitle" class="form-control" type="text" name="movie" />
@@ -71,8 +69,10 @@
           </form>
         </div>
       </div>
+      <div class="col-sm-1">
+      </div>
       <div class="col-sm-6">
-        <div class="list-group" id="list">
+        <div class="list-group text-center" id="list">
           <a href="profiles.html" class="list-group-item">Test Dummy 1</a>
         </div>
       </div>
@@ -106,13 +106,11 @@
       oReq.addEventListener("load", reqListener);
       oReq.open("GET", "/getUserList");
       oReq.send();
-
     }
 
 
     function setUser(username) {
-      console.log(username)
-      //var username = document.getElementById('user')
+
       function reqListener () {
         
       }
@@ -140,11 +138,9 @@
     oReq.send('searchName='+searchName.value);
 
     searchTitle.value = ""
-
   }
 
   function clearSearch() {
-
     var searchNameClear = document.getElementById('searchTitleClear')
 
     function reqListener () {
@@ -158,8 +154,6 @@
     oReq.send('searchName='+searchNameClear.value);
 
     searchTitleClear.value = ""
-
   }
-
   </script>
 </html>

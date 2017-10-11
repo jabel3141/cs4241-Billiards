@@ -7,15 +7,17 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="radar.js"></script>
-    
     <style>
       table{
-        font-size: 13;
+        font-size: 13px;
       } 
+      .panel{
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -24,22 +26,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span class="active">WPI CSC Billiard Analytics </span> <span class="sr-only">Current</span></a>
+          <a class="navbar-brand" href="index.html"><span class="active">Billiard Analytics </span> <span class="sr-only">Current</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <ul class="nav navbar-nav">
-            <li><a href="examFundamentals.html">Exam 1 </a></li>
-            <li><a href="examSkills.html">Exam 2</a></li>
-            <li class="dropdown">
-              <a href="searchProfile.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Week's Top 10</a></li>
-                <li><a href="#">Month's Top </a></li>
-                <li><a href="#">Year's Top 10</a></li>
-                <li class="divider"></li>
-                <li><a href="searchProfile.html">All Players</a></li>
-              </ul>
-            </li>
+            <li><a href="examFundamentals.html">Exam I </a></li>
+            <li><a href="examSkills.html">Exam II</a></li>
+            <li><a href="searchProfile.html">Profiles</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
@@ -47,20 +40,23 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
+          <ul class="nav navbar-nav navbar-left">
+
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://billiarduniversity.org/exams.html" target="_blank">Link</a></li>
+            <li><a href="http://billiarduniversity.org/exams.html" target="_blank">BU Site</a></li>
           </ul>
         </div>
       </div>
     </nav>
-
     <div class="row">
       <div class="jumbotron text-center">
         <h1 id="user"></h1>
+        <h3 id="bestScore"></h3>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 well">
+      <div class="col-sm-7 well">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h2>Exam 1 Scores</h2>
@@ -77,6 +73,7 @@
                   <th>Potting</th>
                   <th>Wagon Wheel</th>
                   <th>Target</th>
+                  <th>Total</th>
                 </tr>
               </thead>
               <tbody id="exam1Results">
@@ -103,6 +100,7 @@
                   <th>Elevated Cue</th>
                   <th>Jump/Mass&eacute</th>
                   <th>Break</th>
+                  <th>Total</th>
                 </tr>
               </thead>
               <tbody id="exam2Results">
@@ -110,34 +108,60 @@
               </tbody>
             </table>
           </div>
-
         </div>
-        
-
       </div>
-      <div class="col-sm-6 well">
+      <div class="col-sm-5 well text-center">
+        <h1>Exam Statistics</h1>
         <div id="body">
           <div id="chart"> <!-- Radar chart -->
             
           </div>
         </div>
+        <h1>Statistic Breakdown</h1>
+        <div class="panel panel-primary">
+          <div class="panel-heading">Ball Control</div>
+          <div class="panel-body">(Stop + Follow + Draw + Stun + Wagon Wheel) / 60</div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">Accuracy</div>
+          <div class="panel-body">(Cut + Potting) / 20</div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">Positioning</div>
+          <div class="panel-body">(Targeting) / 20</div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">Complex Situation Ability</div>
+          <div class="panel-body">(Line of Balls + Rail Cuts + 9-Ball + 8-Ball) / 31</div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">Safe Ability</div>
+          <div class="panel-body">(Safety) / 6</div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">Special Shot Ability</div>
+          <div class="panel-body">(Kicks + Banks + Elevated Cue + Jump/Mass&eacute) / 12</div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">Break Ability</div>
+          <div class="panel-body">(Break) / 5</div>
+        </div>
       </div>
     </div>
-    
   </body>
 
   <script type="text/javascript" src="radarScript.js"></script>
   <script>
 
+    var bestTotalScore = 0
+
     getUser()
 
     function setInfo(user){
       var username = document.getElementById("user");
-
       username.innerText = user.username
 
       Object.keys(user.userData).forEach(function(key){
-
         if(key == "Exam1"){
           createExam1(user)
         }
@@ -146,12 +170,13 @@
         }
       })
 
+      var score = document.getElementById("bestScore")
+      score.innerText = "Best Combined Score: " + bestTotalScore
     }
 
     function getUser(){
       function reqListener () {
         var user = JSON.parse(this.responseText)
-        console.log( user )
         setInfo( user )
       }
       
@@ -166,16 +191,9 @@
     function createExam1(user){  
         var exam1Scores = document.getElementById("exam1Results");
         var i = 0
-
-        console.log(user)
-        console.log(user.userData)
-        console.log(user.userData.Exam1)
-        console.log()
+        var best = 0
 
         Object.keys(user.userData.Exam1).forEach(function(key){
-
-          console.log(key)
-          console.log(user.userData.Exam1[key])
 
           var row = exam1Scores.insertRow(i);
           var cell1 = row.insertCell(0)
@@ -186,6 +204,7 @@
           var cell6 = row.insertCell(5)
           var cell7 = row.insertCell(6)
           var cell8 = row.insertCell(7)
+          var cell9 = row.insertCell(8)
 
           cell1.innerHTML += user.userData.Exam1[key].f1
           cell2.innerHTML += user.userData.Exam1[key].f2
@@ -195,23 +214,23 @@
           cell6.innerHTML += user.userData.Exam1[key].f6
           cell7.innerHTML += user.userData.Exam1[key].f7
           cell8.innerHTML += user.userData.Exam1[key].f8
+          cell9.innerHTML += user.userData.Exam1[key].total
+
+          if(user.userData.Exam1[key].total > best){
+            best = user.userData.Exam1[key].total
+          }
 
           i++
         });
 
+        bestTotalScore += best
     }
 
     function createExam2(user){  
         var exam2Scores = document.getElementById("exam2Results");
         var i = 0
+        var best = 0
 
-
-        console.log(user)
-        console.log(user.userData)
-        console.log(user.userData.Exam2)
-        console.log()
-
-        //for(var i = 0; i < Object.keys(user.userData.Exam1).length; i++){
         Object.keys(user.userData.Exam2).forEach(function(key){
 
           var row = exam2Scores.insertRow(i);
@@ -225,7 +244,7 @@
           var cell8 = row.insertCell(7)
           var cell9 = row.insertCell(8)
           var cell10 = row.insertCell(9)
-
+          var cell11 = row.insertCell(10)
 
           cell1.innerHTML += user.userData.Exam2[key].s1
           cell2.innerHTML += user.userData.Exam2[key].s2
@@ -237,10 +256,16 @@
           cell8.innerHTML += user.userData.Exam2[key].s8
           cell9.innerHTML += user.userData.Exam2[key].s9
           cell10.innerHTML += user.userData.Exam2[key].s10
+          cell11.innerHTML += user.userData.Exam2[key].total
+
+          if(user.userData.Exam2[key].total > best){
+            best = user.userData.Exam2[key].total
+          }
 
           i++
         });
-    }
 
+        bestTotalScore += best
+    }
   </script>
 </html>
