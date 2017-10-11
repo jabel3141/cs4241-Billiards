@@ -87,6 +87,14 @@ var server = http.createServer(function (req, res) {
     case '/img/home/2.png':
     sendFile(res, 'img/home/2.png', 'image/png')
     break
+    case '/img/home/logo.png':
+    sendFile(res, 'img/home/logo.png', 'image/png')
+    break
+
+    case '/img/profiles/pool-stance.png':
+    sendFile(res, 'img/profiles/pool-stance.png', 'image/png')
+    break
+
     case '/img/exam1/F1.jpg':
     sendFile(res, 'img/exam1/F1.jpg', 'image/jpg')
     break

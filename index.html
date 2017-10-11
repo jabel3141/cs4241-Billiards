@@ -4,14 +4,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Verdana" rel="stylesheet">
   <link id="css" rel="stylesheet" type="text/css" href="style.css"/>
 
   <style>
-  table {color: black;}
+  table {
+    color: black;
+  }
 
-  #about, #exam-info {padding-left: 3%; padding-right: 3%;}
+  #about, #exam-info {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
 
-  .index-p {font-size: 1.5em;}
+  #logo {
+
+  }
+
+  #overlay-text {
+    position: relative;
+  }
+
+  .index-p {
+    font-size: 1.2em;
+  }
 
   .animate {
     font-size: 50px;
@@ -45,7 +61,7 @@
   .one span {
     color: black;
     font-family: 'Arvo', sans-serif;
-    font-size: 2em;
+    font-size: 1.2em;
     opacity: 0;
     transform: translate(-150px, -50px) rotate(-180deg) scale(3);
     animation: revolveScale .4s forwards;
@@ -71,7 +87,8 @@
       <span>C</span><span>S</span><span>C</span>&nbsp;
       <span>B</span><span>i</span><span>l</span><span>l</span><span>i</span><span>a</span><span>r</span><span>d</span>&nbsp;
       <span>A</span><span>n</span><span>a</span><span>l</span><span>y</span><span>t</span><span>i</span><span>c</span><span>s</span></center>
-      <center><p>Bringing out the best of your abilities!</p></center>
+      <span><img src="img/home/logo.png" alt="logo" width="10%"class="img-responsive center-block" id="logo"/></span>
+      <center><p id="overlay-text">Bringing out the best of your abilities!</p></center>
     </div>
 
     <nav class="navbar navbar-default">
@@ -93,7 +110,7 @@
             <li><a href="searchProfile.html">Profiles</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search" action="searchProfile.html">
-            <div class="form-group">  
+            <div class="form-group">
               <input type="text" class="form-control" placeholder="Search Profiles" id="navSearchName" name="nav">
             </div>
             <button type="submit" class="btn btn-default" onclick="navSearch()">Submit</button>
@@ -115,7 +132,7 @@
           <h2><center><b>About</b></center></h2>
           <p class="index-p">Welcome to the <b>Cue Sports Club Billiard Analytics</b> website! If you've ever wanted to evaluate how well you actually play, we allow you to take a two part exam that can help you understand your strengths and weaknesses. </p>
           <p class="index-p">The exam is officially designed by Billiard University (founded in 2012). The purpose is to <i>"provide a complete, structured, well designed, and challenging pool workout you can use to develop and improve your game to reach the next level."</i></p>
-          <p class="index-p"><b>Personal Analysis</b> After you've taken your exam, you will be taken to your profile page to see a breakdown and a chart displaying your abilities in the areas of: (aspects)</p>
+          <p class="index-p"><b>Personal Analysis</b> After you've taken your exam, you will be taken to your profile page to see a breakdown and a chart displaying your abilities in the areas of: ball control, accuracy, positioning, complex situation ability, safe ability, special shot ability, break ability.</p>
           <p class="index-p"><b>Ready to take the exam?</b> Before you begin, please read about the exams and setup the pool table as shown in the diagram below.
           </p>
         </div>
@@ -136,7 +153,7 @@
       <div class="row">
         <div class="col-sm-6">
           <h2><center><b>Exam Table Setup</b></center></h2>
-          <img src="img/home/1.png" alt="General Setup" width="100%" class="img-responsive center-block">
+          <img src="img/home/1.png" alt="General Setup" width="100%" >
         </div>
         <div class="col-sm-6">
           <h2><center><b>Final Point Conversion</b></center></h2>
@@ -232,21 +249,21 @@
 
   <script>
 
-    function navSearch() {
+  function navSearch() {
 
-      var searchName = document.getElementById('navSearchName')
-      function reqListener () {
-        
-      }
-      
-      var oReq = new XMLHttpRequest();
-      
-      oReq.addEventListener("load", reqListener);
-      oReq.open("POST", "/search", true);
-      oReq.send('searchName='+searchName.value);
+    var searchName = document.getElementById('navSearchName')
+    function reqListener () {
 
-      searchTitle.value = ""
     }
+
+    var oReq = new XMLHttpRequest();
+
+    oReq.addEventListener("load", reqListener);
+    oReq.open("POST", "/search", true);
+    oReq.send('searchName='+searchName.value);
+
+    searchTitle.value = ""
+  }
 
   </script>
   </html>
