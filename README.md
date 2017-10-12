@@ -1,6 +1,25 @@
-# cs4241-Billiards
+Jason Abel
+Thomas Hagen
+Rayyan Khan
+Parmenion Patias
+
+https://fp-jabel3141.herokuapp.com/
 
 This Project shows a redesigned website for the Billiards University Exam. It allows people to take both parts of the exam and see their statistics based on how they do.
+
+
+## Technical Achievements
+- D3 libraries to create the radar charts
+- Used Firebase to store all the data collected
+- Added text animations
+
+
+### Design Achievements
+- Implemented Bootstrap for cleaner looking design
+- Added pleasing color scheme
+- Added box shadowing to make the wells look like they are off the background
+- Created a background color that fades from one color to another
+
 
 ## Home page:
 - Nav bar
