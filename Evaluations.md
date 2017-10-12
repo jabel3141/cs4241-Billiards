@@ -41,7 +41,7 @@
 - Broke
 	* when checking/spamming boxes on the exam, it does not show the position for the next box
 
-##Sotirios
+## Sotirios
 - Likes 
 	* website looks (aka css)
 	* when 2 radar charts overlap
@@ -59,6 +59,7 @@
 	* Readability
 	* Intuitive navigation
 	* Exam pages are simple and not distracting.
+
 - Dislikes
 	* No window scaling
 
@@ -76,4 +77,18 @@
 	* Failed to understand the point of the site
 
 - Broke
-	* Nothing. (Didn't try.)
+	* nothing
+
+## Ryan 
+- Likes
+	* xtreme cue sports app
+	* profile page statistics and breakdowns
+	* exam 1 and 2 hover pictures
+
+- Dislikes
+	* No major dislikes
+	* A little confused about the exam scores on the home page
+	* Didn't know you could click box on the exam pages to indicate failure
+
+- Broke
+	* Button on homepage to take user to exam 1 and 2 dont work
