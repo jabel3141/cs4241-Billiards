@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>CSC Billiard Analytics</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -99,16 +100,16 @@
     }
   }
 
-  </style>
+</style>
 </head>
 <body>
 
   <div class="jumbotron">
     <div id="img-over">
-    <center><div class="animate one" id="overlay-title">
-      <span>C</span><span>S</span><span>C</span>&nbsp;
-      <span>B</span><span>i</span><span>l</span><span>l</span><span>i</span><span>a</span><span>r</span><span>d</span>&nbsp;
-      <span>A</span><span>n</span><span>a</span><span>l</span><span>y</span><span>t</span><span>i</span><span>c</span><span>s</span></center>
+      <center><div class="animate one" id="overlay-title">
+        <span>C</span><span>S</span><span>C</span>&nbsp;
+        <span>B</span><span>i</span><span>l</span><span>l</span><span>i</span><span>a</span><span>r</span><span>d</span>&nbsp;
+        <span>A</span><span>n</span><span>a</span><span>l</span><span>y</span><span>t</span><span>i</span><span>c</span><span>s</span></center>
         <img src="img/home/logo.png" alt="logo" width="10%"class="img-responsive center-block" id="logo"/>
         <p id="overlay-text"><i>Bringing out the <b>best</b> of your abilities!</i></p>
       </div>
@@ -143,7 +144,11 @@
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="xtreme.html">X-Treme App</a></li>
+
             <li><a href="http://billiarduniversity.org/exams.html" target="_blank">BU Site</a></li>
+
           </ul>
         </div>
       </div>
@@ -159,6 +164,7 @@
           <p class="index-p"><b>Personal Analysis</b> After you've taken your exam, you will be taken to your profile page to see a breakdown and a chart displaying your abilities in the areas of: ball control, accuracy, positioning, complex situation ability, safe ability, special shot ability, break ability.</p>
           <p class="index-p"><b>Ready to take the exam?</b> Before you begin, please read about the exams and setup the pool table as shown in the diagram below.
           </p>
+          <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal">Take the Exam!</button>
         </div>
 
         <div id="exam-info" class="col-sm-6">
@@ -170,6 +176,27 @@
 
           <p class="index-p"><b>Exam II: Skills (Master/Doctorate)</b></p>
           <p class="index-p">There are three different levels of Exam II (Bachelors, Masters, and Doctorate). However, at the moment we only support the Bachelors exam. Your performance on Exam I places you into the appropriate Exam II. The difficulty level and number of available points increases with Exam level. So, if you are ready for something more than Bachelor level please visit the <a href="http://billiarduniversity.org/exams.html" target="_blank">Billiard University Website</a>.</p>
+
+        </div>
+      </div>
+
+      <div id="alertModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Which exam would you like to take?</h4>
+            </div>
+            <div class="modal-body">
+              <p>It is recommended that you have someone else record your scores.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary modButton" data-dismiss="modal" onclick="exam1()">Exam I (Fundamentals)</button>
+              <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam2()">Exam II (Skills)</button>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -271,23 +298,31 @@
     </div>
   </body>
 
-  <script>
+    <script>
 
-  function navSearch() {
+      function navSearch() {
 
-    var searchName = document.getElementById('navSearchName')
-    function reqListener () {
-      
-    }
+        var searchName = document.getElementById('navSearchName')
+        function reqListener () {
 
-    var oReq = new XMLHttpRequest();
+        }
 
-    oReq.addEventListener("load", reqListener);
-    oReq.open("POST", "/search", true);
-    oReq.send('searchName='+searchName.value);
+        var oReq = new XMLHttpRequest();
 
-    searchTitle.value = ""
-  }
+        oReq.addEventListener("load", reqListener);
+        oReq.open("POST", "/search", true);
+        oReq.send('searchName='+searchName.value);
 
-  </script>
+        searchTitle.value = ""
+      }
+
+      function exam1() {
+        window.location.href = "examFundamentals.html";
+      }
+
+      function exam2() {
+        window.location.href = "examSkills.html";
+      }
+
+    </script>
   </html>

@@ -53,6 +53,10 @@ var server = http.createServer(function (req, res) {
     sendFile(res, 'projectTeam.html')
     break
 
+    case '/xtreme.html':
+    sendFile(res, 'xtreme.html')
+    break
+
     case '/style.css':
     sendFile(res, 'style.css', 'text/css')
     break
@@ -85,6 +89,9 @@ var server = http.createServer(function (req, res) {
     break
 
     /////////////////////// IMAGES //////////////////////////////////
+    case '/img/home/favicon.ico':
+    sendFile(res, 'img/home/favicon.ico', 'image/x-icon')
+    break
     case '/img/home/1.png':
     sendFile(res, 'img/home/1.png', 'image/png')
     break

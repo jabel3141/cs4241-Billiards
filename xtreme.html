@@ -1,19 +1,141 @@
 <html>
 
-<head>
-	<title>CSC Billiard Analytics - Xtreme Cue Sports</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Verdana" rel="stylesheet">
-	<link id="css" rel="stylesheet" type="text/css" href="style.css"/>
-</head>
+	<head>
+		<title>CSC Billiard Analytics - Xtreme Cue Sports</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/home/favicon.ico" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Verdana" rel="stylesheet">
+		<link id="css" rel="stylesheet" type="text/css" href="style.css"/>
 
-<body>
+		<style>
+			body {
+				width: 98%;
+				font-family: 'Arvo', sans-serif;
+			}
 
+			#card {
+				height: 80%;
+			}
 
+			.main {
+				margin-bottom: 15px;
+			}
 
-</body>
+			h2 {
+				font-size: 7em;
+			}
+
+			h3 {
+				font-size: 5em;
+			}
+
+			button {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="main">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="well">
+						<center><h1><b>X-Treme Cue Sports</b></h1></center>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="row">
+				<div class="col-sm-12">
+					<button class="well" id="card">
+						<div id="card-text">
+							<center><h2>Press to get started!</h2></center>
+						</div>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+	<script>
+		var cards = ["Opponent gets to pick your target pocket.", "Lose a turn!", "Aim. Close your eyes. Shoot!", "Bank Shot!", "Kick Shot", "Even if you make this shot your turn ends.", "Weak hand!", "If you scratch, you lose!", "Ball in hand.", "Behind the back!", "Lose a turn OR Behind the back weak hand.", "If you pocket the 8 Ball, it gets spotted. Your turn ends.", "One foot. One hand.", "Move the lowest ball of your set anywhere so it is frozen to a cushion.", "You must give the ball follow (Top).", "You must give the ball draw (Bottom).", "Hold the cue in the middle.", "Nothing specific.", "You lose if you pocket an odd numbered ball.", "You lose if you pocket an even numbered ball.", "Pocket an opponent's ball to continue.", "Spot the lowest ball on the table.", "Spot the highest ball on the table.", "One knee on the edge of the table.", "One hand. Weak hand.", "Move the cue ball into the jaws of any corner pocket.", "Move the 8 Ball by hand so it is frozen to a cushion.", "Bank shots until you miss. Don't draw anymore cards.", "You win! Just kidding. Lose a turn!", "Bring back a pocketed ball of your set. If there are none, your turn ends."]
+
+		document.getElementById("card").addEventListener('click', genCard)
+
+		var counter = 0;
+
+		function genCard(){
+			var cardPanel = document.getElementById("card")
+			var num = 0
+
+			setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h3>"+cards[num]+"</h3></center>"
+
+				setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h3>"+cards[num]+"</h3></center>"
+
+				setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h3>"+cards[num]+"</h3></center>"
+
+				setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h3>"+cards[num]+"</h3></center>"
+
+				setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h3>"+cards[num]+"</h3></center>"
+
+				setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h3>"+cards[num]+"</h3></center>"
+
+				setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h3>"+cards[num]+"</h3></center>"
+
+				setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h3>"+cards[num]+"</h3></center>"
+
+				setTimeout(function(){
+				num = Math.floor(Math.random() * (cards.length))
+				cardPanel.innerHTML = "<center><h2>"+cards[num]+"</h2></center>"
+
+			}, 100);
+
+			}, 100);
+
+			}, 80);
+
+			}, 80);
+
+			}, 50);
+
+			}, 50);
+
+			}, 50);
+
+			}, 50);
+
+			}, 50);
+
+			
+
+			
+			
+
+		}
+
+	</script>
 
 </html>
