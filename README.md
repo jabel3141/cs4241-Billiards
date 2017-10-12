@@ -1,14 +1,16 @@
 # cs4241-Billiards
 
+This Project shows a redesigned website for the Billiards University Exam. It allows people to take both parts of the exam and see their statistics based on how they do.
 
 ## Home page:
 - Nav bar
 	* Exam1
 	* Exam2
 	* Profiles
-
-- Section to take user to exam1, exam2 or profiles
-- Link to original website
+	* Project Team
+	* Search Profiles
+	* Link to BU site
+- About
 - General setup picture
 - Exam score rating conversions
 
@@ -25,9 +27,32 @@
 - Picture will change based on which skill you are on
 
 
+## Search Profile page
+- Nav bar
+	* Exam1
+	* Exam2
+	* Profiles
+	* Project Team
+	* Search Profiles
+	* Link to BU site
+- Allow users to search for their username
+- Be able to click and choose what username's stats to look at
+
 ## Profile page:
-- Search for username
-- Exam scores
+- Nav bar
+	* Exam1
+	* Exam2
+	* Profiles
+	* Project Team
+	* Search Profiles
+	* Link to BU site
+- Basic info
+	* Username
+	* Best Total Score
+	* Level rating
+	* Fargo rating
+- Exam 1 scores
+- Exam 2 scores
 - Radar chart
 	* Ball Control - F2, F3, F4, F5, F7
 	* Accuracy - F1, F6
@@ -35,9 +60,11 @@
 	* Complex Situation Ability - S1, S2, S3, S4
 	* Safe Ability - S5
 	* Special Shot Ability - S6, S7, S8, S9
-	* Break Ability - S10
-					
-- Basic info
-	* Username
-	* First name last initial
-	
+	* Break Ability - S10				
+
+## Project Team page
+- Names of memebers on the team
+
+
+## Xtreme page
+- CSC Xtreme billiards game

@@ -69,8 +69,18 @@ function setChart(user){
 	for(var i = 0; i < numExams; i++){
 
 		var temp = []
-		LegendOptions.push("Exam Total (" + (i+1) + ") = " + (exam1Totals[i] + exam2Totals[i]))
 		d.push(temp)
+
+		if(i == (numExams-1) && exam1Length > exam2Length){
+			LegendOptions.push("Exam Total (" + (i+1) + ") = " + exam1Totals[i])
+		}
+		else if(i == (numExams-1) && exam2Length > exam1Length){
+			LegendOptions.push("Exam Total (" + (i+1) + ") = " + exam2Totals[i])
+		}
+		else{
+			LegendOptions.push("Exam Total (" + (i+1) + ") = " + (exam1Totals[i] + exam2Totals[i]))
+		}
+		
 	}
 
 	createData(user, numExams)

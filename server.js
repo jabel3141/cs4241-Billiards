@@ -49,6 +49,10 @@ var server = http.createServer(function (req, res) {
     sendFile(res, 'searchProfile.html')
     break
 
+    case '/projectTeam.html':
+    sendFile(res, 'projectTeam.html')
+    break
+
     case '/style.css':
     sendFile(res, 'style.css', 'text/css')
     break
