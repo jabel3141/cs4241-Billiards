@@ -26,7 +26,16 @@
 	* when checking boxes on the exam, it does not show the position for the next box
 	* Search profiles page, when clicking username, if you click the text, it wont register the click so you have to click outside the text to be taken to the profile page
 
-##
+##Sotirios
+- Likes 
+		* website looks (aka css)
+		* when 2 radar charts overlap
+		* xtreme game 
+
+- Dislikes that all data is public (aka no accounts)
+
+- Broke
+		* nothing
 
 ##
 
