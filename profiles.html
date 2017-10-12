@@ -1,5 +1,6 @@
  <html>
   <head>
+    <title>CSC Billiard Analytics - User Profile</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -32,6 +33,9 @@
       #prof-pic {
         display: inline-block;
       }
+
+      .table {table-layout: fixed}
+
     </style>
   </head>
   <body>
@@ -128,7 +132,7 @@
                     <th class="text-center">Kick</th>
                     <th class="text-center">Bank</th>
                     <th class="text-center">Elevated Cue</th>
-                    <th class="text-center">Jump/Mass&eacute</th>
+                    <th class="text-center">Jump/ Mass&eacute</th>
                     <th class="text-center">Break</th>
                     <th class="text-center">Total</th>
                   </tr>
@@ -143,7 +147,7 @@
         <div class="col-sm-6 text-center">
           <div class="well" id="graph-well">
           <h1>Exam Statistics</h1>
-            <div id="body">
+            <div id="body" class="well">
               <div id="chart"> <!-- Radar chart -->
 
               </div>
