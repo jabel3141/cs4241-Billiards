@@ -13,21 +13,54 @@
 
 ## Branden
 - Likes
-	* Like css styling
-	* Like the hover layouts for the exam page
-	* Liked the  xtreme cue sports part of the site
+	* css styling
+	* hover layouts for the exam page
+	* xtreme cue sports part of the site
 	* Tried to use sql injection to break the database but failed and like this
 
 - Dislikes
-	* User exerience had a few minor issues
+	* User experience had a few minor issues
 
 - Broke
 	* Button on homepage to take user to exam 1 and 2 dont work
 	* when checking boxes on the exam, it does not show the position for the next box
 	* Search profiles page, when clicking username, if you click the text, it wont register the click so you have to click outside the text to be taken to the profile page
 
-##
+## Kushagra
+- Likes
+	* Page heading animation on load.
+	* Ease of use for taking exam (on hover instructions change)
+	* Data visualization for exam breakdown
 
-##
+- Dislikes
+	* Wordy home page
+	* No explanation of the X-treme app
 
-##
+- Broke
+	* when checking/spamming boxes on the exam, it does not show the position for the next box
+
+## Nikhil
+- Likes
+	* Overall styling (theme)
+	* Readability
+	* Intuitive navigation
+	* Exam pages are simple and not distracting.
+
+- Dislikes
+	* No window scaling
+
+- Broke
+	* submitted exam without username, causes no record of ever taking the exam
+
+## Andersen
+- Likes
+	* Logo
+	* Straightforward
+	* Ad free
+	* Radar graph used for visualization
+
+- Dislikes
+	* Failed to understand the point of the site
+
+- Broke
+	* Nothing. (Didn't try.)
