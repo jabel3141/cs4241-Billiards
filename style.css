@@ -17,10 +17,19 @@ body {
 	border-radius: 5px;
 	margin-top: 10px;
 	padding-top: 5px;
+
+	box-shadow: 10px 10px 5px black;
 }
 
 .main {
 	color: black;
 	background-color: #E3E3E3;
 	border-radius: 5px;
+
+	box-shadow: 6px 6px 2px black;
 }
+
+.navbar {
+	box-shadow: 6px 6px 2px black;
+}
+

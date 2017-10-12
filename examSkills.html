@@ -28,6 +28,10 @@
       .modButton {width: 45%; display: inline-block; float: left;}
 
       .ldt {width: 20%;}
+
+      .well {
+        box-shadow: 6px 6px 2px black;
+      }
     </style>
 
   </head>
@@ -499,7 +503,7 @@
           </div>
 
         </div>
-        <div id="rightSide" class="col-sm-5 text-center" data-spy="affix" data-offset-top="100">
+        <div id="rightSide" class="col-sm-5 text-center" data-spy="affix" data-offset-top="170">
           <!-- Exam Setup Image -->
           <img id="examImg" src="img/exam_2/s1.jpg" class="img-rounded examImages" alt="Exam Setup Image" height="95%" onclick="toggleImg()">
         </div>
@@ -737,23 +741,23 @@
 
     function successFail4(){
       var boxIndex = parseInt(currBox.replace("r4_", "")) - 1;
-      var score = parseInt(s3_resultBox[boxIndex].result)
+      var score = parseInt(s4_resultBox[boxIndex].result)
 
       score = score + 1;
 
       if(score > 5){
         score = 0;
       }
-      s3_resultBox[boxIndex].result = score;
+      s4_resultBox[boxIndex].result = score;
       document.getElementById(currBox).innerHTML = score;
       calcTotal4();
     }
 
     function calcTotal4(){
       total = 0;
-      layout1 = parseInt(s3_resultBox[0].result);
-      layout2 = parseInt(s3_resultBox[1].result);
-      layout3 = parseInt(s3_resultBox[2].result);
+      layout1 = parseInt(s4_resultBox[0].result);
+      layout2 = parseInt(s4_resultBox[1].result);
+      layout3 = parseInt(s4_resultBox[2].result);
 
       if(layout1 < layout2){
         total = total + layout1
@@ -984,7 +988,7 @@
       xmlhttp.open("POST", "/submitExam", true);
       xmlhttp.send('scores='+drillScores+'&user='+user+'&exam='+2);
 
-      window.location.href = "searchProfile.html";
+      window.location.href = "index.html";
 
     }
 

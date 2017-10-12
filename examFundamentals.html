@@ -28,6 +28,11 @@
       .modButton {width: 45%; display: inline-block; float: left;}
 
       .ldt {width: 15%;}
+
+      .well {
+        box-shadow: 6px 6px 2px black;
+      }
+
     </style>
 
   </head>
@@ -581,7 +586,7 @@
           </div>
 
         </div>
-        <div id="rightSide" class="col-sm-5 text-center" data-spy="affix" data-offset-top="100">
+        <div id="rightSide" class="col-sm-5 text-center" data-spy="affix" data-offset-top="170">
           <!-- Exam Setup Image -->
           <img id="examImg" src="img/exam1/F1.jpg" class="img-rounded examImages" alt="Exam Setup Image" height="95%" >
         </div>
@@ -1103,7 +1108,7 @@
       xmlhttp.send('scores='+drillScores+'&user='+user +'&exam='+1);
 
         // xmlhttp.addEventListener("load", reqListener);
-      window.location.href = "searchProfile.html";
+      window.location.href = "index.html";
 
     }
 
