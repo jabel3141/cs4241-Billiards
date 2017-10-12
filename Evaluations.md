@@ -1,3 +1,5 @@
+### Evaluations
+
 ## Sean
 - Likes
 	* hovering over drill shows the layout
@@ -39,13 +41,24 @@
 - Broke
 	* when checking/spamming boxes on the exam, it does not show the position for the next box
 
+##Sotirios
+- Likes 
+	* website looks (aka css)
+	* when 2 radar charts overlap
+	* xtreme game 
+
+- Dislikes 
+	* that all data is public (aka no accounts)
+
+- Broke
+	* nothing
+
 ## Nikhil
 - Likes
 	* Overall styling (theme)
 	* Readability
 	* Intuitive navigation
 	* Exam pages are simple and not distracting.
-
 - Dislikes
 	* No window scaling
 
