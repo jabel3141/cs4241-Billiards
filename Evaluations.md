@@ -1,3 +1,5 @@
+# Evaluations
+
 ## Sean
 - Likes
 	* hovering over drill shows the layout
@@ -26,8 +28,19 @@
 	* when checking boxes on the exam, it does not show the position for the next box
 	* Search profiles page, when clicking username, if you click the text, it wont register the click so you have to click outside the text to be taken to the profile page
 
-##
+## Ryan 
+- Likes
+	* xtreme cue sports app
+	* profile page statistics and breakdowns
+	* exam 1 and 2 hover pictures
 
+- Dislikes
+	* No major dislikes
+	* A little confused about the exam scores on the home page
+	* Didn't know you could click box on the exam pages to indicate failure
+
+- Broke
+	* Button on homepage to take user to exam 1 and 2 dont work
 ##
 
 ##
