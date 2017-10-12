@@ -1,0 +1,176 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Verdana" rel="stylesheet">
+  <link id="css" rel="stylesheet" type="text/css" href="style.css"/>
+
+  <style>
+  table {
+    color: black;
+  }
+
+  #about, #exam-info {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  #img-over {
+    position: relative;
+    padding-top: 35px;
+  }
+  #logo {
+
+  }
+
+  #overlay-text {
+    position: absolute;
+    top:90%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: 0;
+    text-align:center;
+  }
+
+  #overlay-title {
+    position: absolute;
+    top:20%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: 0;
+    text-align:center;
+  }
+
+  .index-p {
+    font-size: 1.2em;
+  }
+
+  .animate {
+    font-size: 50px;
+    margin: 100px 0 0;
+  }
+
+  .animate span {
+    display: inline-block;
+    top: 20%;
+  }
+
+  .animate span:nth-of-type(2) {animation-delay: .05s;}
+  .animate span:nth-of-type(3) {animation-delay: .1s;}
+  .animate span:nth-of-type(4) {animation-delay: .15s;}
+  .animate span:nth-of-type(5) {animation-delay: .2s;}
+  .animate span:nth-of-type(6) {animation-delay: .25s;}
+  .animate span:nth-of-type(7) {animation-delay: .3s;}
+  .animate span:nth-of-type(8) {animation-delay: .35s;}
+  .animate span:nth-of-type(9) {animation-delay: .4s;}
+  .animate span:nth-of-type(10) {animation-delay: .45s;}
+  .animate span:nth-of-type(11) {animation-delay: .5s;}
+  .animate span:nth-of-type(12) {animation-delay: .55s;}
+  .animate span:nth-of-type(13) {animation-delay: .6s;}
+  .animate span:nth-of-type(14) {animation-delay: .65s;}
+  .animate span:nth-of-type(15) {animation-delay: .7s;}
+  .animate span:nth-of-type(16) {animation-delay: .75s;}
+  .animate span:nth-of-type(17) {animation-delay: .8s;}
+  .animate span:nth-of-type(18) {animation-delay: .85s;}
+  .animate span:nth-of-type(19) {animation-delay: .9s;}
+  .animate span:nth-of-type(20) {animation-delay: .95s;}
+
+  .one span {
+    color: black;
+    font-family: 'Arvo', sans-serif;
+    font-size: 1.2em;
+    opacity: 0;
+    transform: translate(-150px, -50px) rotate(-180deg) scale(3);
+    animation: revolveScale .4s forwards;
+  }
+
+  @keyframes revolveScale {
+    60% {
+      transform: translate(20px, 20px) rotate(30deg) scale(.3);
+    }
+
+    100% {
+      transform: translate(0) rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><span class="active">Billiard Analytics </span> <span class="sr-only">Current</span></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li><a href="examFundamentals.html">Exam I </a></li>
+            <li><a href="examSkills.html">Exam II</a></li>
+            <li><a href="searchProfile.html">Profiles</a></li>
+            <li><a href="projectTeam.html">Project Team</a></li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search" action="searchProfile.html">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Profiles" id="navSearchName" name="nav">
+            </div>
+            <button type="submit" class="btn btn-default" onclick="navSearch()">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-left">
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://billiarduniversity.org/exams.html" target="_blank">BU Site</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main">
+
+      <div class="row text-center">
+        <div class="col-sm-6">
+          <h1>Created By:</h1>
+          <h2>Jason Abel</h2>
+          <h2>Thomas Hagen</h2>
+          <h2>Rayyan Khan</h2>
+          <h2>Parmenion Patias</h2>
+        </div>
+        <div class="col-sm-6">
+          <h1>Special Thanks To:</h1>
+          <h2>Billiards University</h2>
+        </div>
+      </div>
+
+    </div>
+  </body>
+
+  <script>
+
+  function navSearch() {
+
+    var searchName = document.getElementById('navSearchName')
+    function reqListener () {
+
+    }
+
+    var oReq = new XMLHttpRequest();
+
+    oReq.addEventListener("load", reqListener);
+    oReq.open("POST", "/search", true);
+    oReq.send('searchName='+searchName.value);
+
+    searchTitle.value = ""
+  }
+
+  </script>
+  </html>
