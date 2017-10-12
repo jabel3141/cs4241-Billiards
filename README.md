@@ -5,6 +5,10 @@ Parmenion Patias
 
 https://fp-jabel3141.herokuapp.com/
 
+project commits and changes can be found here (Sorry for using a different repo. We didn't know there was one for the final project):
+https://github.com/jabel3141/cs4241-Billiards
+
+
 This Project shows a redesigned website for the Billiards University Exam. It allows people to take both parts of the exam and see their statistics based on how they do.
 
 
