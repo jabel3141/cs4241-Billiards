@@ -989,7 +989,9 @@
       xmlhttp.open("POST", "/submitExam", true);
       xmlhttp.send('scores='+drillScores+'&user='+user+'&exam='+2);
 
-      window.location.href = "index.html";
+      setTimeout(function(){
+        setUser()
+      }, 1000)
 
     }
 
@@ -1023,6 +1025,22 @@
         image = imageNames[toggleS4]
       }
       showSetup();
+    }
+
+
+    function setUser() {
+
+
+      function reqListener () {
+        window.location.href = "profiles.html";
+      }
+
+      var oReq = new XMLHttpRequest();
+
+      oReq.addEventListener("load", reqListener);
+      oReq.open("POST", "/setUser", true);
+      oReq.send('username='+user);
+
     }
 
   </script>

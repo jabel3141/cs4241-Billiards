@@ -1103,13 +1103,19 @@
         drillScores[4] = 0;
       }
 
+      function reqListener(){
+        
+      }
+
       var xmlhttp = new XMLHttpRequest();
-        // xmlhttp.addEventListener("load", reqListener);
+      xmlhttp.addEventListener("load", reqListener);
       xmlhttp.open("POST", "/submitExam", true);
       xmlhttp.send('scores='+drillScores+'&user='+user +'&exam='+1);
 
         // xmlhttp.addEventListener("load", reqListener);
-      window.location.href = "index.html";
+      setTimeout(function(){
+        setUser()
+      }, 1000)
 
     }
 
@@ -1121,6 +1127,22 @@
       else {
         document.getElementById("headingText").innerHTML = "Billiards Exam - Fundamentals: <i>" + user + "</i>";
       }
+    }
+
+
+    function setUser() {
+
+
+      function reqListener () {
+        window.location.href = "profiles.html";
+      }
+
+      var oReq = new XMLHttpRequest();
+
+      oReq.addEventListener("load", reqListener);
+      oReq.open("POST", "/setUser", true);
+      oReq.send('username='+user);
+
     }
 
   </script>

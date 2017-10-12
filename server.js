@@ -338,6 +338,7 @@ function setCurrentUser(res, req, uri){
   });
   req.on('end', function() {
     var data = qs.parse(postdata)
+    console.log(data)
 
     var ref = firebase.database().ref("users").orderByKey();
     ref.once("value").then(function(snapshot) {
@@ -347,6 +348,8 @@ function setCurrentUser(res, req, uri){
       snapshot.forEach(function(childSnapshot) {
         var key = childSnapshot.key;
         var childData = childSnapshot.toJSON();
+
+        console.log(key)
 
         if(key.toLowerCase() == data.username.toLowerCase()){
           userData = {"username": key, "userData": childData};
