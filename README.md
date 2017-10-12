@@ -5,7 +5,7 @@ Parmenion Patias
 
 https://fp-jabel3141.herokuapp.com/
 
-project commits and changes can be found here (Sorry for using a different repo. We didn't know there was one for the final project):
+Project commits and changes can be found here (Sorry for using a different repo. We didn't know there was one for the final project):
 https://github.com/jabel3141/cs4241-Billiards
 
 
