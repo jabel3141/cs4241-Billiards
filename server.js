@@ -45,6 +45,10 @@ var server = http.createServer(function (req, res) {
     sendFile(res, 'examSkillsM.html')
     break
 
+    case '/examSkillsD.html':
+    sendFile(res, 'examSkillsD.html')
+    break
+
     case '/profiles.html':
     sendFile(res, 'profiles.html')
     break
@@ -181,7 +185,7 @@ var server = http.createServer(function (req, res) {
     sendFile(res, 'img/exam_2/s14.jpg', 'image/jpg')
     break
 
-        case '/img/exam_2m/sm1.jpg':
+    case '/img/exam_2m/sm1.jpg':
     sendFile(res, 'img/exam_2m/sm1.jpg', 'image/jpg')
     break
     case '/img/exam_2m/sm2.jpg':
@@ -222,6 +226,49 @@ var server = http.createServer(function (req, res) {
     break
     case '/img/exam_2m/sm14.jpg':
     sendFile(res, 'img/exam_2m/sm14.jpg', 'image/jpg')
+    break
+
+    case '/img/exam_2d/sd1.jpg':
+    sendFile(res, 'img/exam_2d/sd1.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd2.jpg':
+    sendFile(res, 'img/exam_2d/sd2.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd3.jpg':
+    sendFile(res, 'img/exam_2d/sd3.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd4.jpg':
+    sendFile(res, 'img/exam_2d/sd4.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd5.jpg':
+    sendFile(res, 'img/exam_2d/sd5.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd6.jpg':
+    sendFile(res, 'img/exam_2d/sd6.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd7.jpg':
+    sendFile(res, 'img/exam_2d/sd7.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd8.jpg':
+    sendFile(res, 'img/exam_2d/sd8.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd9.jpg':
+    sendFile(res, 'img/exam_2d/sd9.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd10.jpg':
+    sendFile(res, 'img/exam_2d/sd10.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd11.jpg':
+    sendFile(res, 'img/exam_2d/sd11.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd12.jpg':
+    sendFile(res, 'img/exam_2d/sd12.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd13.jpg':
+    sendFile(res, 'img/exam_2d/sd13.jpg', 'image/jpg')
+    break
+    case '/img/exam_2d/sd14.jpg':
+    sendFile(res, 'img/exam_2d/sd14.jpg', 'image/jpg')
     break
     /////////////////////// END - IMAGES //////////////////////////////////
     default:
