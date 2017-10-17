@@ -41,6 +41,10 @@ var server = http.createServer(function (req, res) {
     sendFile(res, 'examSkills.html')
     break
 
+    case '/examSkillsM.html':
+    sendFile(res, 'examSkillsM.html')
+    break
+
     case '/profiles.html':
     sendFile(res, 'profiles.html')
     break
@@ -175,6 +179,49 @@ var server = http.createServer(function (req, res) {
     break
     case '/img/exam_2/s14.jpg':
     sendFile(res, 'img/exam_2/s14.jpg', 'image/jpg')
+    break
+
+        case '/img/exam_2m/sm1.jpg':
+    sendFile(res, 'img/exam_2m/sm1.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm2.jpg':
+    sendFile(res, 'img/exam_2m/sm2.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm3.jpg':
+    sendFile(res, 'img/exam_2m/sm3.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm4.jpg':
+    sendFile(res, 'img/exam_2m/sm4.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm5.jpg':
+    sendFile(res, 'img/exam_2m/sm5.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm6.jpg':
+    sendFile(res, 'img/exam_2m/sm6.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm7.jpg':
+    sendFile(res, 'img/exam_2m/sm7.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm8.jpg':
+    sendFile(res, 'img/exam_2m/sm8.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm9.jpg':
+    sendFile(res, 'img/exam_2m/sm9.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm10.jpg':
+    sendFile(res, 'img/exam_2m/sm10.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm11.jpg':
+    sendFile(res, 'img/exam_2m/sm11.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm12.jpg':
+    sendFile(res, 'img/exam_2m/sm12.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm13.jpg':
+    sendFile(res, 'img/exam_2m/sm13.jpg', 'image/jpg')
+    break
+    case '/img/exam_2m/sm14.jpg':
+    sendFile(res, 'img/exam_2m/sm14.jpg', 'image/jpg')
     break
     /////////////////////// END - IMAGES //////////////////////////////////
     default:
