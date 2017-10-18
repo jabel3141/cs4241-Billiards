@@ -417,7 +417,7 @@ function writeUserData(username,examScores,combinedScores, whichExam) {
           specialShotAbility: combinedScores[2],
           breakAbility: combinedScores[3],
           total: combinedScores[4],
-          type: "Bachelors"
+          type: "B"
         })
         break;
       case 3:
@@ -438,7 +438,7 @@ function writeUserData(username,examScores,combinedScores, whichExam) {
           specialShotAbility: combinedScores[2],
           breakAbility: combinedScores[3],
           total: combinedScores[4],
-          type: "Masters"
+          type: "M"
         })
         break;
       case 4:
@@ -459,7 +459,7 @@ function writeUserData(username,examScores,combinedScores, whichExam) {
           specialShotAbility: combinedScores[2],
           breakAbility: combinedScores[3],
           total: combinedScores[4],
-          type: "Doctorate"
+          type: "D"
         })
         break;  
     }
