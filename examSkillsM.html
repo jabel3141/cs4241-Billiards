@@ -1008,14 +1008,14 @@ s
       calcTotal9();
       calcTotal10();
 
-      // var xmlhttp = new XMLHttpRequest();
-      //       // xmlhttp.addEventListener("load", reqListener);
-      // xmlhttp.open("POST", "/submitExam", true);
-      // xmlhttp.send('scores='+drillScores+'&user='+user+'&exam='+2);
+      var xmlhttp = new XMLHttpRequest();
+      //xmlhttp.addEventListener("load", reqListener);
+      xmlhttp.open("POST", "/submitExam", true);
+      xmlhttp.send('scores='+drillScores+'&user='+user+'&exam='+3);
 
-      // setTimeout(function(){
-      //   setUser()
-      // }, 1000)
+      setTimeout(function(){
+        setUser()
+      }, 1000)
 
     }
 

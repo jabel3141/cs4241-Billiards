@@ -58,6 +58,9 @@ function setChart(user){
         }
     })
 
+    console.log(exam1Length)
+    console.log(exam2Length)
+
 	if(exam1Length >= exam2Length){
 		numExams = exam1Length
 	}
@@ -65,21 +68,43 @@ function setChart(user){
 		numExams = exam2Length
 	}
 	
+	console.log(numExams)
 
 	for(var i = 0; i < numExams; i++){
 
 		var temp = []
 		d.push(temp)
 
-		if(i == (numExams-1) && exam1Length > exam2Length){
-			LegendOptions.push("Exam Total (" + (i+1) + ") = " + exam1Totals[i])
+
+		//exam 1 length = 3
+		//exam 2 length = 1
+		//dif = 2
+		//num exams = 3
+		//i = 0 take both
+		//i = 1 or 2 take only one
+
+		if(exam1Length > exam2Length){
+			if(i >= (numExams - (exam1Length-exam2Length))){
+				LegendOptions.push("Exam Total (" + (i+1) + ") = " + exam1Totals[i])
+			}
+			else{
+				LegendOptions.push("Exam Total (" + (i+1) + ") = " + (exam1Totals[i] + exam2Totals[i]))
+			}
+
 		}
-		else if(i == (numExams-1) && exam2Length > exam1Length){
-			LegendOptions.push("Exam Total (" + (i+1) + ") = " + exam2Totals[i])
+		else if(exam2Length > exam1Length){
+			if(i >= (numExams - (exam2Length-exam1Length))){
+				LegendOptions.push("Exam Total (" + (i+1) + ") = " + exam2Totals[i])
+			}
+			else{
+				LegendOptions.push("Exam Total (" + (i+1) + ") = " + (exam1Totals[i] + exam2Totals[i]))
+			}
 		}
 		else{
 			LegendOptions.push("Exam Total (" + (i+1) + ") = " + (exam1Totals[i] + exam2Totals[i]))
 		}
+
+		console.log(LegendOptions)
 		
 	}
 
@@ -113,28 +138,39 @@ function createData(user, numExams){
 		});
 	}
 
+	console.log("something")
+
+
 	if(exam1Length < numExams){
-		d[numExams-1].push(
-			{axis:"Ball Control",value:0},
-			{axis:"Accuracy",value:0},
-			{axis:"Positioning",value:0})
+		console.log("another")
+		for(var i = numExams-(numExams-exam1Length); i < numExams; i++){
+			console.log("exam1")
+			d[i].push(
+				{axis:"Ball Control",value:0},
+				{axis:"Accuracy",value:0},
+				{axis:"Positioning",value:0})
+		}
+
 	}
 
 	if(exam2Length < numExams){
-		d[numExams-1].push(
-			{axis:"Complex Situation Ability",value:0},
-			{axis:"Safe Ability",value:0},
-			{axis:"Special Shot Ability",value:0},
-			{axis:"Break Ability",value:0})
+		for(var i = numExams-(numExams-exam2Length); i < numExams; i++){
+			console.log("exam2")
+			d[i].push(
+				{axis:"Complex Situation Ability",value:0},
+				{axis:"Safe Ability",value:0},
+				{axis:"Special Shot Ability",value:0},
+				{axis:"Break Ability",value:0})
+		}
 	}
 
 	i = 0
 	if(exam2Length != 0){
 		Object.keys(user.userData.Exam2).forEach(function(key){
 			d[i].push(
-				{axis:"Complex Situation Ability",value: (user.userData.Exam2[key].complexSituationAbility * .01) / .31},
-				{axis:"Safe Ability",value: (user.userData.Exam2[key].safeAbility * .01) / .06},
-				{axis:"Special Shot Ability",value: (user.userData.Exam2[key].specialShotAbility * .01) / .12},
+				{axis:"Complex Situation Ability",value: (user.userData.Exam2[key].complexSituationAbility * .01) / .53},
+				{axis:"Safe Ability",value: (user.userData.Exam2[key].safeAbility * .01) / .14},
+				{axis:"Special Shot Ability",value: (user.userData.Exam2[key].specialShotAbility * .01) / .28},
 				{axis:"Break Ability",value: (user.userData.Exam2[key].breakAbility * .01) / .05})
 
 			i++

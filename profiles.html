@@ -53,7 +53,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <ul class="nav navbar-nav">
             <li><a href="examFundamentals.html">Exam I </a></li>
-            <li><a href="examSkills.html">Exam II</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Exam II <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="examSkills.html">Bachelors</a></li>
+                <li><a href="examSkillsM.html">Masters</a></li>
+                <li><a href="examSkillsD.html">Doctorate</a></li>
+              </ul>
+            </li>
             <li><a href="searchProfile.html">Profiles</a></li>
             <li><a href="projectTeam.html">Project Team</a></li>
           </ul>
@@ -88,7 +95,7 @@
             <div class="panel-heading">
               <p id=examQual></p>
               <h2>Exam I Scores
-                <button type="button" class="btn btn-primary" onclick="location.href='examFundamentals.html'">Take Exam I Again!</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='examFundamentals.html'">Take Exam I</button>
               </h2>
               
             </div>
@@ -116,13 +123,43 @@
           <div class="panel panel-default well">
             <div class="panel-heading">
               <h2>Exam II Scores
-                <button type="button" class="btn btn-primary" onclick="location.href='examSkills.html'">Take Exam II Again!</button>
+                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal">Take Exam II</button>
+                <div id="alertModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Which exam would you like to take?</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>It is recommended that you have someone else record your scores.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam2()">Exam II (Bachelors)</button>
+                          </div>
+                          <div class="col-sm-4">
+                            <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam3()">Exam II (Masters)</button>
+                          </div>
+                          <div class="col-sm-4">
+                            <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam4()">Exam II (Doctorate)</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
               </h2>
             </div>
             <div class="panel-body">
               <table class="table table-bordered text-center">
                 <thead>
                   <tr>
+                    <th class="text-center">Exam Type</th>
                     <th class="text-center">Line</th>
                     <th class="text-center">Rail Cut</th>
                     <th class="text-center">9-Ball</th>
@@ -152,6 +189,7 @@
               </div>
             </div>
             <h3>Statistic Breakdown</h3>
+            <p>**All scores are out of the max points you can get from Doctorate Exam**</p>
             <div class="panel panel-primary">
               <div class="panel-heading">Ball Control</div>
               <div class="panel-body">(Stop + Follow + Draw + Stun + Wagon Wheel) / 60</div>
@@ -164,15 +202,15 @@
 
 
               <div class="panel-heading">Complex Situation Ability</div>
-              <div class="panel-body">(Line of Balls + Rail Cuts + 9-Ball + 8-Ball) / 31</div>
+              <div class="panel-body">(Line of Balls + Rail Cuts + 9-Ball + 8-Ball) / 53</div>
 
 
               <div class="panel-heading">Safe Ability</div>
-              <div class="panel-body">(Safety) / 6</div>
+              <div class="panel-body">(Safety) / 14</div>
 
 
               <div class="panel-heading">Special Shot Ability</div>
-              <div class="panel-body">(Kicks + Banks + Elevated Cue + Jump/Mass&eacute) / 12</div>
+              <div class="panel-body">(Kicks + Banks + Elevated Cue + Jump/Mass&eacute) / 28</div>
 
               <div class="panel-heading">Break Ability</div>
               <div class="panel-body">(Break) / 5</div>
@@ -361,18 +399,21 @@
           var cell9 = row.insertCell(8)
           var cell10 = row.insertCell(9)
           var cell11 = row.insertCell(10)
+          var cell12 = row.insertCell(11)
 
-          cell1.innerHTML += user.userData.Exam2[key].s1
-          cell2.innerHTML += user.userData.Exam2[key].s2
-          cell3.innerHTML += user.userData.Exam2[key].s3
-          cell4.innerHTML += user.userData.Exam2[key].s4
-          cell5.innerHTML += user.userData.Exam2[key].s5
-          cell6.innerHTML += user.userData.Exam2[key].s6
-          cell7.innerHTML += user.userData.Exam2[key].s7
-          cell8.innerHTML += user.userData.Exam2[key].s8
-          cell9.innerHTML += user.userData.Exam2[key].s9
-          cell10.innerHTML += user.userData.Exam2[key].s10
-          cell11.innerHTML += user.userData.Exam2[key].total
+          cell1.innerHTML += user.userData.Exam2[key].type
+          cell2.innerHTML += user.userData.Exam2[key].s1
+          cell3.innerHTML += user.userData.Exam2[key].s2
+          cell4.innerHTML += user.userData.Exam2[key].s3
+          cell5.innerHTML += user.userData.Exam2[key].s4
+          cell6.innerHTML += user.userData.Exam2[key].s5
+          cell7.innerHTML += user.userData.Exam2[key].s6
+          cell8.innerHTML += user.userData.Exam2[key].s7
+          cell9.innerHTML += user.userData.Exam2[key].s8
+          cell10.innerHTML += user.userData.Exam2[key].s9
+          cell11.innerHTML += user.userData.Exam2[key].s10
+          cell12.innerHTML += user.userData.Exam2[key].total
+
 
           if(user.userData.Exam2[key].total > best){
             best = user.userData.Exam2[key].total
@@ -382,6 +423,23 @@
         });
 
         bestTotalScore += best
+    }
+
+
+    function exam1() {
+      window.location.href = "examFundamentals.html";
+    }
+
+    function exam2() {
+      window.location.href = "examSkills.html";
+    }
+
+    function exam3() {
+      window.location.href = "examSkillsM.html";
+    }
+
+    function exam4() {
+      window.location.href = "examSkillsD.html";
     }
   </script>
 </html>

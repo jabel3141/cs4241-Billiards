@@ -309,25 +309,47 @@ function handleSubmitExam(res, req) {
 
     switch(whichExam){
       case 1:
-      combinedScores[0] = examScores[1]+examScores[2]+examScores[3]+examScores[4]+examScores[6];
-      combinedScores[1] = examScores[0]+examScores[5];
-      combinedScores[2] = examScores[7];
-      examScores.forEach(function (e){
-        totalscore += e;
-      });
-      combinedScores[3] = totalscore;
-      break;
+        combinedScores[0] = examScores[1]+examScores[2]+examScores[3]+examScores[4]+examScores[6];
+        combinedScores[1] = examScores[0]+examScores[5];
+        combinedScores[2] = examScores[7];
+        examScores.forEach(function (e){
+          totalscore += e;
+        });
+        combinedScores[3] = totalscore;
+        break;
 
       case 2:
-       combinedScores[0] = examScores[0]+ examScores[1]+examScores[2]+examScores[3]
-       combinedScores[1] = examScores[4];
-       combinedScores[2] = examScores[5]+ examScores[6]+examScores[7]+examScores[8];
-       combinedScores[3] = examScores[9];
-      examScores.forEach(function (e){
-        totalscore += e;
-      })
-      combinedScores[4] = totalscore
-      break;
+        combinedScores[0] = examScores[0]+ examScores[1]+examScores[2]+examScores[3]
+        combinedScores[1] = examScores[4];
+        combinedScores[2] = examScores[5]+ examScores[6]+examScores[7]+examScores[8];
+        combinedScores[3] = examScores[9];
+        examScores.forEach(function (e){
+          totalscore += e;
+        })
+        combinedScores[4] = totalscore
+        break;
+
+      case 3:
+        combinedScores[0] = examScores[0]+ examScores[1]+examScores[2]+examScores[3]
+        combinedScores[1] = examScores[4];
+        combinedScores[2] = examScores[5]+ examScores[6]+examScores[7]+examScores[8];
+        combinedScores[3] = examScores[9];
+        examScores.forEach(function (e){
+          totalscore += e;
+        })
+        combinedScores[4] = totalscore
+        break;
+
+      case 4:
+        combinedScores[0] = examScores[0]+ examScores[1]+examScores[2]+examScores[3]
+        combinedScores[1] = examScores[4];
+        combinedScores[2] = examScores[5]+ examScores[6]+examScores[7]+examScores[8];
+        combinedScores[3] = examScores[9];
+        examScores.forEach(function (e){
+          totalscore += e;
+        })
+        combinedScores[4] = totalscore
+        break;
     }
 
     writeUserData(username,examScores,combinedScores,whichExam)
@@ -344,55 +366,105 @@ function writeUserData(username,examScores,combinedScores, whichExam) {
     if(hasName){
       switch(whichExam){
         case 1:
-        attempt = snapshot.child(username+'/Exam1/').numChildren()+1;
-        break;
+          attempt = snapshot.child(username+'/Exam1/').numChildren()+1;
+          break;
         case 2:
-        attempt = snapshot.child(username+'/Exam2/').numChildren()+1;
-        break;
+          attempt = snapshot.child(username+'/Exam2/').numChildren()+1;
+          break;
+        case 3:
+          attempt = snapshot.child(username+'/Exam2/').numChildren()+1;
+          break;
+        case 4:
+          attempt = snapshot.child(username+'/Exam2/').numChildren()+1;
+          break;
       }
     }
     console.log("Exam "+whichExam+ "      Attempt: "+attempt);
 
     switch(whichExam){
       case 1:
-      firebase.database().ref('users/'+username+'/Exam1/Attempt'+attempt).set({
-        f1: examScores[0],
-        f2: examScores[1],
-        f3: examScores[2],
-        f4: examScores[3],
-        f5: examScores[4],
-        f6: examScores[5],
-        f7: examScores[6],
-        f8: examScores[7],
+        firebase.database().ref('users/'+username+'/Exam1/Attempt'+attempt).set({
+          f1: examScores[0],
+          f2: examScores[1],
+          f3: examScores[2],
+          f4: examScores[3],
+          f5: examScores[4],
+          f6: examScores[5],
+          f7: examScores[6],
+          f8: examScores[7],
 
-        ballControl: combinedScores[0],
-        accuracy: combinedScores[1],
-        positioning: combinedScores[2],
-        total: combinedScores[3]
-      })
-      break;
+          ballControl: combinedScores[0],
+          accuracy: combinedScores[1],
+          positioning: combinedScores[2],
+          total: combinedScores[3]
+        })
+        break;
       case 2:
-      firebase.database().ref('users/'+username+'/Exam2/Attempt'+attempt).set({
-        s1: examScores[0],
-        s2: examScores[1],
-        s3: examScores[2],
-        s4: examScores[3],
-        s5: examScores[4],
-        s6: examScores[5],
-        s7: examScores[6],
-        s8: examScores[7],
-        s9: examScores[8],
-        s10: examScores[9],
+        firebase.database().ref('users/'+username+'/Exam2/Attempt'+attempt).set({
+          s1: examScores[0],
+          s2: examScores[1],
+          s3: examScores[2],
+          s4: examScores[3],
+          s5: examScores[4],
+          s6: examScores[5],
+          s7: examScores[6],
+          s8: examScores[7],
+          s9: examScores[8],
+          s10: examScores[9],
 
-        complexSituationAbility: combinedScores[0],
-        safeAbility: combinedScores[1],
-        specialShotAbility: combinedScores[2],
-        breakAbility: combinedScores[3],
-        total: combinedScores[4]
-      }
-    )
+          complexSituationAbility: combinedScores[0],
+          safeAbility: combinedScores[1],
+          specialShotAbility: combinedScores[2],
+          breakAbility: combinedScores[3],
+          total: combinedScores[4],
+          type: "Bachelors"
+        })
+        break;
+      case 3:
+        firebase.database().ref('users/'+username+'/Exam2/Attempt'+attempt).set({
+          s1: examScores[0],
+          s2: examScores[1],
+          s3: examScores[2],
+          s4: examScores[3],
+          s5: examScores[4],
+          s6: examScores[5],
+          s7: examScores[6],
+          s8: examScores[7],
+          s9: examScores[8],
+          s10: examScores[9],
+
+          complexSituationAbility: combinedScores[0],
+          safeAbility: combinedScores[1],
+          specialShotAbility: combinedScores[2],
+          breakAbility: combinedScores[3],
+          total: combinedScores[4],
+          type: "Masters"
+        })
+        break;
+      case 4:
+        firebase.database().ref('users/'+username+'/Exam2/Attempt'+attempt).set({
+          s1: examScores[0],
+          s2: examScores[1],
+          s3: examScores[2],
+          s4: examScores[3],
+          s5: examScores[4],
+          s6: examScores[5],
+          s7: examScores[6],
+          s8: examScores[7],
+          s9: examScores[8],
+          s10: examScores[9],
+
+          complexSituationAbility: combinedScores[0],
+          safeAbility: combinedScores[1],
+          specialShotAbility: combinedScores[2],
+          breakAbility: combinedScores[3],
+          total: combinedScores[4],
+          type: "Doctorate"
+        })
+        break;  
+    }
   }
-})}
+)}
 
 var currentUserData = null
 var allUsers = []

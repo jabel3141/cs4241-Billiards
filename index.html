@@ -130,7 +130,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <ul class="nav navbar-nav">
             <li><a href="examFundamentals.html">Exam I </a></li>
-            <li><a href="examSkills.html">Exam II</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Exam II <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="examSkills.html">Bachelors</a></li>
+                <li><a href="examSkillsM.html">Masters</a></li>
+                <li><a href="examSkillsD.html">Doctorate</a></li>
+              </ul>
+            </li>
             <li><a href="searchProfile.html">Profiles</a></li>
             <li><a href="projectTeam.html">Project Team</a></li>
           </ul>
@@ -188,8 +195,25 @@
               <p>It is recommended that you have someone else record your scores.</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary modButton" data-dismiss="modal" onclick="exam1()">Exam I (Fundamentals)</button>
-              <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam2()">Exam II (Skills)</button>
+              <div class="row">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-primary modButton" data-dismiss="modal" onclick="exam1()">Exam I (Fundamentals)</button>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam2()">Exam II (Bachelors)</button>
+                </div>
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam3()">Exam II (Masters)</button>
+                </div>
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam4()">Exam II (Doctorate)</button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -301,6 +325,14 @@
 
       function exam2() {
         window.location.href = "examSkills.html";
+      }
+
+      function exam3() {
+        window.location.href = "examSkillsM.html";
+      }
+
+      function exam4() {
+        window.location.href = "examSkillsD.html";
       }
 
     </script>
