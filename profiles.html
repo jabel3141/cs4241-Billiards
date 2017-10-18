@@ -1,445 +1,448 @@
  <html>
-  <head>
-    <title>CSC Billiard Analytics - User Profile</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link id="css" rel="stylesheet" type="text/css" href="style.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Verdana" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script src="radar.js"></script>
-    <style>
-      table{
-        font-size: 13px;
-      }
-      .panel{
-        font-size: 1.2em;
-        width: 98%;
-        margin: 0 auto;
-      }
+ <head>
+  <title>CSC Billiard Analytics - User Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link id="css" rel="stylesheet" type="text/css" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Verdana" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="radar.js"></script>
+  <style>
+  table{
+    font-size: 12px;
+  }
+  .panel{
+    font-size: 1.2em;
+    width: 98%;
+    margin: 0 auto;
+  }
 
-      #graph-well {
-        width: 98%;
-        margin: 0 auto;
-      }
+  #graph-well {
+    width: 98%;
+    margin: 0 auto;
+  }
 
-      #user {
-        font-family: Arvo, sans-serif;
-        font-size: 6em;
-      }
+  #user {
+    font-family: Arvo, sans-serif;
+    font-size: 6em;
+  }
 
-      #prof-pic {
-        display: inline-block;
-      }
+  #prof-pic {
+    display: inline-block;
+  }
 
-      .table {table-layout: fixed}
+  .table {table-layout: fixed}
 
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html"><span class="active">Billiard Analytics </span> <span class="sr-only">Current</span></a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-          <ul class="nav navbar-nav">
-            <li><a href="examFundamentals.html">Exam I </a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown">Exam II <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="examSkills.html">Bachelors</a></li>
-                <li><a href="examSkillsM.html">Masters</a></li>
-                <li><a href="examSkillsD.html">Doctorate</a></li>
-              </ul>
-            </li>
-            <li><a href="searchProfile.html">Profiles</a></li>
-            <li><a href="projectTeam.html">Project Team</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-left">
 
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="xtreme.html">X-Treme App</a></li>
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span class="active">Billiard Analytics </span> <span class="sr-only">Current</span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav navbar-nav">
+          <li><a href="examFundamentals.html">Exam I </a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">Exam II <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="examSkills.html">Bachelors</a></li>
+              <li><a href="examSkillsM.html">Masters</a></li>
+              <li><a href="examSkillsD.html">Doctorate</a></li>
+            </ul>
+          </li>
+          <li><a href="searchProfile.html">Profiles</a></li>
+          <li><a href="projectTeam.html">Project Team</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
 
-            <li><a href="http://billiarduniversity.org/exams.html" target="_blank">BU Site</a></li>
-          </ul>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="xtreme.html">X-Treme App</a></li>
+
+          <li><a href="http://billiarduniversity.org/exams.html" target="_blank">BU Site</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well text-center">
+          <h1 id="user"></h1>
+          <img id="prof-pic" src="img/profiles/pool-stance.png" alt="Profile" height="10%"/>
+          <h3 id="level"></h3>
+          <h3 id="bestScore"></h3>
+          <h3 id="fargo"></h3>
         </div>
       </div>
-    </nav>
+    </div>
 
-    <div class="main">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="well text-center">
-            <h1 id="user"></h1>
-            <img id="prof-pic" src="img/profiles/pool-stance.png" alt="Profile" height="10%"/>
-            <h3 id="level"></h3>
-            <h3 id="bestScore"></h3>
-            <h3 id="fargo"></h3>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-default well">
+          <div class="panel-heading">
+            <p id=examQual></p>
+            <h2>Exam I Scores
+              <button type="button" class="btn btn-primary" onclick="location.href='examFundamentals.html'">Take Exam I</button>
+            </h2>
+
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-striped text-center">
+              <thead>
+                <tr>
+                  <th class="text-center">Cut</th>
+                  <th class="text-center">Stop</th>
+                  <th class="text-center">Follow</th>
+                  <th class="text-center">Draw</th>
+                  <th class="text-center">Stun</th>
+                  <th class="text-center">Potting</th>
+                  <th class="text-center">Wagon Wheel</th>
+                  <th class="text-center">Target</th>
+                  <th class="text-center">Total</th>
+                </tr>
+              </thead>
+              <tbody id="exam1Results">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel panel-default well">
+          <div class="panel-heading">
+            <h2>Exam II Scores
+              <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#alertModal">Take Exam II</button>
+            </h2>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-striped text-center">
+              <thead>
+                <tr>
+                  <th class="text-center">Exam Type</th>
+                  <th class="text-center">Line</th>
+                  <th class="text-center">Rail Cut</th>
+                  <th class="text-center">9-Ball</th>
+                  <th class="text-center">8-Ball</th>
+                  <th class="text-center">Saftey</th>
+                  <th class="text-center">Kick</th>
+                  <th class="text-center">Bank</th>
+                  <th class="text-center">Elevated Cue</th>
+                  <th class="text-center">Jump/ Mass&eacute</th>
+                  <th class="text-center">Break</th>
+                  <th class="text-center">Total</th>
+                </tr>
+              </thead>
+              <tbody id="exam2Results">
+
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="panel panel-default well">
-            <div class="panel-heading">
-              <p id=examQual></p>
-              <h2>Exam I Scores
-                <button type="button" class="btn btn-primary" onclick="location.href='examFundamentals.html'">Take Exam I</button>
-              </h2>
-              
+      <div id="alertModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Which exam would you like to take?</h4>
             </div>
-            <div class="panel-body">
-              <table class="table table-bordered text-center">
-                <thead>
-                  <tr>
-                    <th class="text-center">Cut</th>
-                    <th class="text-center">Stop</th>
-                    <th class="text-center">Follow</th>
-                    <th class="text-center">Draw</th>
-                    <th class="text-center">Stun</th>
-                    <th class="text-center">Potting</th>
-                    <th class="text-center">Wagon Wheel</th>
-                    <th class="text-center">Target</th>
-                    <th class="text-center">Total</th>
-                  </tr>
-                </thead>
-                <tbody id="exam1Results">
-
-                </tbody>
-              </table>
+            <div class="modal-body">
+              <p>It is recommended that you have someone else record your scores.</p>
             </div>
-          </div>
-          <div class="panel panel-default well">
-            <div class="panel-heading">
-              <h2>Exam II Scores
-                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal">Take Exam II</button>
-                <div id="alertModal" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Which exam would you like to take?</h4>
-                      </div>
-                      <div class="modal-body">
-                        <p>It is recommended that you have someone else record your scores.</p>
-                      </div>
-                      <div class="modal-footer">
-                        <div class="row">
-                          <div class="col-sm-4">
-                            <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam2()">Exam II (Bachelors)</button>
-                          </div>
-                          <div class="col-sm-4">
-                            <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam3()">Exam II (Masters)</button>
-                          </div>
-                          <div class="col-sm-4">
-                            <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam4()">Exam II (Doctorate)</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam2()">Exam II (Bachelors)</button>
                 </div>
-              </h2>
-            </div>
-            <div class="panel-body">
-              <table class="table table-bordered text-center">
-                <thead>
-                  <tr>
-                    <th class="text-center">Exam Type</th>
-                    <th class="text-center">Line</th>
-                    <th class="text-center">Rail Cut</th>
-                    <th class="text-center">9-Ball</th>
-                    <th class="text-center">8-Ball</th>
-                    <th class="text-center">Saftey</th>
-                    <th class="text-center">Kick</th>
-                    <th class="text-center">Bank</th>
-                    <th class="text-center">Elevated Cue</th>
-                    <th class="text-center">Jump/ Mass&eacute</th>
-                    <th class="text-center">Break</th>
-                    <th class="text-center">Total</th>
-                  </tr>
-                </thead>
-                <tbody id="exam2Results">
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 text-center">
-          <div class="well" id="graph-well">
-          <h1>Exam Statistics</h1>
-            <div id="body" class="well">
-              <div id="chart"> <!-- Radar chart -->
-
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam3()">Exam II (Masters)</button>
+                </div>
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam4()">Exam II (Doctorate)</button>
+                </div>
               </div>
             </div>
-            <h3>Statistic Breakdown</h3>
-            <p>**All scores are out of the max points you can get from Doctorate Exam**</p>
-            <div class="panel panel-primary">
-              <div class="panel-heading">Ball Control</div>
-              <div class="panel-body">(Stop + Follow + Draw + Stun + Wagon Wheel) / 60</div>
+          </div>
 
-              <div class="panel-heading">Accuracy</div>
-              <div class="panel-body">(Cut + Potting) / 20</div>
+        </div>
+      </div>
 
-              <div class="panel-heading">Positioning</div>
-              <div class="panel-body">(Targeting) / 20</div>
+      <div class="col-sm-6 text-center">
+        <div class="well" id="graph-well">
+          <h1>Exam Statistics</h1>
+          <div id="body" class="well">
+            <div id="chart"> <!-- Radar chart -->
 
-
-              <div class="panel-heading">Complex Situation Ability</div>
-              <div class="panel-body">(Line of Balls + Rail Cuts + 9-Ball + 8-Ball) / 53</div>
-
-
-              <div class="panel-heading">Safe Ability</div>
-              <div class="panel-body">(Safety) / 14</div>
-
-
-              <div class="panel-heading">Special Shot Ability</div>
-              <div class="panel-body">(Kicks + Banks + Elevated Cue + Jump/Mass&eacute) / 28</div>
-
-              <div class="panel-heading">Break Ability</div>
-              <div class="panel-body">(Break) / 5</div>
             </div>
+          </div>
+          <h3>Statistics Breakdown</h3>
+          <p>**All scores are out of the max points you can get from Doctorate Exam**</p>
+          <div class="panel panel-primary">
+            <div class="panel-heading">Ball Control</div>
+            <div class="panel-body">(Stop + Follow + Draw + Stun + Wagon Wheel) / 60</div>
+
+            <div class="panel-heading">Accuracy</div>
+            <div class="panel-body">(Cut + Potting) / 20</div>
+
+            <div class="panel-heading">Positioning</div>
+            <div class="panel-body">(Targeting) / 20</div>
+
+
+            <div class="panel-heading">Complex Situation Ability</div>
+            <div class="panel-body">(Line of Balls + Rail Cuts + 9-Ball + 8-Ball) / 53</div>
+
+
+            <div class="panel-heading">Safe Ability</div>
+            <div class="panel-body">(Safety) / 14</div>
+
+
+            <div class="panel-heading">Special Shot Ability</div>
+            <div class="panel-body">(Kicks + Banks + Elevated Cue + Jump/Mass&eacute) / 28</div>
+
+            <div class="panel-heading">Break Ability</div>
+            <div class="panel-body">(Break) / 5</div>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 
-  <script type="text/javascript" src="radarScript.js"></script>
-  <script>
+<script type="text/javascript" src="radarScript.js"></script>
+<script>
 
-    var bestTotalScore = 0
+  var bestTotalScore = 0
 
-    getUser()
+  getUser()
 
-    function setInfo(user){
-      var username = document.getElementById("user");
-      username.innerText = user.username
+  function setInfo(user){
+    var username = document.getElementById("user");
+    username.innerText = user.username
 
-      Object.keys(user.userData).forEach(function(key){
-        if(key == "Exam1"){
-          createExam1(user)
-        }
-        if(key == "Exam2"){
-          createExam2(user)
-        }
-      })
+    Object.keys(user.userData).forEach(function(key){
+      if(key == "Exam1"){
+        createExam1(user)
+      }
+      if(key == "Exam2"){
+        createExam2(user)
+      }
+    })
 
-      var level = document.getElementById("level")
-      var fargo = document.getElementById("fargo")
-      var rating = 0
+    var level = document.getElementById("level")
+    var fargo = document.getElementById("fargo")
+    var rating = 0
 
-      if(bestTotalScore > 179){
-        level.innerHTML = "<i>Player Level: </i><b>Pro</b>"
-        rating = map_range(bestTotalScore, 180, 750, 200, 1000)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 159){
-        level.innerHTML = "<i>Player Level: </i><b>Semi Pro</b>"
-        rating = map_range(bestTotalScore, 160, 650, 179, 749)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 139){
-        level.innerHTML = "<i>Player Level: </i><b>Advanced-3</b>"
-        rating = map_range(bestTotalScore, 140, 600, 159, 649)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 124){
-        level.innerHTML = "<i>Player Level: </i><b>Advanced-2</b>"
-        rating = map_range(bestTotalScore, 125, 550, 139, 599)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 109){
-        level.innerHTML = "<i>Player Level: </i><b>Advanced-1</b>"
-        rating = map_range(bestTotalScore, 110, 500, 124, 549)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 94){
-        level.innerHTML = "<i>Player Level: </i><b>Intermediate-3</b>"
-        rating = map_range(bestTotalScore, 95, 450, 109, 499)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 69){
-        level.innerHTML = "<i>Player Level: </i><b>Intermediate-2</b>"
-        rating = map_range(bestTotalScore, 70, 400, 94, 449)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 54){
-        level.innerHTML = "<i>Player Level: </i><b>Intermediate-1</b>"
-        rating = map_range(bestTotalScore, 55, 350, 69, 399)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 39){
-        level.innerHTML = "<i>Player Level: </i><b>Beginner-3</b>"
-        rating = map_range(bestTotalScore, 40, 325, 54, 349)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 29){
-        level.innerHTML = "<i>Player Level: </i><b>Beginner-2</b>"
-        rating = map_range(bestTotalScore, 30, 300, 39, 324)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else if(bestTotalScore > 19){
-        level.innerHTML = "<i>Player Level: </i><b>Beginner-1</b>"
-        rating = map_range(bestTotalScore, 20, 200, 29, 299)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-      else{
-        level.innerHTML = "<i>Player Level: </i><b>Beginner-0</b>"
-        rating = map_range(bestTotalScore, 0, 0, 19, 200)
-        fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
-      }
-
-      var score = document.getElementById("bestScore")
-      score.innerHTML = "<i>Best BU Combined Score: </i><b>" + bestTotalScore + "</b>"
+    if(bestTotalScore > 179){
+      level.innerHTML = "<i>Player Level: </i><b>Pro</b>"
+      rating = map_range(bestTotalScore, 180, 750, 200, 1000)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 159){
+      level.innerHTML = "<i>Player Level: </i><b>Semi Pro</b>"
+      rating = map_range(bestTotalScore, 160, 650, 179, 749)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 139){
+      level.innerHTML = "<i>Player Level: </i><b>Advanced-3</b>"
+      rating = map_range(bestTotalScore, 140, 600, 159, 649)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 124){
+      level.innerHTML = "<i>Player Level: </i><b>Advanced-2</b>"
+      rating = map_range(bestTotalScore, 125, 550, 139, 599)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 109){
+      level.innerHTML = "<i>Player Level: </i><b>Advanced-1</b>"
+      rating = map_range(bestTotalScore, 110, 500, 124, 549)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 94){
+      level.innerHTML = "<i>Player Level: </i><b>Intermediate-3</b>"
+      rating = map_range(bestTotalScore, 95, 450, 109, 499)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 69){
+      level.innerHTML = "<i>Player Level: </i><b>Intermediate-2</b>"
+      rating = map_range(bestTotalScore, 70, 400, 94, 449)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 54){
+      level.innerHTML = "<i>Player Level: </i><b>Intermediate-1</b>"
+      rating = map_range(bestTotalScore, 55, 350, 69, 399)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 39){
+      level.innerHTML = "<i>Player Level: </i><b>Beginner-3</b>"
+      rating = map_range(bestTotalScore, 40, 325, 54, 349)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 29){
+      level.innerHTML = "<i>Player Level: </i><b>Beginner-2</b>"
+      rating = map_range(bestTotalScore, 30, 300, 39, 324)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else if(bestTotalScore > 19){
+      level.innerHTML = "<i>Player Level: </i><b>Beginner-1</b>"
+      rating = map_range(bestTotalScore, 20, 200, 29, 299)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
+    }
+    else{
+      level.innerHTML = "<i>Player Level: </i><b>Beginner-0</b>"
+      rating = map_range(bestTotalScore, 0, 0, 19, 200)
+      fargo.innerHTML = "<i>Fargo Rating Equivalent: </i><b>" + rating + "</b>"
     }
 
+    var score = document.getElementById("bestScore")
+    score.innerHTML = "<i>Best BU Combined Score: </i><b>" + bestTotalScore + "</b>"
+  }
 
-    function map_range(value, low1, high1, low2, high2) {
-      return Math.round((value - low1) * (high2 - high1) / (low2 - low1) + high1);
+
+  function map_range(value, low1, high1, low2, high2) {
+    return Math.round((value - low1) * (high2 - high1) / (low2 - low1) + high1);
+  }
+
+  function getUser(){
+    function reqListener () {
+      var user = JSON.parse(this.responseText)
+      setInfo( user )
     }
 
-    function getUser(){
-      function reqListener () {
-        var user = JSON.parse(this.responseText)
-        setInfo( user )
+    var oReq = new XMLHttpRequest();
+
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", "/getUser");
+    oReq.send();
+  }
+
+
+  function createExam1(user){
+    var exam1Scores = document.getElementById("exam1Results");
+    var qual = document.getElementById("examQual");
+    var i = 0
+    var best = 0
+
+    Object.keys(user.userData.Exam1).forEach(function(key){
+
+      var row = exam1Scores.insertRow(i);
+      var cell1 = row.insertCell(0)
+      var cell2 = row.insertCell(1)
+      var cell3 = row.insertCell(2)
+      var cell4 = row.insertCell(3)
+      var cell5 = row.insertCell(4)
+      var cell6 = row.insertCell(5)
+      var cell7 = row.insertCell(6)
+      var cell8 = row.insertCell(7)
+      var cell9 = row.insertCell(8)
+
+      cell1.innerHTML += user.userData.Exam1[key].f1
+      cell2.innerHTML += user.userData.Exam1[key].f2
+      cell3.innerHTML += user.userData.Exam1[key].f3
+      cell4.innerHTML += user.userData.Exam1[key].f4
+      cell5.innerHTML += user.userData.Exam1[key].f5
+      cell6.innerHTML += user.userData.Exam1[key].f6
+      cell7.innerHTML += user.userData.Exam1[key].f7
+      cell8.innerHTML += user.userData.Exam1[key].f8
+      cell9.innerHTML += user.userData.Exam1[key].total
+
+      if(user.userData.Exam1[key].total > best){
+        best = user.userData.Exam1[key].total
       }
 
-      var oReq = new XMLHttpRequest();
+      if(user.userData.Exam1[key].total < 50){
+        qual.innerText = "*your most recent Exam I score qualifies you for Exam II (Bachelors Level)"
+      }
 
-      oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "/getUser");
-      oReq.send();
-    }
+      else if(user.userData.Exam1[key].total >= 50 && user.userData.Exam1[key].total < 70 ){
+        qual.innerText = "*your most recent Exam I score qualifies you for Exam II (Masters Level)"
+      }
 
+      else if(user.userData.Exam1[key].total >= 70){
+        qual.innerText = "*your most recent Exam I score qualifies you for Exam II (Doctorate Level)"
+      }
 
-    function createExam1(user){
-        var exam1Scores = document.getElementById("exam1Results");
-        var qual = document.getElementById("examQual");
-        var i = 0
-        var best = 0
+      i++
+    });
 
-        Object.keys(user.userData.Exam1).forEach(function(key){
+    bestTotalScore += best
+  }
 
-          var row = exam1Scores.insertRow(i);
-          var cell1 = row.insertCell(0)
-          var cell2 = row.insertCell(1)
-          var cell3 = row.insertCell(2)
-          var cell4 = row.insertCell(3)
-          var cell5 = row.insertCell(4)
-          var cell6 = row.insertCell(5)
-          var cell7 = row.insertCell(6)
-          var cell8 = row.insertCell(7)
-          var cell9 = row.insertCell(8)
+  function createExam2(user){
+    var exam2Scores = document.getElementById("exam2Results");
+    var i = 0
+    var best = 0
 
-          cell1.innerHTML += user.userData.Exam1[key].f1
-          cell2.innerHTML += user.userData.Exam1[key].f2
-          cell3.innerHTML += user.userData.Exam1[key].f3
-          cell4.innerHTML += user.userData.Exam1[key].f4
-          cell5.innerHTML += user.userData.Exam1[key].f5
-          cell6.innerHTML += user.userData.Exam1[key].f6
-          cell7.innerHTML += user.userData.Exam1[key].f7
-          cell8.innerHTML += user.userData.Exam1[key].f8
-          cell9.innerHTML += user.userData.Exam1[key].total
+    Object.keys(user.userData.Exam2).forEach(function(key){
 
-          if(user.userData.Exam1[key].total > best){
-            best = user.userData.Exam1[key].total
-          }
+      var row = exam2Scores.insertRow(i);
+      var cell1 = row.insertCell(0)
+      var cell2 = row.insertCell(1)
+      var cell3 = row.insertCell(2)
+      var cell4 = row.insertCell(3)
+      var cell5 = row.insertCell(4)
+      var cell6 = row.insertCell(5)
+      var cell7 = row.insertCell(6)
+      var cell8 = row.insertCell(7)
+      var cell9 = row.insertCell(8)
+      var cell10 = row.insertCell(9)
+      var cell11 = row.insertCell(10)
+      var cell12 = row.insertCell(11)
 
-          if(user.userData.Exam1[key].total < 50){
-            qual.innerText = "*your most recent Exam I score qualifies you for Exam II (Bachelors Level)"
-          }
-
-          else if(user.userData.Exam1[key].total >= 50 && user.userData.Exam1[key].total < 70 ){
-            qual.innerText = "*your most recent Exam I score qualifies you for Exam II (Masters Level)"
-          }
-
-          else if(user.userData.Exam1[key].total >= 70){
-            qual.innerText = "*your most recent Exam I score qualifies you for Exam II (Doctorate Level)"
-          }
-
-          i++
-        });
-
-        bestTotalScore += best
-    }
-
-    function createExam2(user){
-        var exam2Scores = document.getElementById("exam2Results");
-        var i = 0
-        var best = 0
-
-        Object.keys(user.userData.Exam2).forEach(function(key){
-
-          var row = exam2Scores.insertRow(i);
-          var cell1 = row.insertCell(0)
-          var cell2 = row.insertCell(1)
-          var cell3 = row.insertCell(2)
-          var cell4 = row.insertCell(3)
-          var cell5 = row.insertCell(4)
-          var cell6 = row.insertCell(5)
-          var cell7 = row.insertCell(6)
-          var cell8 = row.insertCell(7)
-          var cell9 = row.insertCell(8)
-          var cell10 = row.insertCell(9)
-          var cell11 = row.insertCell(10)
-          var cell12 = row.insertCell(11)
-
-          cell1.innerHTML += user.userData.Exam2[key].type
-          cell2.innerHTML += user.userData.Exam2[key].s1
-          cell3.innerHTML += user.userData.Exam2[key].s2
-          cell4.innerHTML += user.userData.Exam2[key].s3
-          cell5.innerHTML += user.userData.Exam2[key].s4
-          cell6.innerHTML += user.userData.Exam2[key].s5
-          cell7.innerHTML += user.userData.Exam2[key].s6
-          cell8.innerHTML += user.userData.Exam2[key].s7
-          cell9.innerHTML += user.userData.Exam2[key].s8
-          cell10.innerHTML += user.userData.Exam2[key].s9
-          cell11.innerHTML += user.userData.Exam2[key].s10
-          cell12.innerHTML += user.userData.Exam2[key].total
+      cell1.innerHTML += user.userData.Exam2[key].type
+      cell2.innerHTML += user.userData.Exam2[key].s1
+      cell3.innerHTML += user.userData.Exam2[key].s2
+      cell4.innerHTML += user.userData.Exam2[key].s3
+      cell5.innerHTML += user.userData.Exam2[key].s4
+      cell6.innerHTML += user.userData.Exam2[key].s5
+      cell7.innerHTML += user.userData.Exam2[key].s6
+      cell8.innerHTML += user.userData.Exam2[key].s7
+      cell9.innerHTML += user.userData.Exam2[key].s8
+      cell10.innerHTML += user.userData.Exam2[key].s9
+      cell11.innerHTML += user.userData.Exam2[key].s10
+      cell12.innerHTML += user.userData.Exam2[key].total
 
 
-          if(user.userData.Exam2[key].total > best){
-            best = user.userData.Exam2[key].total
-          }
+      if(user.userData.Exam2[key].total > best){
+        best = user.userData.Exam2[key].total
+      }
 
-          i++
-        });
+      i++
+    });
 
-        bestTotalScore += best
-    }
+    bestTotalScore += best
+  }
 
 
-    function exam1() {
-      window.location.href = "examFundamentals.html";
-    }
+  function exam1() {
+    window.location.href = "examFundamentals.html";
+  }
 
-    function exam2() {
-      window.location.href = "examSkills.html";
-    }
+  function exam2() {
+    window.location.href = "examSkills.html";
+  }
 
-    function exam3() {
-      window.location.href = "examSkillsM.html";
-    }
+  function exam3() {
+    window.location.href = "examSkillsM.html";
+  }
 
-    function exam4() {
-      window.location.href = "examSkillsD.html";
-    }
-  </script>
+  function exam4() {
+    window.location.href = "examSkillsD.html";
+  }
+</script>
 </html>

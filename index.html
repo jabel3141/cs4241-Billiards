@@ -161,11 +161,11 @@
         <div id="about" class="col-sm-6">
           <h2><center><b>About</b></center></h2>
           <p class="index-p">Welcome to the <b>Cue Sports Club Billiard Analytics</b> website! If you've ever wanted to evaluate how well you actually play, we allow you to take a two part exam that can help you understand your strengths and weaknesses. </p>
-          <p class="index-p">The exam is officially designed by Billiard University (founded in 2012). The purpose is to <i>"provide a complete, structured, well designed, and challenging pool workout you can use to develop and improve your game to reach the next level."</i></p>
+          <p class="index-p">The exam is officially designed by <b>Billiard University</b> (founded in 2012). The purpose is to <i>"provide a complete, structured, well designed, and challenging pool workout you can use to develop and improve your game to reach the next level."</i></p>
           <p class="index-p"><b>Personal Analysis</b> After you've taken your exam, you will be taken to your profile page to see a breakdown and a chart displaying your abilities in the areas of: ball control, accuracy, positioning, complex situation ability, safe ability, special shot ability, break ability.</p>
           <p class="index-p"><b>Ready to take the exam?</b> Before you begin, please read about the exams and setup the pool table as shown in the diagram below.
           </p>
-          <p class="index-p">Download and print the required <a href="http://billiarduniversity.org/documents/BU_Rectangular_Target.pdf">Rectangle Template</a>.</p>
+          <p class="index-p">Print out the required <a href="http://billiarduniversity.org/documents/BU_Rectangular_Target.pdf">Rectangle Template</a> for the exams.</p>
           <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal">Take the Exam!</button>
         </div>
 
@@ -173,11 +173,11 @@
           <h2><center><b>Exams</b></center></h2>
           <p class="index-p"><b>Exam I: Fundamentals</b></p>
           <p class="index-p">The first exam covers fundamentals including aiming, stroke, stop/follow/draw control, and cue ball position control.</p>
-          <p class="index-p"><b>Exam II: Skills (Bachelor)</b></p>
+          <p class="index-p"><b>Exam II: Skills</b></p>
           <p class="index-p">The second exam assesses important pool skills including aiming, position play, rail cut shots, safeties, kicks and banks, jump and masse shots, and the break.</p>
 
-          <p class="index-p"><b>Exam II: Skills (Master/Doctorate)</b></p>
-          <p class="index-p">There are three different levels of Exam II (Bachelors, Masters, and Doctorate). However, at the moment we only support the Bachelors exam. Your performance on Exam I places you into the appropriate Exam II. The difficulty level and number of available points increases with Exam level. So, if you are ready for something more than Bachelor level please visit the <a href="http://billiarduniversity.org/exams.html" target="_blank">Billiard University Website</a>.</p>
+          <p class="index-p"><b>Exam II Levels</b></p>
+          <p class="index-p">There are three different levels of Exam II (Bachelors, Masters, and Doctorate). Your performance on Exam I places you into the appropriate Exam II. The difficulty level and number of available points increases with exam level. So, please take the appropriate exam. If you have taken Exam I, but are unsure about which Exam II you are supposed to take, please see your profile page which will indicate the appropriate exam.</p>
 
         </div>
       </div>
@@ -196,10 +196,8 @@
             </div>
             <div class="modal-footer">
               <div class="row">
-                <div class="col-sm-4">
-                </div>
-                <div class="col-sm-4">
-                  <button type="button" class="btn btn-primary modButton" data-dismiss="modal" onclick="exam1()">Exam I (Fundamentals)</button>
+                <div class="col-sm-1">
+                  <button type="button" class="btn btn-primary modButton" id="button-full" data-dismiss="modal" onclick="exam1()">Exam I (Fundamentals)</button>
                 </div>
               </div>
               <br>
