@@ -3,7 +3,7 @@ Thomas Hagen
 Rayyan Khan  
 Parmenion Patias  
 
-https://fp-jabel3141.herokuapp.com/
+https://cscbilliardanalytics.herokuapp.com/
 
 Project commits and changes can be found here (Sorry for using a different repo. We didn't know there was one for the final project):
 https://github.com/jabel3141/cs4241-Billiards
@@ -48,6 +48,7 @@ This Project shows a redesigned website for the Billiards University Exam. It al
 - Scoring tables for each basic skill
 - Picture corresponding to the skill for setup
 - Picture will change based on which skill you are on
+- Bachelors, Masters, and Doctorate exams
 
 
 ## Search Profile page
@@ -87,7 +88,9 @@ This Project shows a redesigned website for the Billiards University Exam. It al
 
 ## Project Team page
 - Names of memebers on the team
+- "Sponsors"
 
 
 ## Xtreme page
 - CSC Xtreme billiards game
+- About xtreme
