@@ -51,14 +51,29 @@
         <div class="col-sm-3">
           <form action="examSubmit" method="POST" onsubmit="return false">
             <input id="username" type="text" name="title" class="form-control" placeholder="Username" onkeyup="nameUpdate()" onblur="nameUpdate()"/>
-            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal" onclick="userCheck()">Submit Exam</button>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal">Submit Exam</button>
           </form>
         </div>
-        <div id="submitModal">
+        
 
-        </div>
+      </div>
+      <div id="alertModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-        <div class="col-sm-3">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Confirm Submit</h4>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to submit the exam?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>
+              <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -1126,25 +1141,31 @@
 
     function userCheck(){
 
-      var check = document.getElementById("submitModal")
+      Object.keys(user.userData).forEach(function(key){
+        var name = key.key;
+        if(name == user){
+          var check = document.getElementById("submitModal")
 
-      check.innerHTML = "<div id="alertModal" class="modal fade" role="dialog">"
-      check.innerHTML += "<div class="modal-dialog">"
-      check.innerHTML += "<div class="modal-content">"
-      check.innerHTML += "<div class="modal-header">"
-      check.innerHTML += "<button type="button" class="close" data-dismiss="modal">&times;</button>"
-      check.innerHTML += "<h4 class="modal-title">Confirm Submit</h4>"
-      check.innerHTML += "</div>"
-      check.innerHTML += "<div class="modal-body">"
-      check.innerHTML += "<p>Are you sure you want to submit the exam?</p>"
-      check.innerHTML += "</div>"
-      check.innerHTML += "<div class="modal-footer">"
-      check.innerHTML += "<button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>"
-      check.innerHTML += "<button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>"
-      check.innerHTML += "</div>"
-      check.innerHTML += "</div>"
-      check.innerHTML += "</div>"
-      check.innerHTML += "</div>"
+          check.innerHTML = '<div id="alertModal" class="modal fade" role="dialog">'
+          check.innerHTML += '<div class="modal-dialog">'
+          check.innerHTML += '<div class="modal-content">'
+          check.innerHTML += '<div class="modal-header">'
+          check.innerHTML += '<button type="button" class="close" data-dismiss="modal">&times;</button>'
+          check.innerHTML += '<h4 class="modal-title">Confirm Submit</h4>'
+          check.innerHTML += '</div>'
+          check.innerHTML += '<div class="modal-body">'
+          check.innerHTML += '<p>Are you sure you want to submit the exam?</p>'
+          check.innerHTML += '</div>'
+          check.innerHTML += '<div class="modal-footer">'
+          check.innerHTML += '<button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>'
+          check.innerHTML += '<button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>'
+          check.innerHTML += '</div>'
+          check.innerHTML += '</div>'
+          check.innerHTML += '</div>'
+          check.innerHTML += '</div>'
+      }
+
+      
 
     }
 
