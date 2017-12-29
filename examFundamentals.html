@@ -57,6 +57,9 @@
         
 
       </div>
+
+      <div id="errorMessage">
+      </div>
       <div id="alertModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -74,6 +77,7 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>
               <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>
+              
             </div>
           </div>
 
@@ -1071,56 +1075,95 @@
       drillScores[7] = total;
     }
 
+
+
+    var nameCheck;
+    var pinCheck;
+
+
+    function sendExam(){
+      console.log("correct info")
+      calcTotal1();
+      calcTotal2();
+      calcTotal3();
+      calcTotal4();
+      calcTotal5();
+      calcTotal6();
+      calcTotal7();
+      calcTotal8();
+
+      if(isNaN(drillScores[0])){
+        drillScores[0] = 0;
+      }
+
+      if(isNaN(drillScores[1])){
+        drillScores[1] = 0;
+      }
+
+      if(isNaN(drillScores[2])){
+        drillScores[2] = 0;
+      }
+
+      if(isNaN(drillScores[3])){
+        drillScores[3] = 0;
+      }
+
+      if(isNaN(drillScores[4])){
+        drillScores[4] = 0;
+      }
+
+
+      var xmlhttp = new XMLHttpRequest();
+      //xmlhttp.addEventListener("load", reqListener);
+      xmlhttp.open("POST", "/submitExam", true);
+      xmlhttp.send('scores='+drillScores+'&user='+user +'&exam='+1);
+
+        // xmlhttp.addEventListener("load", reqListener);
+      setTimeout(function(){
+        setUser()
+      }, 1000)
+    }
+
+
+
     function submitExam(){
+ 
+      setCheckUsername()
 
-      nameCheck = checkUsername()
-      pinCheck = checkPin()
+      console.log("before check")
+      setTimeout(function(){
+        setCheckPin()
+      }, 500)
+      console.log("after check")
 
-      if(nameCheck && pinCheck){
-        calcTotal1();
-        calcTotal2();
-        calcTotal3();
-        calcTotal4();
-        calcTotal5();
-        calcTotal6();
-        calcTotal7();
-        calcTotal8();
 
-        if(isNaN(drillScores[0])){
-          drillScores[0] = 0;
+      setTimeout(function(){
+        nameCheck = getUsername()
+        pinCheck = getPin()
+      }, 1000)
+
+      setTimeout(function(){
+        console.log(nameCheck)
+        console.log(pinCheck)
+
+        if(false){
+          sendExam()
         }
+        else{
+          //error messages
+          console.log("errors")
+          var error = document.getElementById("errorMessage")
+          if(nameCheck == false){
+            console.log("username does not exist");
+            error.innerHTML += '<div class="alert alert-danger"><strong>Error!</strong> The Username used does not exist. Please make sure it is input correctly or create a new account.</div>'
+          }
+          else if(pinCheck == false){
+            console.log("Pin is incorrect")
+            error.innerHTML += '<div class="alert alert-danger"><strong>Error!</strong> Incorrect Pin for this Username.</div>'
+          }
 
-        if(isNaN(drillScores[1])){
-          drillScores[1] = 0;
         }
-
-        if(isNaN(drillScores[2])){
-          drillScores[2] = 0;
-        }
-
-        if(isNaN(drillScores[3])){
-          drillScores[3] = 0;
-        }
-
-        if(isNaN(drillScores[4])){
-          drillScores[4] = 0;
-        }
-
-
-        var xmlhttp = new XMLHttpRequest();
-        //xmlhttp.addEventListener("load", reqListener);
-        xmlhttp.open("POST", "/submitExam", true);
-        xmlhttp.send('scores='+drillScores+'&user='+user +'&exam='+1);
-
-          // xmlhttp.addEventListener("load", reqListener);
-        setTimeout(function(){
-          setUser()
-        }, 1000)
-      }
-      else{
-        //error messages
-        console.log("username or pin not correct");
-      }
+      },2000)
     }
 
     function nameUpdate(){
@@ -1138,7 +1181,7 @@
 
 
       function reqListener () {
-        window.location.href = "profiles.html";
+        //window.location.href = "profiles.html";
       }
 
       var oReq = new XMLHttpRequest();
@@ -1150,37 +1193,62 @@
     }
 
 
-
-    function checkUsername(){
-      
+    function getUsername(){
       function reqListener () {
-        var response = JSON.parse(this.responseText)
-        console.log( responnse )
-        
-        return response
+        var u = JSON.parse(this.responseText)
+        console.log( u )
+        nameCheck = u[0].username
       }
       
       var oReq = new XMLHttpRequest();
       
       oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "/checkInfo");
+      oReq.open("GET", "/getUsername");
+      oReq.send();
+    }
+
+    function setCheckUsername(){
+      
+      function reqListener () {
+        
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      console.log("username check")
+      oReq.addEventListener("load", reqListener);
+      oReq.open("POST", "/setCheckUsername", true);
       oReq.send('username='+user);
 
     }
 
-    function checkPin(){
+
+    function getPin(){
       function reqListener () {
-        var response = JSON.parse(this.responseText)
-        console.log( responnse )
-        
-        return response
+        var p = JSON.parse(this.responseText)
+        console.log( p )
+        pinCheck = p[0].pin
       }
       
       var oReq = new XMLHttpRequest();
       
       oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "/checkInfo");
-      oReq.send('pin='+pin);
+      oReq.open("GET", "/getPin");
+      oReq.send();
+    }
+
+    function setCheckPin(){
+      function reqListener () {
+
+      }
+      
+      var oReq = new XMLHttpRequest();
+
+      
+      console.log("pin check")
+      oReq.addEventListener("load", reqListener);
+      oReq.open("POST", "/setCheckPin", true);
+      oReq.send('username='+user+'&pin='+document.getElementById("pin").value);
     }
 
   </script>

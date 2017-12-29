@@ -88,11 +88,18 @@ var server = http.createServer(function (req, res) {
     case '/getUser':
     res.end(JSON.stringify(currentUserData))
 
-    case '/checkUsername':
-    checkInfo(res,req,uri);
+    case '/setCheckUsername':
+    setCheckUsername(res,req,uri);
 
-    case '/checkPin':
-    checkInfo(res,req,uri);
+    case '/getUsername':
+    res.end(JSON.stringify(currentUsername))
+
+    case '/setCheckPin':
+    console.log("checking")
+    setCheckPin(res,req,uri);
+
+    case '/getPin':
+    res.end(JSON.stringify(currentPin))
 
     case '/radarScript.js':
     sendFile(res, 'radarScript.js', 'text/javascript')
@@ -361,26 +368,9 @@ function handleSubmitExam(res, req) {
         break;
     }
 
-    var ref = firebase.database().ref("/users/");
-    ref.once("value").then(function(snapshot) {
-      var hasName = snapshot.hasChild(username);
+    writeUserData(username,examScores,combinedScores,whichExam)
+    res.end()
 
-      var userPin = snapshot.child(username).child("pin").val();
-
-      if(hasName && userPin == pin){
-        firebase.database().ref('users/'+username+'postin').set({
-          pin: tempPin
-        })
-        writeUserData(username,examScores,combinedScores,whichExam)
-        res.end()
-      }
-      else{
-        res.end()
-      }
-    });
-
-    
-    
   });
 }
 
@@ -591,51 +581,69 @@ function searchUsers(res, req, uri){
   })
 }
 
-function checkUsername(res,req,uri){
-  var postdata = ''
-  req.on('data', function(d) {
-    postdata += d
+currentUsername = []
+currentPin = []
+
+function setCheckUsername(res,req,uri){
+  var body = '';
+  req.on('data', function (data) {
+    body += data;
+    if (body.length > 1e6) {
+      req.connection.destroy();
+    }
   });
   req.on('end', function () {
-    console.log("check");
     var post = qs.parse(body);
-    var username = post.user;
-    var tempPin = post.pin;
+    var username = post.username;
 
     var ref = firebase.database().ref("/users/");
     ref.once("value").then(function(snapshot) {
-      var hasName = snapshot.hasChild(username);
+      var hasName = snapshot.hasChild(username); // true
 
-      res.end(hasName)
+      currentUsername = []
+      currentUsername.push({"username": hasName})
+
+      res.end()
     });
   });
 
 }
 
-function checkPin(res,req,uri){
-  var postdata = ''
-  req.on('data', function(d) {
-    postdata += d
-  });
-  req.on('end', function () {
-    console.log("check");
-    var post = qs.parse(body);
-    var username = post.user;
-    var tempPin = post.pin;
+function setCheckPin(res,req,uri){
+  console.log("here")
+  // var body = '';
+  // req.on('data', function (data) {
+  //   body += data;
+  //   if (body.length > 1e6) {
+  //     req.connection.destroy();
+  //   }
+  // });
+  // req.on('end', function () {
+  //   var post = qs.parse(body);
+  //   var username = post.username;
+  //   var tempPin = post.pin;
 
-    var ref = firebase.database().ref("/users/");
-    ref.once("value").then(function(snapshot) {
-      var hasName = snapshot.hasChild(username);
-      var userPin = snapshot.child(username).child("pin").val()
+  //   console.log(username)
+  //   console.log(tempPin)
 
-      if(userPin == tempPin){
-        res.end(JSON.stringify(true))
-      }
-      else{
-        res.end(JSON.stringify(false))
-      }
-    });
-  });
+  //   // var ref = firebase.database().ref("/users/");
+  //   // ref.once("value").then(function(snapshot) {
+  //   //   var userPin = snapshot.child(username).child("pin").val()
+  //   //   console.log(userPin)
+
+  //   //   currentPin = []
+
+  //   //   if(userPin == tempPin){
+  //   //     currentPin.push({"pin": true})
+  //   //   }
+  //   //   else{
+  //   //     currentPin.push({"pin": false})
+  //   //   }
+  //   // });
+
+  //   res.end()
+
+  // });
 
 }
 
