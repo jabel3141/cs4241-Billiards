@@ -68,6 +68,8 @@
             </div>
             <div class="modal-body">
               <p>Are you sure you want to submit the exam?</p>
+              <p>Please enter your 4-digit pin to confirm</p>
+              <input id="pin" type="text" name="pinNum" class="form-control" placeholder="Pin"/>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>
@@ -1071,46 +1073,54 @@
 
     function submitExam(){
 
-      calcTotal1();
-      calcTotal2();
-      calcTotal3();
-      calcTotal4();
-      calcTotal5();
-      calcTotal6();
-      calcTotal7();
-      calcTotal8();
+      nameCheck = checkUsername()
+      pinCheck = checkPin()
 
-      if(isNaN(drillScores[0])){
-        drillScores[0] = 0;
+      if(nameCheck && pinCheck){
+        calcTotal1();
+        calcTotal2();
+        calcTotal3();
+        calcTotal4();
+        calcTotal5();
+        calcTotal6();
+        calcTotal7();
+        calcTotal8();
+
+        if(isNaN(drillScores[0])){
+          drillScores[0] = 0;
+        }
+
+        if(isNaN(drillScores[1])){
+          drillScores[1] = 0;
+        }
+
+        if(isNaN(drillScores[2])){
+          drillScores[2] = 0;
+        }
+
+        if(isNaN(drillScores[3])){
+          drillScores[3] = 0;
+        }
+
+        if(isNaN(drillScores[4])){
+          drillScores[4] = 0;
+        }
+
+
+        var xmlhttp = new XMLHttpRequest();
+        //xmlhttp.addEventListener("load", reqListener);
+        xmlhttp.open("POST", "/submitExam", true);
+        xmlhttp.send('scores='+drillScores+'&user='+user +'&exam='+1);
+
+          // xmlhttp.addEventListener("load", reqListener);
+        setTimeout(function(){
+          setUser()
+        }, 1000)
       }
-
-      if(isNaN(drillScores[1])){
-        drillScores[1] = 0;
+      else{
+        //error messages
+        console.log("username or pin not correct");
       }
-
-      if(isNaN(drillScores[2])){
-        drillScores[2] = 0;
-      }
-
-      if(isNaN(drillScores[3])){
-        drillScores[3] = 0;
-      }
-
-      if(isNaN(drillScores[4])){
-        drillScores[4] = 0;
-      }
-
-
-      var xmlhttp = new XMLHttpRequest();
-      //xmlhttp.addEventListener("load", reqListener);
-      xmlhttp.open("POST", "/submitExam", true);
-      xmlhttp.send('scores='+drillScores+'&user='+user +'&exam='+1);
-
-        // xmlhttp.addEventListener("load", reqListener);
-      setTimeout(function(){
-        setUser()
-      }, 1000)
-
     }
 
     function nameUpdate(){
@@ -1139,34 +1149,38 @@
 
     }
 
-    function userCheck(){
 
-      Object.keys(user.userData).forEach(function(key){
-        var name = key.key;
-        if(name == user){
-          var check = document.getElementById("submitModal")
 
-          check.innerHTML = '<div id="alertModal" class="modal fade" role="dialog">'
-          check.innerHTML += '<div class="modal-dialog">'
-          check.innerHTML += '<div class="modal-content">'
-          check.innerHTML += '<div class="modal-header">'
-          check.innerHTML += '<button type="button" class="close" data-dismiss="modal">&times;</button>'
-          check.innerHTML += '<h4 class="modal-title">Confirm Submit</h4>'
-          check.innerHTML += '</div>'
-          check.innerHTML += '<div class="modal-body">'
-          check.innerHTML += '<p>Are you sure you want to submit the exam?</p>'
-          check.innerHTML += '</div>'
-          check.innerHTML += '<div class="modal-footer">'
-          check.innerHTML += '<button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>'
-          check.innerHTML += '<button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>'
-          check.innerHTML += '</div>'
-          check.innerHTML += '</div>'
-          check.innerHTML += '</div>'
-          check.innerHTML += '</div>'
-      }
-
+    function checkUsername(){
       
+      function reqListener () {
+        var response = JSON.parse(this.responseText)
+        console.log( responnse )
+        
+        return response
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "/checkInfo");
+      oReq.send('username='+user);
 
+    }
+
+    function checkPin(){
+      function reqListener () {
+        var response = JSON.parse(this.responseText)
+        console.log( responnse )
+        
+        return response
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "/checkInfo");
+      oReq.send('pin='+pin);
     }
 
   </script>
