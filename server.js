@@ -33,6 +33,10 @@ var server = http.createServer(function (req, res) {
     sendFile(res, 'index.html')
     break
 
+    case '/signUp.html':
+    sendFile(res, 'signUp.html')
+    break
+
     case '/examFundamentals.html':
     sendFile(res, 'examFundamentals.html')
     break
