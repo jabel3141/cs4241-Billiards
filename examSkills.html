@@ -70,7 +70,7 @@
             <div class="modal-body">
               <p>Are you sure you want to submit the exam?</p>
               <p>Please enter your 4-digit pin to confirm</p>
-              <input id="pin" type="password" name="pinNum" class="form-control" placeholder="Pin"/>
+              <input id="pin" type="text" name="pinNum" class="form-control" placeholder="Pin"/>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>
@@ -1007,8 +1007,6 @@
     }
 
     function submitExam(){
-
-      pin = document.getElementById("pin").value;
  
       setCheckUsername()
 
@@ -1126,6 +1124,7 @@
       var oReq = new XMLHttpRequest();
       
       console.log("pin check")
+      var pin = document.getElementById("pin").value;
 
       oReq.addEventListener("load", reqListener);
       oReq.open("POST", "/setCheckPin", true);
