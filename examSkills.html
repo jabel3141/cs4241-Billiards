@@ -69,6 +69,7 @@
             </div>
             <div class="modal-body">
               <p>Are you sure you want to submit the exam?</p>
+
               <p>Please enter your 4-digit pin to confirm
               <input id="pin" type="password" maxlength="4" name="pinNum" class="form-control" placeholder="Pin"/></p>
               <p>Don't have an account? <a href="signUp.html" target="_blank">Sign Up</a></p>
@@ -1021,7 +1022,7 @@
 
           setTimeout(function(){
             pinCheck = getPin()
-          }, 900)
+          }, 1000)
         }
       }, 600)
 
@@ -1049,7 +1050,7 @@
 
           fade(error);
         }
-      },1750)
+      },2000)
     }
 
 
