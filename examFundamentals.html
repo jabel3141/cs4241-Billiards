@@ -1077,8 +1077,8 @@
 
 
 
-    var nameCheck;
-    var pinCheck;
+    var nameCheck = false;
+    var pinCheck = false;
 
 
     function sendExam(){
@@ -1130,23 +1130,25 @@
  
       setCheckUsername()
 
-      console.log("before check")
-      setTimeout(function(){
-        setCheckPin()
-      }, 500)
-      console.log("after check")
-
-
       setTimeout(function(){
         nameCheck = getUsername()
-        pinCheck = getPin()
-      }, 1000)
+      }, 150)
+
+      setTimeout(function(){
+        if(nameCheck == true){
+          setCheckPin()
+
+          setTimeout(function(){
+            pinCheck = getPin()
+          }, 450)
+        }
+      }, 300)
 
       setTimeout(function(){
         console.log(nameCheck)
         console.log(pinCheck)
 
-        if(false){
+        if(nameCheck == true && pinCheck == true){
           sendExam()
         }
         else{
@@ -1155,15 +1157,15 @@
           var error = document.getElementById("errorMessage")
           if(nameCheck == false){
             console.log("username does not exist");
-            error.innerHTML += '<div class="alert alert-danger"><strong>Error!</strong> The Username used does not exist. Please make sure it is input correctly or create a new account.</div>'
+            error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> The Username used does not exist. Please make sure it is input correctly or create a new account.</div>'
           }
           else if(pinCheck == false){
             console.log("Pin is incorrect")
-            error.innerHTML += '<div class="alert alert-danger"><strong>Error!</strong> Incorrect Pin for this Username.</div>'
+            error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Incorrect Pin for this Username.</div>'
           }
 
         }
-      },2000)
+      },800)
     }
 
     function nameUpdate(){
@@ -1181,7 +1183,7 @@
 
 
       function reqListener () {
-        //window.location.href = "profiles.html";
+        window.location.href = "profiles.html";
       }
 
       var oReq = new XMLHttpRequest();
@@ -1189,6 +1191,38 @@
       oReq.addEventListener("load", reqListener);
       oReq.open("POST", "/setUser", true);
       oReq.send('username='+user);
+
+    }
+
+
+    function getPin(){
+      function reqListener () {
+        var u = JSON.parse(this.responseText)
+        console.log( u )
+        pinCheck = u[0].pin
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "/getPin");
+      oReq.send();
+    }
+
+    function setCheckPin(){
+      
+      function reqListener () {
+        
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      console.log("pin check")
+      var pin = document.getElementById("pin").value;
+
+      oReq.addEventListener("load", reqListener);
+      oReq.open("POST", "/setCheckPin", true);
+      oReq.send('username='+user+'&pin='+pin);
 
     }
 
@@ -1223,33 +1257,6 @@
     }
 
 
-    function getPin(){
-      function reqListener () {
-        var p = JSON.parse(this.responseText)
-        console.log( p )
-        pinCheck = p[0].pin
-      }
-      
-      var oReq = new XMLHttpRequest();
-      
-      oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "/getPin");
-      oReq.send();
-    }
-
-    function setCheckPin(){
-      function reqListener () {
-
-      }
-      
-      var oReq = new XMLHttpRequest();
-
-      
-      console.log("pin check")
-      oReq.addEventListener("load", reqListener);
-      oReq.open("POST", "/setCheckPin", true);
-      oReq.send('username='+user+'&pin='+document.getElementById("pin").value);
-    }
 
   </script>
 </html>
