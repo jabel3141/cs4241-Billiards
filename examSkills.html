@@ -55,26 +55,31 @@
         </div>
       </div>
 
+      <div id="errorMessage">
+      </div>
+
       <div id="alertModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
+        <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Confirm Submit</h4>
-              </div>
-              <div class="modal-body">
-                <p>Are you sure you want to submit the exam?</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>
-                <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>
-              </div>
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Confirm Submit</h4>
             </div>
-
+            <div class="modal-body">
+              <p>Are you sure you want to submit the exam?</p>
+              <p>Please enter your 4-digit pin to confirm</p>
+              <input id="pin" type="text" name="pinNum" class="form-control" placeholder="Pin"/>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>
+              <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>
+            </div>
           </div>
+
         </div>
+      </div>
 
       <div class="row">
         <div class="col-sm-12">
@@ -974,7 +979,11 @@
       console.log(drillScores[9]);
     }
 
-    function submitExam(){
+
+    var nameCheck = false;
+    var pinCheck = false;
+
+    function sendExam(){
       calcTotal1();
       calcTotal2();
       calcTotal3();
@@ -996,6 +1005,53 @@
       }, 1000)
 
     }
+
+    function submitExam(){
+ 
+      setCheckUsername()
+
+      setTimeout(function(){
+        nameCheck = getUsername()
+      }, 150)
+
+      setTimeout(function(){
+        if(nameCheck == true){
+          setCheckPin()
+
+          setTimeout(function(){
+            pinCheck = getPin()
+          }, 450)
+        }
+      }, 300)
+
+      setTimeout(function(){
+        console.log(nameCheck)
+        console.log(pinCheck)
+
+        if(nameCheck == true && pinCheck == true){
+          sendExam()
+        }
+        else{
+          //error messages
+          console.log("errors")
+          var error = document.getElementById("errorMessage")
+          error.style.display = 'block'
+
+          if(nameCheck == false){
+            console.log("username does not exist");
+            error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> The Username used does not exist. Please make sure it is input correctly or create a new account.</div>'
+          }
+          else if(pinCheck == false){
+            console.log("Pin is incorrect")
+            error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Incorrect Pin for this Username.</div>'
+          }
+
+          fade(error);
+        }
+      },1000)
+    }
+
+
 
     function nameUpdate(){
       user = document.getElementById("username").value
@@ -1044,6 +1100,80 @@
       oReq.send('username='+user);
 
     }
+
+    function getPin(){
+      function reqListener () {
+        var u = JSON.parse(this.responseText)
+        console.log( u )
+        pinCheck = u[0].pin
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "/getPin");
+      oReq.send();
+    }
+
+    function setCheckPin(){
+      
+      function reqListener () {
+        
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      console.log("pin check")
+      var pin = document.getElementById("pin").value;
+
+      oReq.addEventListener("load", reqListener);
+      oReq.open("POST", "/setCheckPin", true);
+      oReq.send('username='+user+'&pin='+pin);
+
+    }
+
+
+    function getUsername(){
+      function reqListener () {
+        var u = JSON.parse(this.responseText)
+        console.log( u )
+        nameCheck = u[0].username
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "/getUsername");
+      oReq.send();
+    }
+
+    function setCheckUsername(){
+      
+      function reqListener () {
+        
+      }
+      
+      var oReq = new XMLHttpRequest();
+      
+      console.log("username check")
+      oReq.addEventListener("load", reqListener);
+      oReq.open("POST", "/setCheckUsername", true);
+      oReq.send('username='+user);
+
+    }
+
+    function fade(element) {
+      var op = 1;  // initial opacity
+      var timer = setInterval(function () {
+        if (op <= 0.3){
+          clearInterval(timer);
+          element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.01;
+      }, 50);
+    }    
 
   </script>
 </html>
