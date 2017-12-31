@@ -1053,6 +1053,9 @@
 
 
     function submitExam(){
+
+      pin = document.getElementById("pin").value;
+      user = document.getElementById("username").value
  
       setCheckUsername()
 
@@ -1169,7 +1172,6 @@
       var oReq = new XMLHttpRequest();
       
       console.log("pin check")
-      var pin = document.getElementById("pin").value;
 
       oReq.addEventListener("load", reqListener);
       oReq.open("POST", "/setCheckPin", true);
