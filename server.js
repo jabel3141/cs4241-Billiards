@@ -286,6 +286,7 @@ var server = http.createServer(function (req, res) {
     case '/img/exam_2d/sd14.jpg':
     sendFile(res, 'img/exam_2d/sd14.jpg', 'image/jpg')
     break
+
     /////////////////////// END - IMAGES //////////////////////////////////
     default:
     res.end('404 not found')
