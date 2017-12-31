@@ -54,12 +54,11 @@
             <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal">Submit Exam</button>
           </form>
         </div>
-        
-
       </div>
 
       <div id="errorMessage">
       </div>
+
       <div id="alertModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -1131,7 +1130,7 @@
 
       setTimeout(function(){
         nameCheck = getUsername()
-      }, 150)
+      }, 300)
 
       setTimeout(function(){
         if(nameCheck == true){
@@ -1139,9 +1138,9 @@
 
           setTimeout(function(){
             pinCheck = getPin()
-          }, 450)
+          }, 900)
         }
-      }, 300)
+      }, 600)
 
       setTimeout(function(){
         console.log(nameCheck)
@@ -1167,7 +1166,7 @@
 
           fade(error);
         }
-      },1000)
+      },1500)
     }
 
     function nameUpdate(){
