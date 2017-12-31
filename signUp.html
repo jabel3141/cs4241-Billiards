@@ -192,10 +192,10 @@
 	      function reqListener () {
 	      	console.log("getting username")
 	        var u = JSON.parse(this.responseText)
-	        console.log( u )
-	        userExists = u[0].username
-
+	        
 	        setTimeout(function(){
+	        	console.log( u )
+	        	userExists = u[0].username
 		        if(userExists == true){
 		        	document.getElementById('userMatchAlert').innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Username is already taken!</div>'
 		        }
