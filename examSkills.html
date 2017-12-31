@@ -71,12 +71,12 @@
               <p>Are you sure you want to submit the exam?</p>
 
               <p>Please enter your 4-digit pin to confirm
-              <input id="pin" type="password" maxlength="4" name="pinNum" class="form-control" placeholder="Pin"/></p>
+              <input id="pin" type="password" maxlength="4" name="pinNum" class="form-control" placeholder="Pin" onkeyup="checkSubmit()"/></p>
               <p>Don't have an account? <a href="signUp.html" target="_blank">Sign Up</a></p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-warning modButton" data-dismiss="modal"><b>No</b>, not yet!</button>
-              <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()"><b>Yes</b>, submit the exam.</button>
+              <button type="button" id="confButton" class="btn btn-success modButton" data-dismiss="modal" onclick="submitExam()" disabled><b>Yes</b>, submit the exam.</button>
             </div>
           </div>
 
@@ -1175,6 +1175,16 @@
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op -= op * 0.01;
       }, 50);
+    }
+
+    function checkSubmit(){
+      var pinLen = document.getElementById('pin').value.length
+      if(pinLen == 4){
+        document.getElementById('confButton').disabled = false
+      }
+      else {
+        document.getElementById('confButton').disabled = true
+      }
     }    
 
   </script>
