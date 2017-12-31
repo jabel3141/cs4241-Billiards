@@ -33,3 +33,10 @@ body {
 	box-shadow: 6px 6px 2px black;
 }
 
+#foot {
+	padding-top: 20px;
+	border-top-style: solid;
+	width: 100%;
+	margin: auto;
+}
+
