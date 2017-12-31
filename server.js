@@ -77,6 +77,10 @@ var server = http.createServer(function (req, res) {
     handleSubmitExam(res,req);
     break
 
+    case '/register':
+    register(res,req);
+    break
+
     case '/search':
     searchUsers(res,req,uri);
     break
@@ -308,6 +312,33 @@ function sendFile(res, filename, contentType) {
 
 }
 
+
+function register(res, req) {
+  var body = '';
+  req.on('data', function (data) {
+    body += data;
+    if (body.length > 1e6) {
+      req.connection.destroy();
+    }
+  });
+  req.on('end', function () {
+    console.log("here");
+    var post = qs.parse(body);
+    var username = post.user;
+    var userPin = post.pin;
+    
+    var ref = firebase.database().ref("/users/");
+    ref.once("value").then(function(snapshot) {
+
+      firebase.database().ref('users/'+username).set({
+        pin: userPin,
+      })
+    })
+
+    res.end()
+
+  });
+}
 
 function handleSubmitExam(res, req) {
   var body = '';
@@ -595,16 +626,20 @@ function setCheckUsername(res,req,uri){
   req.on('end', function () {
     var post = qs.parse(body);
     var username = post.username;
+    console.log(username)
+    currentUsername = []
 
     var ref = firebase.database().ref("/users/");
     ref.once("value").then(function(snapshot) {
       var hasName = snapshot.hasChild(username); // true
 
-      currentUsername = []
+      
       currentUsername.push({"username": hasName})
-    });
 
-    res.end()
+      console.log(currentUsername)
+
+      res.end()
+    });
   });
 
 }
@@ -621,21 +656,23 @@ function setCheckPin(res,req,uri){
     var post = qs.parse(body);
     var username = post.username;
     var tempPin = post.pin;
+    currentPin = []
 
     var ref = firebase.database().ref("/users/");
     ref.once("value").then(function(snapshot) {
-      var hasName = snapshot.hasChild(username); // true
       var pinCheck = snapshot.child(username).child("pin").val();
 
-      currentPin = []
+      
       if(pinCheck == tempPin){
         currentPin.push({"pin": true})
       }
       else{
         currentPin.push({"pin": false})
       }
+
+      res.end()
     });
 
-    res.end()
+    
   });
 }

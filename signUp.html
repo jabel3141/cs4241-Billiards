@@ -76,29 +76,86 @@
         	</div>
         </div>
 
-        <div class="row">
+        <div id="finished" class="row">
         	<div class="col-sm-5">
         	
         	</div>
+        	<div id="form-box" class="col-sm-4">
+        		<div class="row">
+	        		<div class="col-sm-6">
+		        		<p>Username:
+		        		<input id="username-field" type="text" maxlength="18" name="pinNum" class="form-control" placeholder="Username (Max: 18 characters)" onkeyup="checkForm()" onblur="checkUsername()"/></p>
+		        	</div>
+		        	<div class="col-sm-6">
+		        		<p><span id="userMatchAlert"></span></p>
+		        	</div>
+	        	</div>
+	        	<div class="row">
+		        	<div class="col-sm-6">
+		        		<p>4-digit Pin:
+		        		<input id="pin-field" type="password" maxlength="4" name="pinNum" class="form-control" placeholder="Pin" onkeyup="checkForm()"/></p>
+		        	</div>
+		        </div>
+		        <div class="row">
+		        	<div class="col-sm-6">
+		        		<p>Confirm 4-digit Pin:
+		        		<input id="pinConfirm-field" type="password" maxlength="4" name="pinNumConfirm" class="form-control" placeholder="Re-Type Pin" onkeyup="checkForm()"/></p>
+		        	</div>
+		        	<div class="col-sm-6">
+		        		<p><span id="pinMatchAlert"></span></p>
+		        	</div>
+		        </div>	
+		        <div class="row">
+		        	<div class="col-sm-6">
+	        			<button id="submitBtn" type="button" class="btn btn-success" onclick="register()" disabled>Submit Form</button>
+	        		</div>
+	        	</div>
 
-        	<div id="form-box" class="col-sm-2">
-        		
-	        		<p>Username: <span id="userMatchAlert"></span>
-	        		<input id="username-field" type="text" maxlength="18" name="pinNum" class="form-control" placeholder="Username (Max: 18 characters)" onkeyup="checkForm()" onblur="checkUsername()"/></p>
-	        		<p>4-digit Pin:
-	        		<input id="pin-field" type="password" maxlength="4" name="pinNum" class="form-control" placeholder="Pin" onkeyup="checkForm()"/></p>
-	        		<p>Confirm 4-digit Pin: <span id="pinMatchAlert"></span>
-	        		<input id="pinConfirm-field" type="password" maxlength="4" name="pinNumConfirm" class="form-control" placeholder="Re-Type Pin" onkeyup="checkForm()"/></p>
-	        		
 
-	        		<button id="submitBtn" type="button" class="btn btn-success" onclick="register()" disabled>Submit Form</button>
 	        	
         	</div>
-
-        	<div class="col-sm-5">
+        	<div class="col-sm-4">
         	
         	</div>
         </div>
+
+        
+
+		<div id="alertModal" class="modal fade" role="dialog">
+	        <div class="modal-dialog">
+
+	          <!-- Modal content-->
+	          <div class="modal-content">
+	            <div class="modal-header">
+	              <button type="button" class="close" data-dismiss="modal">&times;</button>
+	              <h4 class="modal-title">Which exam would you like to take?</h4>
+	            </div>
+	            <div class="modal-body">
+	              <p>It is recommended that you have someone else record your scores.</p>
+	            </div>
+	            <div class="modal-footer">
+	              <div class="row">
+	                <div class="col-sm-5">
+	                  <button type="button" class="btn btn-primary modButton" id="button-full" data-dismiss="modal" onclick="exam1()">Exam I (Fundamentals)</button>
+	                </div>
+	              </div>
+	              <br>
+	              <div class="row">
+	                <div class="col-sm-4">
+	                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam2()">Exam II (Bachelors)</button>
+	                </div>
+	                <div class="col-sm-4">
+	                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam3()">Exam II (Masters)</button>
+	                </div>
+	                <div class="col-sm-4">
+	                  <button type="button" class="btn btn-success modButton" data-dismiss="modal" onclick="exam4()">Exam II (Doctorate)</button>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+
+	        </div>
+	      </div>
 
     </div>
 
@@ -124,29 +181,118 @@
 			}
 
 			if(confPin.length == 4 && pin != confPin){
-				document.getElementById('pinMatchAlert').innerHTML = "Does not match!"
+				document.getElementById('pinMatchAlert').innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Pin does not match!</div>'
 			}
 			else{
 				document.getElementById('pinMatchAlert').innerHTML = ""
 			}
 		}
 
-		function checkUsername(){ //this runs when you click off of the username box
-			//insert for-loop to check "user" with names in database
-			//set userExists to true if exists 
-			// AND do this
-			//document.getElementById('userMatchAlert').innerHTML = "Username is already taken!"
-			// else userExists becomes false
-			// AND do this
-			//document.getElementById('userMatchAlert').innerHTML = ""
+		function getUsername(){
+	      function reqListener () {
+	      	console.log("getting username")
+	        var u = JSON.parse(this.responseText)
+	        console.log( u )
+	        userExists = u[0].username
 
-		}
+	        setTimeout(function(){
+		        if(userExists == true){
+		        	document.getElementById('userMatchAlert').innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Username is already taken!</div>'
+		        }
+		        else{
+		        	document.getElementById('userMatchAlert').innerHTML = ""
+		        }
+		    }, 100)
+	        
+	      }
+	      
+	      var oReq = new XMLHttpRequest();
+	      
+	      oReq.addEventListener("load", reqListener);
+	      oReq.open("GET", "/getUsername");
+	      oReq.send();
+	    }
+
+	    function checkUsername(){
+	      
+	      function reqListener () {
+	      	setTimeout(function(){
+		        getUsername();
+		    }, 200)
+	        
+	      }
+	      
+	      var oReq = new XMLHttpRequest();
+	      
+	      console.log("username check")
+	      console.log(user)
+	      oReq.addEventListener("load", reqListener);
+	      oReq.open("POST", "/setCheckUsername", true);
+	      oReq.send('username='+user);
+
+	    }
 
 		function register(){
-			//What happens when you hit the 'Submit Form' Button
-			//when you press submit, do following
-			//document.getElementById('form-box').innerHTML = "<p>Thank you for registering!</p>"
-		}
+	     
+	      var xmlhttp = new XMLHttpRequest();
+	      xmlhttp.open("POST", "/register", true);
+	      xmlhttp.send('user='+user +'&pin='+pin);
+
+	      setTimeout(function(){
+	      	setUser()
+			document.getElementById('finished').innerHTML = '<div class="row">'
+			document.getElementById('finished').innerHTML += '<div class="col-sm-4"></div>'
+			document.getElementById('finished').innerHTML += '<div class="col-sm-4">'
+			document.getElementById('finished').innerHTML += '<Center><h2>Thank you for registering!</h2></Center>'
+			document.getElementById('finished').innerHTML += '</div>'
+			document.getElementById('finished').innerHTML += '<div class="col-sm-4"></div>'
+			document.getElementById('finished').innerHTML += '</div>'
+			document.getElementById('finished').innerHTML += '<br>'
+
+			document.getElementById('finished').innerHTML += '<div class="row">'
+			document.getElementById('finished').innerHTML += '<div class="col-sm-4"></div>'
+			document.getElementById('finished').innerHTML += '<div class="col-sm-2"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#alertModal">Take an Exam!</button></div>'
+			document.getElementById('finished').innerHTML += '<div class="col-sm-2"><button type="button" class="btn btn-primary" onclick="profile()">Visit Profile</button></div>'
+			document.getElementById('finished').innerHTML += '<div class="col-sm-4"></div>'
+			document.getElementById('finished').innerHTML += '</div>'
+			document.getElementById('finished').innerHTML += '<br>'
+			document.getElementById('finished').innerHTML += '<br>'
+			document.getElementById('finished').innerHTML += '<br>'
+	      }, 1000)
+	    }
+
+	    function setUser() {
+
+	      function reqListener () {
+	      }
+
+	      var oReq = new XMLHttpRequest();
+
+	      oReq.addEventListener("load", reqListener);
+	      oReq.open("POST", "/setUser", true);
+	      oReq.send('username='+user);
+
+	    }
+
+	    function profile(){
+	    	window.location.href = "profiles.html"
+	    }
+
+	    function exam1() {
+	        window.location.href = "examFundamentals.html";
+	      }
+
+	      function exam2() {
+	        window.location.href = "examSkills.html";
+	      }
+
+	      function exam3() {
+	        window.location.href = "examSkillsM.html";
+	      }
+
+	      function exam4() {
+	        window.location.href = "examSkillsD.html";
+	      }
 
 	</script>
 
