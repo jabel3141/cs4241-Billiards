@@ -13,7 +13,13 @@
 	  	<link id="css" rel="stylesheet" type="text/css" href="style.css"/>
 
   		<style>
+  			.btn {
+  				width: 100%;
+  			}
 
+  			#form-box {
+  				padding-bottom: 20px;
+  			}
 
 
   		</style>
@@ -47,15 +53,15 @@
               </ul>
             </li>
             <li><a href="searchProfile.html">Profiles</a></li>
-            <li><a href="projectTeam.html">Project Team</a></li>
+            
           </ul>
           <ul class="nav navbar-nav navbar-left">
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-
+          	<li><a href="signUp.html">Sign Up</a></li>
+          	<li><a href="projectTeam.html">Project Team</a></li>
             <li><a href="xtreme.html">X-Treme App</a></li>
-
             <li><a href="http://billiarduniversity.org/exams.html" target="_blank">BU Site</a></li>
 
           </ul>
@@ -65,14 +71,84 @@
 
     <div class="main">
     	<div class="row">
-        	<div id="about" class="col-sm-6">
-        		INSERT SIGN-UP PAGE HERE
+        	<div id="top-text" class="col-sm-12">
+        		<center><h2><b>CSC Billiard Analytics Sign Up</b></h2></center>
+        	</div>
+        </div>
+
+        <div class="row">
+        	<div class="col-sm-5">
+        	
+        	</div>
+
+        	<div id="form-box" class="col-sm-2">
+        		
+	        		<p>Username: <span id="userMatchAlert"></span>
+	        		<input id="username-field" type="text" maxlength="18" name="pinNum" class="form-control" placeholder="Username (Max: 18 characters)" onkeyup="checkForm()" onblur="checkUsername()"/></p>
+	        		<p>4-digit Pin:
+	        		<input id="pin-field" type="password" maxlength="4" name="pinNum" class="form-control" placeholder="Pin" onkeyup="checkForm()"/></p>
+	        		<p>Confirm 4-digit Pin: <span id="pinMatchAlert"></span>
+	        		<input id="pinConfirm-field" type="password" maxlength="4" name="pinNumConfirm" class="form-control" placeholder="Re-Type Pin" onkeyup="checkForm()"/></p>
+	        		
+
+	        		<button id="submitBtn" type="button" class="btn btn-success" onclick="register()" disabled>Submit Form</button>
+	        	
+        	</div>
+
+        	<div class="col-sm-5">
+        	
         	</div>
         </div>
 
     </div>
 
 	</body>
+
+	<script>
+		var user = ""
+		var pin = ""
+		var confPin = ""
+		var userExists = false
+
+		function checkForm(){
+			user = document.getElementById('username-field').value
+			pin = document.getElementById('pin-field').value
+			confPin = document.getElementById('pinConfirm-field').value
+
+			if(!userExists && user != "" && pin == confPin && pin.length == 4){
+				document.getElementById('submitBtn').disabled = false
+			}
+
+			else{
+				document.getElementById('submitBtn').disabled = true
+			}
+
+			if(confPin.length == 4 && pin != confPin){
+				document.getElementById('pinMatchAlert').innerHTML = "Does not match!"
+			}
+			else{
+				document.getElementById('pinMatchAlert').innerHTML = ""
+			}
+		}
+
+		function checkUsername(){ //this runs when you click off of the username box
+			//insert for-loop to check "user" with names in database
+			//set userExists to true if exists 
+			// AND do this
+			//document.getElementById('userMatchAlert').innerHTML = "Username is already taken!"
+			// else userExists becomes false
+			// AND do this
+			//document.getElementById('userMatchAlert').innerHTML = ""
+
+		}
+
+		function register(){
+			//What happens when you hit the 'Submit Form' Button
+			//when you press submit, do following
+			//document.getElementById('form-box').innerHTML = "<p>Thank you for registering!</p>"
+		}
+
+	</script>
 
 
 
