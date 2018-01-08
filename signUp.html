@@ -203,6 +203,9 @@
 		var pin = ""
 		var confPin = ""
 		var userExists = false
+		var existingUsers = []
+
+		getUserList()
 
 		function checkForm(){
 			user = document.getElementById('username-field').value
@@ -231,49 +234,79 @@
 			}
 		}
 
-		function getUsername(){
-	      function reqListener () {
-	      	console.log("getting username")
-	        var u = JSON.parse(this.responseText)
-	        console.log( u )
-	        userExists = u[0].username
+		// function getUsername(){
+	 //      function reqListener () {
+	 //      	console.log("getting username")
+	 //        var u = JSON.parse(this.responseText)
+	 //        console.log( u )
+	 //        userExists = u[0].username
 
-	        setTimeout(function(){
-		        if(userExists == true){
-		        	document.getElementById('userMatchAlert').innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Username is already taken!</div>'
-		        }
-		        else{
-		        	document.getElementById('userMatchAlert').innerHTML = ""
-		        }
-		    }, 1000)
+	 //        setTimeout(function(){
+		//         if(userExists == true){
+		//         	document.getElementById('userMatchAlert').innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Username is already taken!</div>'
+		//         }
+		//         else{
+		//         	document.getElementById('userMatchAlert').innerHTML = ""
+		//         }
+		//     }, 1000)
 	        
-	      }
+	 //      }
 	      
-	      var oReq = new XMLHttpRequest();
+	 //      var oReq = new XMLHttpRequest();
 	      
-	      oReq.addEventListener("load", reqListener);
-	      oReq.open("GET", "/getUsername");
-	      oReq.send();
-	    }
+	 //      oReq.addEventListener("load", reqListener);
+	 //      oReq.open("GET", "/getUsername");
+	 //      oReq.send();
+	 //    }
 
 	    function checkUsername(){
-	      document.getElementById('userMatchAlert').innerHTML = "(Checking username...)"
+	        document.getElementById('userMatchAlert').innerHTML = "(Checking username...)"
+	        
+	        for(i = 0; i < existingUsers.length; i++){
+		      	if(existingUsers[i].username.toLowerCase() == user.toLowerCase()){
+		      		userExists = true
+		      		document.getElementById('userMatchAlert').innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Username is already taken!</div>'
+		      		break
+		      	}
+		      	else{
+		      		userExists = false
+		      		document.getElementById('userMatchAlert').innerHTML = ""
+		      	}
+	        }
+	        checkForm()
+
+	      	
+	      
+	     //  function reqListener () {
+	     //  	setTimeout(function(){
+		    //     getUsername();
+		    // }, 1000)
+	        
+	     //  }
+	      
+	     //  var oReq = new XMLHttpRequest();
+	      
+	     //  console.log("username check")
+	     //  console.log(user)
+	     //  oReq.addEventListener("load", reqListener);
+	     //  oReq.open("POST", "/setCheckUsername", true);
+	     //  oReq.send('username='+user);
+
+	    }
+
+	    function getUserList() {
 
 	      function reqListener () {
-	      	setTimeout(function(){
-		        getUsername();
-		    }, 1000)
-	        
+	        var loadUsers = JSON.parse(this.responseText)
+	        console.log( loadUsers )
+	        existingUsers = loadUsers
 	      }
-	      
-	      var oReq = new XMLHttpRequest();
-	      
-	      console.log("username check")
-	      console.log(user)
-	      oReq.addEventListener("load", reqListener);
-	      oReq.open("POST", "/setCheckUsername", true);
-	      oReq.send('username='+user);
 
+	      var oReq = new XMLHttpRequest();
+
+	      oReq.addEventListener("load", reqListener);
+	      oReq.open("GET", "/getUserList");
+	      oReq.send();
 	    }
 
 		function register(){
@@ -337,6 +370,8 @@
 	      function exam4() {
 	        window.location.href = "examSkillsD.html";
 	      }
+
+
 
 	</script>
 
