@@ -245,7 +245,7 @@
 		        else{
 		        	document.getElementById('userMatchAlert').innerHTML = ""
 		        }
-		    }, 200)
+		    }, 1000)
 	        
 	      }
 	      
@@ -257,11 +257,12 @@
 	    }
 
 	    function checkUsername(){
-	      
+	      document.getElementById('userMatchAlert').innerHTML = "(Checking username...)"
+
 	      function reqListener () {
 	      	setTimeout(function(){
 		        getUsername();
-		    }, 750)
+		    }, 1000)
 	        
 	      }
 	      
