@@ -1026,8 +1026,8 @@
 
 
 
-    var nameCheck = false;
     var pinCheck = false;
+    var actualUsername = ''
 
     function sendExam(){
       calcTotal1();
@@ -1044,7 +1044,7 @@
       var xmlhttp = new XMLHttpRequest();
       // xmlhttp.addEventListener("load", reqListener);
       xmlhttp.open("POST", "/submitExam", true);
-      xmlhttp.send('scores='+drillScores+'&user='+user+'&exam='+4);
+      xmlhttp.send('scores='+drillScores+'&user='+actualUsername+'&exam='+4);
 
       setTimeout(function(){
         setUser()
@@ -1054,49 +1054,68 @@
 
 
     function submitExam(){
- 
-      setCheckUsername()
+
+      getUserList();
+
+      var pin = document.getElementById("pin").value;
+      var userExists = false;
+      var pinCheck = false;
 
       setTimeout(function(){
-        nameCheck = getUsername()
-      }, 300)
-
-      setTimeout(function(){
-        if(nameCheck == true){
-          setCheckPin()
-
-          setTimeout(function(){
-            pinCheck = getPin()
-          }, 1000)
+        for(i = 0; i < existingUsers.length; i++){
+          if(existingUsers[i].username.toLowerCase() == user.toLowerCase()){
+            userExists = true
+            actualUsername = existingUsers[i].username; 
+            if(existingUsers[i].userData.pin == pin) {
+              pinCheck = true
+            }    
+            else {
+              pinCheck = false
+            }  
+            break
+          }
+          else{
+            userExists = false
+          }
         }
-      }, 600)
+        
 
-      setTimeout(function(){
-        console.log(nameCheck)
-        console.log(pinCheck)
-
-        if(nameCheck == true && pinCheck == true){
+        if(userExists == true && pinCheck == true){
           sendExam()
         }
         else{
           //error messages
           console.log("errors")
           var error = document.getElementById("errorMessage")
+          error.style.display = 'none';
           error.style.display = 'block'
 
-          if(nameCheck == false){
-            console.log("username does not exist");
+          if(userExists == false){
             error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> The Username used does not exist. Please make sure it is input correctly or create a new account.</div>'
           }
           else if(pinCheck == false){
-            console.log("Pin is incorrect")
             error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Incorrect Pin for this Username.</div>'
           }
 
-          fade(error);
         }
-      },2000)
+      }, 1000)
+      
     }
+
+    function getUserList() {
+
+        function reqListener () {
+          var loadUsers = JSON.parse(this.responseText)
+          //console.log( loadUsers )
+          existingUsers = loadUsers
+        }
+
+        var oReq = new XMLHttpRequest();
+
+        oReq.addEventListener("load", reqListener);
+        oReq.open("GET", "/getUserList");
+        oReq.send();
+      }
 
 
     function nameUpdate(){
@@ -1147,79 +1166,6 @@
 
     }
 
-        function getPin(){
-      function reqListener () {
-        var u = JSON.parse(this.responseText)
-        console.log( u )
-        pinCheck = u[0].pin
-      }
-      
-      var oReq = new XMLHttpRequest();
-      
-      oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "/getPin");
-      oReq.send();
-    }
-
-    function setCheckPin(){
-      
-      function reqListener () {
-        
-      }
-      
-      var oReq = new XMLHttpRequest();
-      
-      console.log("pin check")
-      var pin = document.getElementById("pin").value;
-
-      oReq.addEventListener("load", reqListener);
-      oReq.open("POST", "/setCheckPin", true);
-      oReq.send('username='+user+'&pin='+pin);
-
-    }
-
-
-    function getUsername(){
-      function reqListener () {
-        var u = JSON.parse(this.responseText)
-        console.log( u )
-        nameCheck = u[0].username
-      }
-      
-      var oReq = new XMLHttpRequest();
-      
-      oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "/getUsername");
-      oReq.send();
-    }
-
-    function setCheckUsername(){
-      
-      function reqListener () {
-        
-      }
-      
-      var oReq = new XMLHttpRequest();
-      
-      console.log("username check")
-      oReq.addEventListener("load", reqListener);
-      oReq.open("POST", "/setCheckUsername", true);
-      oReq.send('username='+user);
-
-    }
-
-    function fade(element) {
-      var op = 1;  // initial opacity
-      var timer = setInterval(function () {
-        if (op <= 0.3){
-          clearInterval(timer);
-          element.style.display = 'none';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.01;
-      }, 50);
-    }
 
     function checkSubmit(){
       var pinLen = document.getElementById('pin').value.length

@@ -100,18 +100,6 @@ var server = http.createServer(function (req, res) {
     case '/getUser':
     res.end(JSON.stringify(currentUserData))
 
-    case '/setCheckPin':
-    setCheckPin(res,req,uri);
-
-    case '/getPin':
-    res.end(JSON.stringify(currentPin))
-
-    case '/setCheckUsername':
-    setCheckUsername(res,req,uri)
-
-    case '/getUsername':
-    res.end(JSON.stringify(currentUsername))
-
     case '/radarScript.js':
     sendFile(res, 'radarScript.js', 'text/javascript')
     break
@@ -622,69 +610,4 @@ function searchUsers(res, req, uri){
 
 
   })
-}
-
-currentUsername = []
-currentPin = []
-
-function setCheckUsername(res,req,uri){
-  var body = '';
-  req.on('data', function (data) {
-    body += data;
-    if (body.length > 1e6) {
-      req.connection.destroy();
-    }
-  });
-  req.on('end', function () {
-    var post = qs.parse(body);
-    var username = post.username;
-    console.log(username)
-    currentUsername = []
-
-    var ref = firebase.database().ref("/users/");
-    ref.once("value").then(function(snapshot) {
-      var hasName = snapshot.hasChild(username); // true
-
-      
-      currentUsername.push({"username": hasName})
-
-      console.log(currentUsername)
-
-      res.end()
-    });
-  });
-
-}
-
-function setCheckPin(res,req,uri){
-  var body = '';
-  req.on('data', function (data) {
-    body += data;
-    if (body.length > 1e6) {
-      req.connection.destroy();
-    }
-  });
-  req.on('end', function () {
-    var post = qs.parse(body);
-    var username = post.username;
-    var tempPin = post.pin;
-    currentPin = []
-
-    var ref = firebase.database().ref("/users/");
-    ref.once("value").then(function(snapshot) {
-      var pinCheck = snapshot.child(username).child("pin").val();
-
-      
-      if(pinCheck == tempPin){
-        currentPin.push({"pin": true})
-      }
-      else{
-        currentPin.push({"pin": false})
-      }
-
-      res.end()
-    });
-
-    
-  });
 }

@@ -237,30 +237,7 @@
 			}
 		}
 
-		// function getUsername(){
-	 //      function reqListener () {
-	 //      	console.log("getting username")
-	 //        var u = JSON.parse(this.responseText)
-	 //        console.log( u )
-	 //        userExists = u[0].username
 
-	 //        setTimeout(function(){
-		//         if(userExists == true){
-		//         	document.getElementById('userMatchAlert').innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Username is already taken!</div>'
-		//         }
-		//         else{
-		//         	document.getElementById('userMatchAlert').innerHTML = ""
-		//         }
-		//     }, 1000)
-	        
-	 //      }
-	      
-	 //      var oReq = new XMLHttpRequest();
-	      
-	 //      oReq.addEventListener("load", reqListener);
-	 //      oReq.open("GET", "/getUsername");
-	 //      oReq.send();
-	 //    }
 
 	    function checkUsername(){
 	        for(i = 0; i < existingUsers.length; i++){
@@ -275,24 +252,7 @@
 		      		document.getElementById('userMatchAlert').innerHTML = ""
 		      	}
 	        }
-	        
 
-	      	
-	      
-	     //  function reqListener () {
-	     //  	setTimeout(function(){
-		    //     getUsername();
-		    // }, 1000)
-	        
-	     //  }
-	      
-	     //  var oReq = new XMLHttpRequest();
-	      
-	     //  console.log("username check")
-	     //  console.log(user)
-	     //  oReq.addEventListener("load", reqListener);
-	     //  oReq.open("POST", "/setCheckUsername", true);
-	     //  oReq.send('username='+user);
 
 	    }
 
