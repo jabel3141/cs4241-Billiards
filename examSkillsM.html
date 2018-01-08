@@ -1004,7 +1004,6 @@
       console.log(drillScores[9]);
     }
 
-    var nameCheck = false;
     var pinCheck = false;
     var actualUsername = ''
 
@@ -1037,7 +1036,7 @@
 
       getUserList();
 
-      var pin = document.getElementById("pin").value;
+      var typedPin = document.getElementById("pin").value;
       var userExists = false;
       var pinCheck = false;
 
@@ -1046,7 +1045,7 @@
           if(existingUsers[i].username.toLowerCase() == user.toLowerCase()){
             userExists = true 
             actualUsername = existingUsers[i].username;
-            if(existingUsers[i].userData.pin == pin) {
+            if(existingUsers[i].userData.pin == typedPin) {
               pinCheck = true
             }    
             else {
