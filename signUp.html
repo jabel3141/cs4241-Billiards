@@ -83,11 +83,11 @@
         	<div id="form-box" class="col-sm-4">
         		<div class="row">
 	        		<div class="col-sm-6">
-		        		<p>Username:
-		        		<input id="username-field" type="text" maxlength="18" name="pinNum" class="form-control" placeholder="Username (Max: 18 characters)" onkeyup="checkForm()" onblur="checkUsername()"/></p>
+		        		<p>Username (no spaces):
+		        		<input id="username-field" type="text" maxlength="18" name="pinNum" class="form-control" placeholder="(Max: 18 characters)" onkeyup="checkForm()" onblur="checkUsername()"/></p>
 		        	</div>
 		        	<div class="col-sm-6">
-		        		<p><span id="userMatchAlert"></span></p>
+		        		<p><span id="userMatchAlert"></span><span id="spaceAlert"></span></p>
 		        	</div>
 	        	</div>
 	        	<div class="row">
@@ -209,12 +209,18 @@
 			pin = document.getElementById('pin-field').value
 			confPin = document.getElementById('pinConfirm-field').value
 
-			if(!userExists && user != "" && pin == confPin && pin.length == 4){
+			if(!userExists && user != "" && pin == confPin && pin.length == 4 && !user.includes(" ") && !user.includes("<") && !user.includes(">") && !user.includes("/") && !user.includes("%") && !user.includes("#") && !user.includes("&") && !user.includes("?") && !user.includes(",") && !user.includes("(") && !user.includes(")")){
 				document.getElementById('submitBtn').disabled = false
 			}
-
 			else{
 				document.getElementById('submitBtn').disabled = true
+			}
+
+			if(user.includes(" ") || user.includes("<") || user.includes(">") || user.includes("/") || user.includes("%") || user.includes("#") || user.includes("&") || user.includes("?") || user.includes(",") || user.includes("(") || user.includes(")")){
+				document.getElementById('spaceAlert').innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> No spaces or <>/%#&?,().</div>'
+			}
+			else{
+				document.getElementById('spaceAlert').innerHTML = ""
 			}
 
 			if(confPin.length == 4 && pin != confPin){
