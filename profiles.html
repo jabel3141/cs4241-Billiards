@@ -1,4 +1,4 @@
- <html>
+  <html>
  <head>
   <title>CSC Billiard Analytics - User Profile</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -108,6 +108,7 @@
             <table class="table table-bordered table-striped text-center">
               <thead>
                 <tr>
+                  <th class="text-center">Date</th>
                   <th class="text-center">Cut</th>
                   <th class="text-center">Stop</th>
                   <th class="text-center">Follow</th>
@@ -135,6 +136,7 @@
             <table class="table table-bordered table-striped text-center">
               <thead>
                 <tr>
+                  <th class="text-center">Date</th>
                   <th class="text-center">Exam Type</th>
                   <th class="text-center">Line</th>
                   <th class="text-center">Rail Cut</th>
@@ -155,7 +157,22 @@
             </table>
           </div>
         </div>
+        <!--<div class="panel panel-default well">
+          <div class="panel-heading">
+            <h2>Exam II Scores
+              <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#alertModal">Take Exam II</button>
+            </h2>
+          </div>
+          <div class="panel-body" id="examResults">
+            
+          </div>
+        </div>-->
       </div>
+
+
+
+
+
 
       <div id="alertModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -390,16 +407,18 @@
       var cell7 = row.insertCell(6)
       var cell8 = row.insertCell(7)
       var cell9 = row.insertCell(8)
+      var cell10 = row.insertCell(9)
 
-      cell1.innerHTML += user.userData.Exam1[key].f1
-      cell2.innerHTML += user.userData.Exam1[key].f2
-      cell3.innerHTML += user.userData.Exam1[key].f3
-      cell4.innerHTML += user.userData.Exam1[key].f4
-      cell5.innerHTML += user.userData.Exam1[key].f5
-      cell6.innerHTML += user.userData.Exam1[key].f6
-      cell7.innerHTML += user.userData.Exam1[key].f7
-      cell8.innerHTML += user.userData.Exam1[key].f8
-      cell9.innerHTML += user.userData.Exam1[key].total
+      cell1.innerHTML += user.userData.Exam1[key].date
+      cell2.innerHTML += user.userData.Exam1[key].f1
+      cell3.innerHTML += user.userData.Exam1[key].f2
+      cell4.innerHTML += user.userData.Exam1[key].f3
+      cell5.innerHTML += user.userData.Exam1[key].f4
+      cell6.innerHTML += user.userData.Exam1[key].f5
+      cell7.innerHTML += user.userData.Exam1[key].f6
+      cell8.innerHTML += user.userData.Exam1[key].f7
+      cell9.innerHTML += user.userData.Exam1[key].f8
+      cell10.innerHTML += user.userData.Exam1[key].total
 
       if(user.userData.Exam1[key].total > best){
         best = user.userData.Exam1[key].total
@@ -443,19 +462,72 @@
       var cell10 = row.insertCell(9)
       var cell11 = row.insertCell(10)
       var cell12 = row.insertCell(11)
+      var cell13 = row.insertCell(12)
 
-      cell1.innerHTML += user.userData.Exam2[key].type
-      cell2.innerHTML += user.userData.Exam2[key].s1
-      cell3.innerHTML += user.userData.Exam2[key].s2
-      cell4.innerHTML += user.userData.Exam2[key].s3
-      cell5.innerHTML += user.userData.Exam2[key].s4
-      cell6.innerHTML += user.userData.Exam2[key].s5
-      cell7.innerHTML += user.userData.Exam2[key].s6
-      cell8.innerHTML += user.userData.Exam2[key].s7
-      cell9.innerHTML += user.userData.Exam2[key].s8
-      cell10.innerHTML += user.userData.Exam2[key].s9
-      cell11.innerHTML += user.userData.Exam2[key].s10
-      cell12.innerHTML += user.userData.Exam2[key].total
+      cell1.innerHTML += user.userData.Exam2[key].date
+      cell2.innerHTML += user.userData.Exam2[key].type
+      cell3.innerHTML += user.userData.Exam2[key].s1
+      cell4.innerHTML += user.userData.Exam2[key].s2
+      cell5.innerHTML += user.userData.Exam2[key].s3
+      cell6.innerHTML += user.userData.Exam2[key].s4
+      cell7.innerHTML += user.userData.Exam2[key].s5
+      cell8.innerHTML += user.userData.Exam2[key].s6
+      cell9.innerHTML += user.userData.Exam2[key].s7
+      cell10.innerHTML += user.userData.Exam2[key].s8
+      cell11.innerHTML += user.userData.Exam2[key].s9
+      cell12.innerHTML += user.userData.Exam2[key].s10
+      cell13.innerHTML += user.userData.Exam2[key].total
+
+
+      if(user.userData.Exam2[key].total > best){
+        best = user.userData.Exam2[key].total
+      }
+
+      i++
+    });
+
+    bestTotalScore += best
+  }
+
+  function createExam2(user){
+    var examScores = document.getElementById("examResults");
+    var i = 0
+    var best = 0
+
+    var exam1Length = Object.keys(user.userData.Exam1).length
+    var exam2Length = Object.keys(user.userData.Exam2).length
+
+
+    Object.keys(user.userData.Exam2).forEach(function(key){
+
+      var row = exam2Scores.insertRow(i);
+      var cell1 = row.insertCell(0)
+      var cell2 = row.insertCell(1)
+      var cell3 = row.insertCell(2)
+      var cell4 = row.insertCell(3)
+      var cell5 = row.insertCell(4)
+      var cell6 = row.insertCell(5)
+      var cell7 = row.insertCell(6)
+      var cell8 = row.insertCell(7)
+      var cell9 = row.insertCell(8)
+      var cell10 = row.insertCell(9)
+      var cell11 = row.insertCell(10)
+      var cell12 = row.insertCell(11)
+      var cell13 = row.insertCell(12)
+
+      cell1.innerHTML += user.userData.Exam2[key].date
+      cell2.innerHTML += user.userData.Exam2[key].type
+      cell3.innerHTML += user.userData.Exam2[key].s1
+      cell4.innerHTML += user.userData.Exam2[key].s2
+      cell5.innerHTML += user.userData.Exam2[key].s3
+      cell6.innerHTML += user.userData.Exam2[key].s4
+      cell7.innerHTML += user.userData.Exam2[key].s5
+      cell8.innerHTML += user.userData.Exam2[key].s6
+      cell9.innerHTML += user.userData.Exam2[key].s7
+      cell10.innerHTML += user.userData.Exam2[key].s8
+      cell11.innerHTML += user.userData.Exam2[key].s9
+      cell12.innerHTML += user.userData.Exam2[key].s10
+      cell13.innerHTML += user.userData.Exam2[key].total
 
 
       if(user.userData.Exam2[key].total > best){

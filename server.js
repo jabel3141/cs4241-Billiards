@@ -418,6 +418,10 @@ function writeUserData(username,examScores,combinedScores,whichExam) {
   var ref = firebase.database().ref("/users/");
   ref.once("value").then(function(snapshot) {
     var hasName = snapshot.hasChild(username); // true
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
     if(hasName){
 
       switch(whichExam){
@@ -452,7 +456,8 @@ function writeUserData(username,examScores,combinedScores,whichExam) {
           ballControl: combinedScores[0],
           accuracy: combinedScores[1],
           positioning: combinedScores[2],
-          total: combinedScores[3]
+          total: combinedScores[3],
+          date: month + "/" + day + "/" + year
         })
         break;
       case 2:
@@ -473,7 +478,8 @@ function writeUserData(username,examScores,combinedScores,whichExam) {
           specialShotAbility: combinedScores[2],
           breakAbility: combinedScores[3],
           total: combinedScores[4],
-          type: "B"
+          type: "B",
+          date: month + "/" + day + "/" + year
         })
         break;
       case 3:
@@ -494,7 +500,8 @@ function writeUserData(username,examScores,combinedScores,whichExam) {
           specialShotAbility: combinedScores[2],
           breakAbility: combinedScores[3],
           total: combinedScores[4],
-          type: "M"
+          type: "M",
+          date: month + "/" + day + "/" + year
         })
         break;
       case 4:
@@ -515,7 +522,8 @@ function writeUserData(username,examScores,combinedScores,whichExam) {
           specialShotAbility: combinedScores[2],
           breakAbility: combinedScores[3],
           total: combinedScores[4],
-          type: "D"
+          type: "D",
+          date: month + "/" + day + "/" + year
         })
         break;  
     }
