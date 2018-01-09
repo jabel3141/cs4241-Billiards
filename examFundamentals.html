@@ -1193,7 +1193,6 @@
 
     function updateList(){
 
-        console.log("here")
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open("POST", "/updateAllList", true);
       xmlhttp.send();
@@ -1208,7 +1207,6 @@
         }
 
         var oReq = new XMLHttpRequest();
-        console.log("here2")
         oReq.addEventListener("load", reqListener);
         oReq.open("GET", "/getUserList");
         oReq.send();

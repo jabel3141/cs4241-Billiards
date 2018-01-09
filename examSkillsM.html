@@ -1034,7 +1034,10 @@
 
     function submitExam(){
 
-      getUserList();
+      updateList();
+      setTimeout(function(){
+        getUserList();
+      }, 1000);
 
       var typedPin = document.getElementById("pin").value;
       var userExists = false;
@@ -1080,8 +1083,15 @@
             error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Incorrect Pin for this Username.</div>'
           }
         }
-      }, 10000)
+      }, 2000)
       
+    }
+
+    function updateList(){
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("POST", "/updateAllList", true);
+      xmlhttp.send();
     }
 
     function getUserList() {
