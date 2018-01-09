@@ -167,6 +167,11 @@
 
       code.innerHTML = "";
       divList.innerHTML = "<p>Users Found: " + list.length + "</p>"
+      
+      list.sort(function (a, b) {
+        return a.username.toLowerCase().localeCompare(b.username.toLowerCase());
+      });
+
       list.forEach(function(info) {
         code.innerHTML += '<a onclick=setUser("' + info.username + '") class="list-group-item">' + info.username + '</a>';
       })
