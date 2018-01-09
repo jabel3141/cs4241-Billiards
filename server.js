@@ -99,6 +99,7 @@ var server = http.createServer(function (req, res) {
 
     case '/getUser':
     res.end(JSON.stringify(currentUserData))
+    break
 
     case '/radarScript.js':
     sendFile(res, 'radarScript.js', 'text/javascript')
@@ -326,6 +327,8 @@ function register(res, req) {
         pin: userPin,
       })
     })
+
+    makeUserList()
 
     res.end()
 
