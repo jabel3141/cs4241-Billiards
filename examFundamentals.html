@@ -1139,11 +1139,15 @@
       var typedPin = document.getElementById("pin").value;
       var userExists = false;
       var pinCheck = false;
+      var error = document.getElementById("errorMessage")
+
+      error.innerHTML = '<div class="alert alert-warning">Please wait...</div>'
 
       setTimeout(function(){
         for(i = 0; i < existingUsers.length; i++){
           if(existingUsers[i].username.toLowerCase() == user.toLowerCase()){
             userExists = true 
+            console.log(existingUsers[i].userData.pin)
             actualUsername = existingUsers[i].username;
             if(existingUsers[i].userData.pin == typedPin) {
               pinCheck = true
@@ -1165,7 +1169,7 @@
         else{
           //error messages
           console.log("errors")
-          var error = document.getElementById("errorMessage")
+          
           error.style.display = 'none';
           error.style.display = 'block'
 
@@ -1176,7 +1180,7 @@
             error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Incorrect Pin for this Username.</div>'
           }
         }
-      }, 1000)
+      }, 10000)
       
     }
 
