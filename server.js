@@ -598,8 +598,9 @@ function searchUsers(res, req, uri){
       var search = []
       snapshot.forEach(function(childSnapshot){
         var username = childSnapshot.key;
+        var childData = childSnapshot.val();
         if(username.toLowerCase().includes(data.searchName.toLowerCase())){
-          search.push({"username": username});
+          search.push({"username": username, "userData": childData});
         }
 
       })
