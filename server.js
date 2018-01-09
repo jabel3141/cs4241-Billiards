@@ -101,6 +101,10 @@ var server = http.createServer(function (req, res) {
     res.end(JSON.stringify(currentUserData))
     break
 
+    case '/updateAllList':
+    makeUserList();
+    break
+
     case '/radarScript.js':
     sendFile(res, 'radarScript.js', 'text/javascript')
     break
@@ -529,7 +533,8 @@ makeUserList()
 console.log(searchedUsers)
 
 function makeUserList(){
-  //console.log("here")
+  //console.log("________________________________")
+  allUsers = []
 
   var ref = firebase.database().ref("users").orderByKey();
   ref.once("value").then(function(snapshot) {
