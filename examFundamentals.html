@@ -37,7 +37,7 @@
     </style>
 
   </head>
-  <body>
+  <body onload="init()">
 
     <div>
       <div class="page-header">
@@ -1087,6 +1087,10 @@
     var existingUsers = [];
     var actualUsername = ''
 
+    function init(){
+      getUserList()
+    }
+
 
     function sendExam(){
       calcTotal1();
@@ -1134,7 +1138,7 @@
 
     function submitExam(){
 
-      getUserList();
+      //getUserList();
 
       var typedPin = document.getElementById("pin").value;
       var userExists = false;
@@ -1180,7 +1184,7 @@
             error.innerHTML = '<div class="alert alert-danger"><strong>Error!</strong> Incorrect Pin for this Username.</div>'
           }
         }
-      }, 10000)
+      }, 1000)
       
     }
 

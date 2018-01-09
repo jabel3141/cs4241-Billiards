@@ -29,7 +29,6 @@ function getUser(){
 
 	var oReq = new XMLHttpRequest();
 
-	console.log("here2")
 	oReq.addEventListener("load", reqListener);
 	oReq.open("GET", "/getUser");
 	oReq.send();
@@ -58,9 +57,6 @@ function setChart(user){
         }
     })
 
-    console.log(exam1Length)
-    console.log(exam2Length)
-
 	if(exam1Length >= exam2Length){
 		numExams = exam1Length
 	}
@@ -68,20 +64,10 @@ function setChart(user){
 		numExams = exam2Length
 	}
 	
-	console.log(numExams)
-
 	for(var i = 0; i < numExams; i++){
 
 		var temp = []
 		d.push(temp)
-
-
-		//exam 1 length = 3
-		//exam 2 length = 1
-		//dif = 2
-		//num exams = 3
-		//i = 0 take both
-		//i = 1 or 2 take only one
 
 		if(exam1Length > exam2Length){
 			if(i >= (numExams - (exam1Length-exam2Length))){
@@ -103,8 +89,6 @@ function setChart(user){
 		else{
 			LegendOptions.push("Exam Total (" + (i+1) + ") = " + (exam1Totals[i] + exam2Totals[i]))
 		}
-
-		console.log(LegendOptions)
 		
 	}
 
@@ -138,13 +122,10 @@ function createData(user, numExams){
 		});
 	}
 
-	console.log("something")
-
 
 	if(exam1Length < numExams){
 		console.log("another")
 		for(var i = numExams-(numExams-exam1Length); i < numExams; i++){
-			console.log("exam1")
 			d[i].push(
 				{axis:"Ball Control",value:0},
 				{axis:"Accuracy",value:0},
@@ -155,7 +136,6 @@ function createData(user, numExams){
 
 	if(exam2Length < numExams){
 		for(var i = numExams-(numExams-exam2Length); i < numExams; i++){
-			console.log("exam2")
 			d[i].push(
 				{axis:"Complex Situation Ability",value:0},
 				{axis:"Safe Ability",value:0},
