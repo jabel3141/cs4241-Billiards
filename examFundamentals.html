@@ -1151,10 +1151,10 @@
         for(i = 0; i < existingUsers.length; i++){
           if(existingUsers[i].username.toLowerCase() == user.toLowerCase()){
             userExists = true 
-            console.log(existingUsers)
-            console.log(existingUsers[i])
-            console.log(existingUsers[i].userData)
-            console.log(existingUsers[i].userData.pin)
+            //console.log(existingUsers)
+            //console.log(existingUsers[i])
+            //console.log(existingUsers[i].userData)
+            //console.log(existingUsers[i].userData.pin)
             actualUsername = existingUsers[i].username;
             if(existingUsers[i].userData.pin == typedPin) {
               pinCheck = true
@@ -1202,7 +1202,7 @@
 
         function reqListener () {
           var loadUsers = JSON.parse(this.responseText)
-          console.log( loadUsers )
+          //console.log( loadUsers )
           existingUsers = loadUsers
         }
 
